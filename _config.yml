@@ -78,7 +78,7 @@ ga_domain: auto
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "時間在哪 成就就在哪"
+sidebar-about-description: "時間花在哪 成就就在哪"
 sidebar-avatar: /img/avatar-Qing-ny.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
