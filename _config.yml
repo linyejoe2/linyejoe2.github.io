@@ -4,7 +4,7 @@ SEOTitle: 林承慶的部落格 | Qing Blog
 header-img: img/home-bg.jpg
 email: linyejoe2@gmail.com
 description: "隨手架設的簡單部落格" # "关于程序与设计、黑客与画家 | 林承慶，Web & Mobile Lover，Software Engineer，UX Designer | 这里是 @Qing林承慶 的个人部落格，与你一起发现更大的世界。"
-keyword: # "林承慶, Qing林承慶, Qing, 鬼栈, Qingpro, @Qingpro, 林承慶的部落格, Qing Blog, 部落格, 个人网站, 互联网, Web, JavaScript, 前端, 设计"
+keyword:  "林承慶, Qing林承慶, Qing, 林承慶的部落格, Qing Blog, 部落格, 个人网站, 互联网, Web, "
 url: "https://linyejoe2.github.io/"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
@@ -101,8 +101,9 @@ page-mathjax: false
 
 
 # Friends
-friends: [
-    {
+friends: false
+#friends: [
+   # {
     #     title: "Su",
     #     href: "http://su.gallery/"
     # },{
@@ -132,5 +133,5 @@ friends: [
     #},{
     #    title: "尹峰以为",
     #    href: "http://ingf.github.io/"
-    }
-]
+ #   }
+#]
