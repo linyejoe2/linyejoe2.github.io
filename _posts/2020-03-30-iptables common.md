@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "iptables 入門"
+title:      "[debian]iptables 入門"
 subtitle:   "iptables 平民攻略"
 date:       2020-03-30
 author:     "Qing"
