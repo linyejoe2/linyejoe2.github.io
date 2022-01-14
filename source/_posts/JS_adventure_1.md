@@ -6,7 +6,7 @@ date:       2022-01-11
 author:     "linyejoe2"
 header-style: text
 catalog: true
-tags: JaveScript, HTML
+tags: JaveScript
 ---
 
 #  JS認定的資料格式
@@ -48,9 +48,41 @@ arrArr.forEach(element => {
 
 所以經過上面的驗證，可以得知JS的資料只要遇到下方這四種狀況，就為false，其他則為true
 
-    1. null
-    2. undefined
-    3. ''
-    4. 0
+- null
+- undefined
+- ''
+- 0
 
 > 巢狀Object及Array則不能直接從最外面判斷，需要寫**深度判斷**。
+
+## typeof判斷
+
+```javascript=
+var a = 3;
+console.log(typeof a);  //  number
+
+var b = "Hello";
+console.log(typeof b);  //  string
+
+var c = {};
+console.log(typeof c);  //  object
+
+var d = [];
+console.log(typeof d);  //  object
+console.log(Object.prototype.toString.call(d)); //  [object Array]
+
+var e = false;
+console.log(typeof e);  //  boolean
+
+function Person(name){
+  this.name = name;
+}
+
+console.log(typeof Person); //  function
+
+var f = new Person("Jane");
+console.log(typeof f);  //  object
+
+console.log(typeof undefined);  //  undefined
+console.log(typeof null); //  object
+```
