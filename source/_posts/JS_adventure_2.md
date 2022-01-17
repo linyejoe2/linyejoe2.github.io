@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "[JaveScript]JS全端大冒險No.2_簡單介紹JS資料型別(data type)"
-subtitle:   "by linyejoe2"
+title:      "[JaveScript]JS全端大冒險No.2"
+subtitle:   "簡單介紹JS資料型別(data type)"
 date:       2022-01-12
 author:     "linyejoe2"
 header-style: text

@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "[JaveScript]JS全端大冒險No.3_Spread Operator(...)"
-subtitle:   "by linyejoe2"
+title:      "[JaveScript]JS全端大冒險No.3"
+subtitle:   "Spread Operator(...)"
 date:       2022-01-14
 author:     "linyejoe2"
 header-style: text

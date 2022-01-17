@@ -1,12 +1,12 @@
 ---
 layout:     post
-title:      "[JaveScript]JS全端大冒險No.1_JS認定的資料格式"
-subtitle:   "by linyejoe2"
+title:      "[JaveScript]JS全端大冒險No.1"
+subtitle:   "JS認定的資料格式"
 date:       2022-01-11
 author:     "linyejoe2"
 header-style: text
 catalog: true
-tags: JaveScript
+tags: JaveScript, HTML
 ---
 
 #  JS認定的資料格式
@@ -48,10 +48,10 @@ arrArr.forEach(element => {
 
 所以經過上面的驗證，可以得知JS的資料只要遇到下方這四種狀況，就為false，其他則為true
 
-- null
-- undefined
-- ''
-- 0
+    1. null
+    2. undefined
+    3. ''
+    4. 0
 
 > 巢狀Object及Array則不能直接從最外面判斷，需要寫**深度判斷**。
 
@@ -86,3 +86,8 @@ console.log(typeof f);  //  object
 console.log(typeof undefined);  //  undefined
 console.log(typeof null); //  object
 ```
+
+MDN條列了typeof可能的回傳值
+
+![](https://i.imgur.com/uXDR4wx.png)
+來源:[MDN](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/typeof)
