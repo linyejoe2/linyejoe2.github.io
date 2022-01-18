@@ -13,7 +13,7 @@ tags: JaveScript, HTML
 
 JS在資料型別上有以下幾種特點
 1. 弱型別(loosely typed):JS宣告變數時不需要特別指定型別 類似的語言有PHP Python等等
-
+<!--more-->
 JS一共有7種資料型別
 ```javascript=
 // 1. 布林

@@ -5,11 +5,18 @@
 # Site
 title: linye's Blog
 subtitle: '全端工程師心得分享'
-description: ''
-keywords: 
+description: '本人是一名小小的電腦哥，對電腦相關的東西都有興趣，想了解也想嘗試，興趣是玩金屬樂，所以部落格裡有時還會混入幾篇金屬樂的文章。'
+keywords: 前端,後端,全端,網頁,技術,網頁開發,前端開發,後端開發,JavaScript,HTML,python,CSS,SCSS,metal,NU metal,metal core
 author: linyejoe2
-language: en
+language: zh-TW
 timezone: ''
+
+# Header
+menu:
+  Home: /
+  Archives: /archives
+  About: /about
+rss: /atom.xml
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -62,7 +69,7 @@ prismjs:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 10
+  per_page: 5
   order_by: -date
 
 # Category & Tag
@@ -97,7 +104,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment

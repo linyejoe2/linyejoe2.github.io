@@ -12,6 +12,7 @@ tags: JaveScript
 #  Spread Operator(...)
 
 Spread Operator(...) 中文稱做拓展運算子，是ES6加入的，用途是**簡化陣列展開**的過程，可以改善以下操作:
+<!--more-->
 - 取值
 - 複製
 - 合併

@@ -12,6 +12,7 @@ tags: JaveScript,jQuery
 #  jQuery控制HTML表單元素
 
 jQuery可以輕鬆的獲取及控制HTML元素，這也是他受到前端工程師廣泛喜愛的原因之一，今天我們來整理一下jQuery如何實現對Form Element的**CRUD**，主要有以下幾個元素:
+<!--more-->
 - \<input> :我個人 應該也是所有人寫前端最常用到的元素
     - type="text" :文字輸入欄
     - type="checkbox" :核取方塊(打勾,多選)

@@ -12,7 +12,7 @@ tags: JaveScript, HTML
 #  JS認定的資料格式
 
 JS跟大多數的語言一樣，都可以用if(data)的簡寫來判斷資料是否存在。
-
+<!--more-->
 ## if判斷
 
 
