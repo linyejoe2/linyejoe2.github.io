@@ -2,7 +2,7 @@
 layout:     post
 title:      "[JaveScript]JS全端大冒險No.6"
 subtitle:   "如何在JS中把有小數點的數值四捨五入到小數點後兩位?"
-date:       2022-01-22
+date:       2022-01-21
 author:     "linyejoe2"
 header-style: text
 catalog: true
