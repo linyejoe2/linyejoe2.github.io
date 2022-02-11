@@ -22,12 +22,12 @@ JSTL標籤分為五個類別(功能)
 
 ## JSTL庫安裝
 
-### 下載
+### 下載JSTL庫
 從[Apache標準標籤庫](http://archive.apache.org/dist/jakarta/taglibs/standard/binaries/)中下載**jakarta-taglibs-standard-1.1.2.zip**(Windows)或是**jakarta-taglibs-standard-1.1.2.tar.gz**(Linux)
 再把壓縮檔lib的內容複製至服務的/WEB-INF/lib/中
 tld也複製至程式的/WEB-INF/tld/中即可
 
-### 引用
+### 引用JSTL庫
 
 編輯/WEB-INF/web.xml 
 
@@ -79,8 +79,8 @@ tld也複製至程式的/WEB-INF/tld/中即可
 
 |標籤|描述|
 |---|---|
-|[<c:out>](JSTL_tutorial#<c:out>)|輸出EL資料|
-|[<c:if>](JSTL_tutorial#<c:if>)|if判斷成功才顯示內容|
+|[<c:out>](#<c:out>)|輸出EL資料|
+|[<c:if>](#<c:if>)|if判斷成功才顯示內容|
 |TODO||
 
 --------------------------------
