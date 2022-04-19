@@ -20,7 +20,7 @@ rss: /atom.xml
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://linyejoe2.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -110,5 +110,6 @@ theme: next
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repository: git@github.com:linyejoe2/linyejoe2.github.io.git
+  repo: https://github.com/linyejoe2/blog_backup.git
   branch: master
+  message: "linyejoe2's blog backup"
