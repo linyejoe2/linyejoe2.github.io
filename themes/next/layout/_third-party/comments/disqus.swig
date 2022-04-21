@@ -16,7 +16,7 @@
     this.page.url = {{ page.permalink | json }};
     this.page.identifier = {{ page.path | json }};
     this.page.title = {{ page.title | json }};
-    this.language = 'zh-TW';
+    this.language = 'zh-TW'; // 繁體中文
     // {% if __('disqus') !== 'disqus' -%}
     //   this.language = '{{ __('disqus') }}';
     // {% endif -%}
