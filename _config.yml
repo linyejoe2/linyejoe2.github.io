@@ -111,8 +111,13 @@ theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
+# deploy:
+#   type: git
+#   repo: https://github.com/linyejoe2/blog_backup.git
+#   branch: master
+#   message: "linyejoe2's blog backup"
 deploy:
   type: git
-  repo: https://github.com/linyejoe2/blog_backup.git
+  repo: https://github.com/linyejoe2/linyejoe2.github.io.git
   branch: master
   message: "linyejoe2's blog backup"
