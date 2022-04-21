@@ -9,7 +9,7 @@ description: 'JavaScript 全端工程師，對電腦相關的東西都有興趣�
 keywords: 前端,後端,全端,網頁,技術,網頁開發,前端開發,後端開發,JavaScript,HTML,python,CSS,metal,NU metal,metal core
 author: linyejoe2
 language: zh-TW
-timezone: 'TW'
+timezone: 
 
 # Header
 menu:
