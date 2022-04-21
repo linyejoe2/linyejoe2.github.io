@@ -5,11 +5,11 @@
 # Site
 title: linye's Blog
 subtitle: '全端工程師心得分享'
-description: '本人是一名小小的電腦哥，對電腦相關的東西都有興趣，想了解也想嘗試，興趣是玩金屬樂，所以部落格裡有時還會混入幾篇金屬樂的文章。'
-keywords: 前端,後端,全端,網頁,技術,網頁開發,前端開發,後端開發,JavaScript,HTML,python,CSS,SCSS,metal,NU metal,metal core
+description: 'JavaScript 全端工程師，對電腦相關的東西都有興趣，想了解也想嘗試，興趣是玩金屬樂，所以部落格裡有時還會混入幾篇金屬樂的文章。'
+keywords: 前端,後端,全端,網頁,技術,網頁開發,前端開發,後端開發,JavaScript,HTML,python,CSS,metal,NU metal,metal core
 author: linyejoe2
 language: zh-TW
-timezone: ''
+timezone: 'TW'
 
 # Header
 menu:
