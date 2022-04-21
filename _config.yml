@@ -111,13 +111,17 @@ theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
+
+# 這段給 backup 用的
 # deploy:
 #   type: git
 #   repo: https://github.com/linyejoe2/blog_backup.git
 #   branch: master
 #   message: "linyejoe2's blog backup"
+
+# 這段是給 deploy bot 用的，常駐
 deploy:
   type: git
   repository: git@github.com:linyejoe2/linyejoe2.github.io.git
   branch: master
-  message: "linyejoe2's blog backup"
+  message: "update linyejoe2's blog"

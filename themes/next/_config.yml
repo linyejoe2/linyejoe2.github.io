@@ -583,7 +583,7 @@ comments:
 disqus:
   enable: true
   shortname: "linyejoe2"
-  count: true
+  # count: true
   #post_meta_order: 0
 
 # DisqusJS
