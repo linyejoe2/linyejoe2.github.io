@@ -168,8 +168,67 @@ public Point() : this(0,0) {
 }
 ```
 
-# Python
+# JavaScript
 
+## 範例
+
+## [@returns](https://jsdoc.app/tags-returns.html)
+
+returns 就是定義你的函式要回傳什麼，這應該是不需多解釋。
+
+### Synteax
+
+`@returns [{type}] [description]`
+
+### 常見的幾種寫法
+
++ 回傳一個值
+```js=
+/**
+ * Returns the sum of a and b
+ * @param {number} a
+ * @param {number} b
+ * @returns {number} Sum of a and b
+ */
+function sum(a, b) {
+    return a + b;
+}
+```
+
++ 可能會有多個回傳值
+```js=
+/**
+ * Returns the sum of a and b
+ * @param {number} a
+ * @param {number} b
+ * @param {boolean} retArr If set to true, the function will return an array
+ * @returns {(number|Array)} Sum of a and b or an array that contains a, b and the sum of a and b.
+ */
+function sum(a, b, retArr) {
+    if (retArr) {
+        return [a, b, a + b];
+    }
+    return a + b;
+}
+```
+
++ 回傳一個 promise
+```js=
+/**
+ * Returns the sum of a and b
+ * @param {number} a
+ * @param {number} b
+ * @returns {Promise} Promise object represents the sum of a and b
+ */
+function sumAsync(a, b) {
+    return new Promise(function(resolve, reject) {
+        resolve(a + b);
+    });
+}
+```
+
+# Python
 
 ##### 參考資料
 1. [文件註解](https://docs.microsoft.com/zh-tw/dotnet/csharp/language-reference/language-specification/documentation-comments#introduction)
+2. [@use JSDoc](https://jsdoc.app/tags-returns.html)

@@ -21,9 +21,10 @@ rss: /atom.xml
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://linyejoe2.github.io
-# https://www.linkedin.com/in/cheng-qing-lin-666542235/
+# https://www.linkedin.com/in/cheng-qing-lin-666542235/ 
 # https://leetcode.com/linyejoe2/
 # https://www.keybr.com/profile/d1mn1ym
+# https://www.credly.com/users/linyejoe2/badges
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -56,6 +57,7 @@ future: true
 highlight:
   enable: true
   line_number: true
+  first_line_number: 'inline'
   auto_detect: false
   tab_replace: ''
   wrap: true
