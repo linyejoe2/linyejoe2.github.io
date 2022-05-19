@@ -29,14 +29,14 @@ let countTime = 5;
 
 function count() {
   
-  // document.getElementById('timeout').textContent = countTime;
-  // countTime -= 1;
-  // if(countTime === 0){
-  //   location.href = 'https://linyejoe2.github.io/';
-  // }
-  // setTimeout(() => {
-  //   count();
-  // }, 1000);
+  document.getElementById('timeout').textContent = countTime;
+  countTime -= 1;
+  if(countTime === 0){
+    location.href = 'https://linyejoe2.github.io/';
+  }
+  setTimeout(() => {
+    count();
+  }, 1000);
 }
 
 count();
