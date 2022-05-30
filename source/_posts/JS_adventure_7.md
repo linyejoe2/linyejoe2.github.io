@@ -6,7 +6,7 @@ date:       2022-04-06
 author:     "linyejoe2"
 header-style: text
 catalog: true
-tags: JaveScript, express, Node.js
+tags: [JaveScript, express, Node.js]
 ---
 
 #  body-parse是什麼

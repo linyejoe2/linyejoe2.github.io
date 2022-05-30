@@ -6,7 +6,7 @@ date:       2020-03-30
 author:     "Qing"
 header-style: text
 catalog: true
-tags: Metal, Djent, Metalcore
+tags: [Metal, Djent, Metalcore]
 ---
 
 # [金屬樂團]Shokran

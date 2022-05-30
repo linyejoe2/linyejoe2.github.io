@@ -6,7 +6,7 @@ date:       2022-01-17
 author:     "linyejoe2"
 header-style: text
 catalog: true
-tags: JaveScript, JS全端大冒險 ,jQuery
+tags: [JaveScript, JS全端大冒險, jQuery]
 ---
 
 #  jQuery控制HTML表單元素

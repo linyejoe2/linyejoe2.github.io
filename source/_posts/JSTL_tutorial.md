@@ -6,7 +6,7 @@ date:       2022-02-11
 author:     "linyejoe2"
 header-style: text
 catalog: true
-tags: JSP, HTML
+tags: [JSP, HTML]
 ---
 
 #  JSP標準標籤庫(JSTL)

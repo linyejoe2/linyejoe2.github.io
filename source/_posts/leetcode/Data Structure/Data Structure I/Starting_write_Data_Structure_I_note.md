@@ -7,7 +7,7 @@ author:     "linyejoe2"
 header-style: text
 catalog: true
 description: 從今天開始做 LeetCode 的學習計畫，然後每天記錄題目。
-tags: LeetCode, Data Structure, 
+tags: [LeetCode, Data Structure] 
 ---
 
 > 計畫: [Data Structure I](https://leetcode.com/study-plan/data-structure/?progress=6ofm59r)

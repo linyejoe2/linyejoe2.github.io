@@ -7,7 +7,7 @@ author:     "linyejoe2"
 header-style: text
 description: 前幾天開始嘗試第N次架設自己的Blog(每次都無法持之以恆QQ) 使用了中文社群資源很多的Hexo NexT 但是遇上了一個小問題...
 catalog: true
-tags: Hexo, NexT, Blog, CSS, SCSS
+tags: [Hexo, NexT, Blog, CSS, SCSS]
 ---
 
 #  運用自訂css調整inline codeblock style

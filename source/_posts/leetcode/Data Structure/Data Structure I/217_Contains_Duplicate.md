@@ -7,7 +7,7 @@ author:     "linyejoe2"
 header-style: text
 catalog: true
 description: 輸入一個包含數字的陣列，如果裡面有兩個以上重複的數字，那就回傳 `true`
-tags: LeetCode, Data Structure, 
+tags: [LeetCode, Data Structure]
 ---
 
 ## 敘述

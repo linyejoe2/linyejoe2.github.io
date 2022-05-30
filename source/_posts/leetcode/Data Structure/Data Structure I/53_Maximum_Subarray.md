@@ -7,7 +7,7 @@ author:     "linyejoe2"
 header-style: text
 catalog: true
 description: 輸入一個包含數字的陣列，找出裡面總和最大的 `subarray` ，並回傳。
-tags: LeetCode, Data Structure, 
+tags: [LeetCode, Data Structure]
 ---
 
 ## 敘述

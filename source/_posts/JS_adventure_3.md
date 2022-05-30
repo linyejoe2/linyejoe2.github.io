@@ -6,7 +6,7 @@ date:       2022-01-14
 author:     "linyejoe2"
 header-style: text
 catalog: true
-tags: JaveScript, JS全端大冒險
+tags: [JaveScript, JS全端大冒險]
 ---
 
 #  Spread Operator(...)

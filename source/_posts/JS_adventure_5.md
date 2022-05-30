@@ -6,7 +6,7 @@ date:       2022-01-20
 author:     "linyejoe2"
 header-style: text
 catalog: true
-tags: JaveScript, JS全端大冒險
+tags: [JaveScript, JS全端大冒險]
 ---
 
 #  Array及Object排序的一些方法分享

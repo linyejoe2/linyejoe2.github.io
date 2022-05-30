@@ -6,7 +6,7 @@ date:       2022-01-25
 author:     "linyejoe2"
 header-style: text
 catalog: true
-tags: JaveScript,Behind The Scenes JS深度解析
+tags: [JaveScript, Behind The Scenes JS深度解析]
 ---
 
 #  Hoisting in JS
