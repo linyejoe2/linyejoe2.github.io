@@ -3,12 +3,13 @@ layout:     post
 title:      "[LeetCode]Data Structure I 筆記撰寫計畫"
 subtitle:   "Data Structure I"
 date:       2022-05-30
-updated:    2022-05-31
+updated:    2022-06-01
 author:     "linyejoe2"
 header-style: text
 catalog: true
-description: 從今天開始做 LeetCode 的學習計畫，然後每天記錄題目。
+description: "0601更新啦!<br>從今天開始做 LeetCode 的學習計畫，然後每天記錄題目。"
 tags: [LeetCode, Data Structure] 
+sticky: 999
 ---
 
 > 計畫: [Data Structure I](https://leetcode.com/study-plan/data-structure/?progress=6ofm59r)
@@ -35,3 +36,11 @@ tags: [LeetCode, Data Structure]
     + 88\. Merge Sorted Array `Easy` [`題目`](https://leetcode.com/problems/merge-sorted-array/) [`筆記`](https://linyejoe2.github.io/2022/05/31/leetcode/Data%20Structure/Data%20Structure%20I/88_Merge_Sorted_Array/)
 
 今天的兩題題目都是 `Easy` ，今天一樣花費了很多時間在解題，大概四小時，所以從今天起嘗試加入新規則，如果題目半小時沒有進展，就參考一下評論區的解法，力求快速的掌握解題手感！
+
+## 06/01 第三天
+
++ Day2: Array
+    + 350\. Intersection of Two Arrays II `Easy` [`題目`](https://leetcode.com/problems/intersection-of-two-arrays-ii/) [`筆記`](https://linyejoe2.github.io/2022/05/31/leetcode/Data%20Structure/Data%20Structure%20I/350_intersection_of_two_arrays_ii/)
+    + 121\. Best Time to Buy and Sell Stock `Easy` [`題目`](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) [`筆記`](https://linyejoe2.github.io/2022/05/31/leetcode/Data%20Structure/Data%20Structure%20I/121_best_time_to_buy_and_sell_stock/)
+
+今天第一題算簡單，第二題算是我第一次接觸 `Dynamic Programming` ，所以卡了有點久，所幸最後算是有學到一點感覺~
