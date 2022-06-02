@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      "[LeetCode]"
+title:      "[LeetCode]118. Pascal's Triangle"
 subtitle:   "Data Structure I"
-date:       2022-06
+date:       2022-06-02 10:55:00
 author:     "linyejoe2"
 header-style: text
 catalog: true
@@ -14,11 +14,11 @@ tags: [LeetCode, Data Structure]
 
 這是 `Data Structure I` 的第四天第一個題目，總共有兩題。
 
-+ 難度: `Easy` `Medium` `Hard`
++ 難度: `Easy` 
 + 花費時間: 
-+ [題目]()
++ [題目](https://leetcode.com/problems/pascals-triangle/)
 
-
+傳入兩個陣列，回傳這兩個陣列的交集，回傳值不用排序。
 
 **限制:**
 

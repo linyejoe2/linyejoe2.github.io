@@ -24,7 +24,7 @@ tags: [LeetCode, Data Structure]
 
 找到一個最好的時間點(價格最低)買進股票，再找到一個最好的時機(價格最高)賣出，把賣出價減去買入價回傳。
 
-<details><summary>限制與範例</summary>
+<details><summary>點我開啟限制與範例</summary>
 <pre>
 **限制:**
 
@@ -36,7 +36,8 @@ tags: [LeetCode, Data Structure]
 ```=
 Input: prices = [7,1,5,3,6,4]
 Output: 5
-Explanation: 第二天買入價格最好(1元)，然後持有三天之後在第五天賣出(6元)，這樣得到的利潤就是 6-1=5 所以我們回傳最後答案 5 。
+Explanation: 第二天買入價格最好(1元)，然後持有三天之後在第五天賣出(6元)，
+這樣得到的利潤就是 6-1=5 所以我們回傳最後答案 5 。
 ```
 
 **Example 2:**
@@ -64,7 +65,7 @@ Explanation: 在這個例子裡，怎麼買都是賠錢的，所以就不買了�
 1. 遍歷一次陣列。
 2. 內圈再遍歷一次陣列，找如果第一步的 index 是買入價時，最好的賣出價。
 
-#### `Dynamic Programming` 解法！
+#### Dynamic Programming 解法！
 
 上面兩步直覺寫就是 O(n^2) ，但其實這兩個迴圈如果參照**如果有答案，那麼賣出的值就一定要比買入的值大**，的規律，就可以用一次遍歷完成，步驟如下:
 1. 設定最小值 `minPrice` (預設是最大，這樣才可以越來越小)，及最大獲利 `maxProfit` (0)
@@ -78,7 +79,9 @@ Explanation: 在這個例子裡，怎麼買都是賠錢的，所以就不買了�
 Input: prices = [10, 2, 200, 1, 100]
 Output: [1, 200]
 Expect: [2, 200]
-Explanation: 會發生這種狀況就是因為，這題為了加速運算過程，需要完全遍歷一遍 prices 更新 minPrice ，所以如果後面有比答案更小的 value 存在，那麼其實這時候的 minPrice 就會變成錯誤的值了。
+Explanation: 會發生這種狀況就是因為，這題為了加速運算過程，
+需要完全遍歷一遍 prices 更新 minPrice ，
+所以如果後面有比答案更小的 value 存在，那麼其實這時候的 minPrice 就會變成錯誤的值了。
 
 Input: prices = [10, 100, 1000, 1, 100]
 Output: [1, 1000]
