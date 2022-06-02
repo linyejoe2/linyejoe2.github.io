@@ -3,11 +3,11 @@ layout:     post
 title:      "[LeetCode]Data Structure I 筆記撰寫計畫"
 subtitle:   "Data Structure I"
 date:       2022-05-30
-updated:    2022-06-01
+updated:    2022-06-02 20:05:00
 author:     "linyejoe2"
 header-style: text
 catalog: true
-description: "0601更新啦!<br>從今天開始做 LeetCode 的學習計畫，然後每天記錄題目。"
+description: "0602更新啦!<br>從今天開始做 LeetCode 的學習計畫，然後每天記錄題目。"
 tags: [LeetCode, Data Structure] 
 sticky: 999
 ---
@@ -39,8 +39,16 @@ sticky: 999
 
 ## 06/01 第三天
 
-+ Day2: Array
++ Day3: Array
     + 350\. Intersection of Two Arrays II `Easy` [`題目`](https://leetcode.com/problems/intersection-of-two-arrays-ii/) [`筆記`](https://linyejoe2.github.io/2022/05/31/leetcode/Data%20Structure/Data%20Structure%20I/350_intersection_of_two_arrays_ii/)
     + 121\. Best Time to Buy and Sell Stock `Easy` [`題目`](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) [`筆記`](https://linyejoe2.github.io/2022/05/31/leetcode/Data%20Structure/Data%20Structure%20I/121_best_time_to_buy_and_sell_stock/)
 
 今天第一題算簡單，第二題算是我第一次接觸 `Dynamic Programming` ，所以卡了有點久，所幸最後算是有學到一點感覺~
+
+## 06/02 第四天
+
++ Day4: Array
+    + 118\. Pascal's Triangle `Easy` [`題目`](https://leetcode.com/problems/pascals-triangle/) [`筆記`](https://linyejoe2.github.io/2022/05/31/leetcode/Data%20Structure/Data%20Structure%20I/118_Pascal's_Triangle/)
+    + 566\. Reshape the Matrix `Easy` [`題目`](https://leetcode.com/problems/reshape-the-matrix/) [`筆記`](https://linyejoe2.github.io/2022/05/31/leetcode/Data%20Structure/Data%20Structure%20I/566_Reshape_the_Matrix/)
+
+今天我是先做第二題再做第一題，今天雖然提不太起勁做，但是第一題讓我第一次有真的只靠自己寫出 `Dynamic Programming` 的感覺，非常的棒，第二題的話，感覺他給的提示有點誤導，最後我有參考評論區，其實算是非常簡單。

@@ -2,7 +2,7 @@
 layout:     post
 title:      "[LeetCode]121. Best Time to Buy and Sell Stock"
 subtitle:   "Data Structure I"
-date:       2022-06-02
+date:       2022-06-01
 author:     "linyejoe2"
 header-style: text
 catalog: true

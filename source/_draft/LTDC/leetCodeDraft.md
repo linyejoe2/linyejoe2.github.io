@@ -19,11 +19,16 @@ tags: [LeetCode, Data Structure]
 + [題目]()
 
 
+<details><summary>點我開啟限制與範例</summary>
+<pre>
 
 **限制:**
 
--  `1 <= nums1.length, nums2.length <= 1000`
--  `0 <= nums1[i], nums2[i] <= 1000`
+- m == mat.length
+- n == mat[i].length
+- 1 <= m, n <= 100
+- -1000 <= mat[i][j] <= 1000
+- 1 <= r, c <= 300
 
 **Example 1:**
 
@@ -39,6 +44,7 @@ Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
 Output: [4,9]
 Explanation: [9,4] is also accepted.
 ```
+</pre></details>
 
 ## 筆記
 
