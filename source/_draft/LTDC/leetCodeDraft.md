@@ -6,7 +6,7 @@ date:       2022-06
 author:     "linyejoe2"
 header-style: text
 catalog: true
-description: 
+# description: 
 tags: [LeetCode, Data Structure]
 ---
 

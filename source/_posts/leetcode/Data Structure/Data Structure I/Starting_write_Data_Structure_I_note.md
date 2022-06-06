@@ -3,11 +3,11 @@ layout:     post
 title:      "[LeetCode]Data Structure I 筆記撰寫計畫"
 subtitle:   "Data Structure I"
 date:       2022-05-30
-updated:    2022-06-02 20:05:00
+updated:    2022-06-06 02:09:00
 author:     "linyejoe2"
 header-style: text
 catalog: true
-description: "0602更新啦!<br>從今天開始做 LeetCode 的學習計畫，然後每天記錄題目。"
+description: "0606更新啦~~~~<br>------更新到第五天----------下面是原文-----------<br>從今天開始做 LeetCode 的學習計畫，然後每天記錄題目。"
 tags: [LeetCode, Data Structure] 
 sticky: 999
 ---
@@ -52,3 +52,13 @@ sticky: 999
     + 566\. Reshape the Matrix `Easy` [`題目`](https://leetcode.com/problems/reshape-the-matrix/) [`筆記`](https://linyejoe2.github.io/2022/05/31/leetcode/Data%20Structure/Data%20Structure%20I/566_Reshape_the_Matrix/)
 
 今天我是先做第二題再做第一題，今天雖然提不太起勁做，但是第一題讓我第一次有真的只靠自己寫出 `Dynamic Programming` 的感覺，非常的棒，第二題的話，感覺他給的提示有點誤導，最後我有參考評論區，其實算是非常簡單。
+
+## 06/06 第五天
+
++ Day5: Array
+    + 36\. Valid Sudoku `Medium` [`題目`](https://leetcode.com/problems/valid-sudoku/) [`筆記`](https://linyejoe2.github.io/2022/05/31/leetcode/Data%20Structure/Data%20Structure%20I/36-valid-sudoku/)
+    + 74\. Search a 2D Matrix `Medium` [`題目`](https://leetcode.com/problems/search-a-2d-matrix/) [`筆記`](https://linyejoe2.github.io/2022/05/31/leetcode/Data%20Structure/Data%20Structure%20I/74-search-a-2d-matrix/)
+
+距離上次寫這個計畫過了一個端午聯假，本來打算騎腳踏車上武嶺的，結果半路上被淋成了落湯雞zzz
+
+今天是 Array 系列的最後一天，並且今天重磅祭出了兩題的 `Medium` ，但是實際做完的感覺.. 好像沒有想像中的難嘛，我覺得歸根究底還是因為這些題目都是一些比較早期出的題目，所以雖然是 `Medium` 但是邏輯其實都很好去想像，今天第一題有稍微參考下評論區，不然我只想得出暴力解，事實證明評論區的解法也挺暴力，但比我本來想的好看多了，第二題我花了10分鐘就做完了，出題者的邏輯還挺好猜的，今天解題很愉快~~
