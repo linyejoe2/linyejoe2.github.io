@@ -10,9 +10,9 @@ catalog: true
 tags: [LeetCode, Data Structure]
 ---
 
-## 敘述
-
 >[Data Structure I 筆記撰寫計畫](https://linyejoe2.github.io/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/Starting_write_Data_Structure_I_note/)
+
+## 敘述
 
 這是 `Data Structure I` 的第五天第二個題目，總共有兩題。
 
