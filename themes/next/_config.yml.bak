@@ -40,8 +40,8 @@ custom_file_path:
 # ---------------------------------------------------------------
 
 favicon:
-  small: /images/favicon.svg
-  medium: /images/favicon.svg
+  small: /images/favicon-64x64-next.png
+  medium: /images/favicon-64x64-next.png
   apple_touch_icon: /images/apple-touch-icon-next.jpg
   svg_icon: /images/favicon.svg
   safari_pinned_tab: /images/logo.svg
