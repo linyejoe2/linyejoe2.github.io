@@ -120,4 +120,11 @@ Explanation: [9,4] is also accepted.
 
 ![](https://i.imgur.com/ihYYNK2.png)
 
+<details style='display:none;'><summary>點我開啟舊寫法/失敗寫法</summary>
+<pre>
+
+
+
+</pre></details>
+
 <!-- ##### 參考資料 -->
