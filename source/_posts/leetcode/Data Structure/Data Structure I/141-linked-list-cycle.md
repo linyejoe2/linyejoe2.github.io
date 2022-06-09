@@ -2,7 +2,7 @@
 layout:     post
 title:      "[LeetCode]141. Linked List Cycle"
 subtitle:   "Data Structure I"
-date:       2022-06-08
+date:       2022-06-09 02:00:00
 author:     "linyejoe2"
 header-style: text
 catalog: true
@@ -165,7 +165,8 @@ function loopHead(head, headArr) {
 
 ## 成績
 
-![](https://i.imgur.com/ihYYNK2.png)
+![](https://i.imgur.com/G1qQ9QO.png)
+
 
 <details style='display:none;'><summary>點我開啟舊寫法/失敗寫法</summary>
 <pre>
