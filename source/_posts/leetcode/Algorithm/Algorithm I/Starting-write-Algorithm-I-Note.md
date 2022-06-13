@@ -31,10 +31,10 @@ sticky: 999
 + 如果半小時內沒有頭緒，就參考評論區的解法，力求半小時內解完一題！
 
 
-## 05/30 Day 1: Binary Search
+## 06/13 Day 1: Binary Search
 
-+ 217\. Contains Duplicate `Easy` [題目](https://leetcode.com/problems/contains-duplicate/) [筆記](https:/linyejoe2.github.io/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/217_Contains_Duplicate/)
-+ 53\. Maximum Subarray `Easy` [題目](https://leetcode.com/problems/maximum-subarray/) [筆記](https:/linyejoe2.github.io/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/53_Maximum_Subarray/)
++ 704\. Binary Search `Easy` [題目](https://leetcode.com/problems/binary-search/) [筆記](https:/linyejoe2.github.io/2022/06/13/leetcode/Algorithm/Algorithm%20I/704-binary-search/)
++ 278\. First Bad Version `Easy` [題目](https://leetcode.com/problems/first-bad-version/) [筆記](https:/linyejoe2.github.io/2022/06/13/leetcode/Algorithm/Algorithm%20I/278-first-bad-version/)
++ 35\. Search Insert Position `Easy` [題目](https://leetcode.com/problems/search-insert-position/) [筆記](https:/linyejoe2.github.io/2022/06/13/leetcode/Algorithm/Algorithm%20I/35-search-insert-position/)
 
-今天的兩題題目都是 `Easy` ，第一題算簡單，第二題想了很久沒有想到做法，於是參考了一下評論區，可能是因為第一天寫，總共花費的時間有點多，希望明天會有進步~~
-
+今天學了 Binary Search ，三題做完有由不懂到懂的感覺，所以你也可以發現我的成績是慢慢成長的，第二題小卡關，所以最後有參考評論區，整體來說有學到東西，非常好學習~

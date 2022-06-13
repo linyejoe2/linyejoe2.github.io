@@ -2,7 +2,7 @@
 layout:     post
 title:      "[LeetCode]704. Binary Search"
 subtitle:   "Algorithm I"
-date:       2022-06-13
+date:       2022-06-13 10:30:00
 author:     "linyejoe2"
 header-style: text
 catalog: true
@@ -55,7 +55,7 @@ Explanation: 2 does not exist in nums so return -1
 
 ## 筆記
 
-題目有提到必須把時間複雜度控制在 `O(log n)` ，會讓我想要用類似 Merge Sort 的方式尋找
+題目有提到必須把時間複雜度控制在 `O(log n)` ，會讓我想要用類似 Merge Sort 的方式尋找:
 
 1. 檢查原陣列頭尾是否包含 `target`
 2. 把原陣列切一半，檢查切一半的陣列頭尾是否包含 `target` ，選擇有的那個
