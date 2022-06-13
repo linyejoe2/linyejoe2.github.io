@@ -3,11 +3,11 @@ layout:     post
 title:      "[LeetCode]Data Structure I 筆記撰寫計畫"
 subtitle:   "Data Structure I"
 date:       2022-05-30
-updated:    2022-06-13 09:00:00
+updated:    2022-06-07 02:45:00
 author:     "linyejoe2"
 header-style: text
 catalog: true
-description: "0613更新啦~~~~<br>------更新到第七天----------下面是原文-----------<br>從今天開始做 LeetCode 的學習計畫，然後每天記錄題目。"
+description: "0607更新啦~~~~<br>------更新到第六天----------下面是原文-----------<br>從今天開始做 LeetCode 的學習計畫，然後每天記錄題目。"
 tags: [LeetCode, Data Structure] 
 sticky: 999
 ---
@@ -85,9 +85,9 @@ sticky: 999
 ## 06/13 第七天
 
 + Day7: Linked List
-    + 141\. Linked List Cycle `Easy` [題目](https://leetcode.com/problems/linked-list-cycle/) [筆記](https://linyejoe2.github.io/2022/06/09/leetcode/Data%20Structure/Data%20Structure%20I/141-linked-list-cycle/)
-    + 21\. Merge Two Sorted Lists `Easy` [題目](https://leetcode.com/problems/merge-two-sorted-lists/) [筆記](https://linyejoe2.github.io/2022/06/10/leetcode/Data%20Structure/Data%20Structure%20I/21-merge-two-sorted-lists/)
-    + 203\. Remove Linked List Elements `Easy` [題目](https://leetcode.com/problems/remove-linked-list-elements/) [筆記](https://linyejoe2.github.io/2022/06/10/leetcode/Data%20Structure/Data%20Structure%20I/203-remove-linked-list-elements/)
+    + 141\. Linked List Cycle `Easy` [題目](https://leetcode.com/problems/linked-list-cycle/) [筆記](https://linyejoe2.github.io/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/141-linked-list-cycle/)
+    + 21\. Merge Two Sorted Lists `Easy` [題目](https://leetcode.com/problems/merge-two-sorted-lists/) [筆記](https://linyejoe2.github.io/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/21-merge-two-sorted-lists/)
+    + 203\. Remove Linked List Elements `Easy` [題目](https://leetcode.com/problems/remove-linked-list-elements/) [筆記](https://linyejoe2.github.io/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/203-remove-linked-list-elements/)
 
 今天學的是 [Linked List](http://alrightchiu.github.io/SecondRound/linked-list-introjian-jie.html) ，原理非常的好懂，但是實際在做的時候需要思路需要轉變一下，整體來說是非常有趣的資料節構。
  
