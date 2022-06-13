@@ -81,3 +81,13 @@ sticky: 999
 第一題 [387\. First Unique Character in a String](https://linyejoe2.github.io/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/387-first-unique-character-in-a-string/) 跟第二題 [383\. Ransom Note](https://linyejoe2.github.io/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/383-ransom-note/) 我都是用 JS Object 去做 `Hash Table` ，
 第三題 [242\. Valid Anagram](https://linyejoe2.github.io/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/242-valid-anagram/) 則是使用 JS Map ，三題最後出來的成績差異有點大，
 以後 `Hash Table` 我會盡量用 JS Map 來實作。
+
+## 06/13 第七天
+
++ Day7: Linked List
+    + 141\. Linked List Cycle `Easy` [題目](https://leetcode.com/problems/linked-list-cycle/) [筆記](https://linyejoe2.github.io/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/141-linked-list-cycle/)
+    + 21\. Merge Two Sorted Lists `Easy` [題目](https://leetcode.com/problems/merge-two-sorted-lists/) [筆記](https://linyejoe2.github.io/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/21-merge-two-sorted-lists/)
+    + 203\. Remove Linked List Elements `Easy` [題目](https://leetcode.com/problems/remove-linked-list-elements/) [筆記](https://linyejoe2.github.io/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/203-remove-linked-list-elements/)
+
+今天學的是 [Linked List](http://alrightchiu.github.io/SecondRound/linked-list-introjian-jie.html) ，原理非常的好懂，但是實際在做的時候需要思路需要轉變一下，整體來說是非常有趣的資料節構。
+ 

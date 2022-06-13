@@ -7,7 +7,7 @@ author:     "linyejoe2"
 header-style: text
 catalog: true
 # description: 
-tags: [LeetCode, Data Structure, Two Pointers, Hash Table]
+tags: [LeetCode, Data Structure, Linked List, Two Pointers, Hash Table]
 ---
 
 ## 敘述
