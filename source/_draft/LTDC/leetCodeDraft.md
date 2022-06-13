@@ -1,18 +1,20 @@
 ---
 layout:     post
 title:      "[LeetCode]"
-subtitle:   "Data Structure I"
+subtitle:   "Algorithm I"
 date:       2022-06
 author:     "linyejoe2"
 header-style: text
 catalog: true
 # description: 
-tags: [LeetCode, Data Structure]
+tags: [LeetCode, Algorithm]
 ---
+
+>[Algorithm I 筆記撰寫計畫](https://linyejoe2.github.io/2022/06/13/leetcode/Data%20Structure/Data%20Structure%20I/Starting-write-Algorithm-I-Note/)
 
 ## 敘述
 
-這是 `Data Structure I` 的第四天第一個題目，總共有兩題。
+這是 `Algorithm I` 的第一天第一個題目，總共有三題。
 
 + 難度: `Easy` `Medium` `Hard`
 + 花費時間: 

@@ -9,7 +9,7 @@ header-style: text
 catalog: true
 description: "0613更新啦~~~~<br>------更新到第七天----------下面是原文-----------<br>從今天開始做 LeetCode 的學習計畫，然後每天記錄題目。"
 tags: [LeetCode, Data Structure] 
-sticky: 999
+sticky: 998
 ---
 
 > 計畫: [Data Structure I](https://leetcode.com/study-plan/data-structure/?progress=6ofm59r)
