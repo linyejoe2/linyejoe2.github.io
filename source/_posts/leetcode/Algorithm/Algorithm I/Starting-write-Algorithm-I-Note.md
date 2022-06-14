@@ -2,7 +2,7 @@
 layout:     post
 title:      "[LeetCode]Algorithm I 筆記撰寫計畫"
 subtitle:   "Algorithm I"
-date:       2022-06-13 10:31:00
+date:       2022-06-14 108:10:00
 # updated:    2022-06-07 02:45:00
 author:     "linyejoe2"
 header-style: text
@@ -33,8 +33,16 @@ sticky: 999
 
 ## 06/13 Day 1: Binary Search
 
-+ 704\. Binary Search `Easy` [題目](https://leetcode.com/problems/binary-search/) [筆記](https:/linyejoe2.github.io/2022/06/13/leetcode/Algorithm/Algorithm%20I/704-binary-search/)
++ 704\. Binary Search `Easy` [題目](https://leetcode.com/problems/binary-search/) [筆記](https://linyejoe2.github.io/2022/06/13/leetcode/Algorithm/Algorithm%20I/704-binary-search/)
 + 278\. First Bad Version `Easy` [題目](https://leetcode.com/problems/first-bad-version/) [筆記](https:/linyejoe2.github.io/2022/06/13/leetcode/Algorithm/Algorithm%20I/278-first-bad-version/)
-+ 35\. Search Insert Position `Easy` [題目](https://leetcode.com/problems/search-insert-position/) [筆記](https:/linyejoe2.github.io/2022/06/13/leetcode/Algorithm/Algorithm%20I/35-search-insert-position/)
++ 35\. Search Insert Position `Easy` [題目](https://leetcode.com/problems/search-insert-position/) [筆記](https://linyejoe2.github.io/2022/06/13/leetcode/Algorithm/Algorithm%20I/35-search-lnsert-position/)
 
 今天學了 Binary Search ，三題做完有由不懂到懂的感覺，所以你也可以發現我的成績是慢慢成長的，第二題小卡關，所以最後有參考評論區，整體來說有學到東西，非常好學習~
+
+
+## 06/13 Day 2 Two Pointers
+
++ 977\. Squares of a Sorted Array `Easy` [題目](https://leetcode.com/problems/squares-of-a-sorted-array/) [筆記](https:/linyejoe2.github.io/2022/06/14/leetcode/Algorithm/Algorithm%20I/977-squares-of-a-sorted-array/)
++ 189\. Rotate Array `Medium` [題目](https://leetcode.com/problems/rotate-array/) [筆記](https:/linyejoe2.github.io/2022/06/14/leetcode/Algorithm/Algorithm%20I/189-rotate-array/)
+
+今天雖然題目是 Two Pointers ，但是使用的解法完全沒有學到 Two Pointers 呢，之後再補上吧~

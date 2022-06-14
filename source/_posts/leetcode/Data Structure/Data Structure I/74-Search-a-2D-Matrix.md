@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "[LeetCode]76. Search a 2D Matrix"
+title:      "[LeetCode]74. Search a 2D Matrix"
 subtitle:   "Data Structure I"
 date:       2022-06-06
 author:     "linyejoe2"
@@ -18,7 +18,7 @@ tags: [LeetCode, Data Structure]
 
 + 難度: `Medium`
 + 花費時間: 10分鐘
-+ [題目](https://leetcode.com/problems/search-a-2d-matrix/`)
++ [題目](https://leetcode.com/problems/search-a-2d-matrix/)
 
 傳入一個 `mxn matrix` 與一個目標 ，你要寫出一個盡量高效的算法在 `mxn matrix` 裡找出他要的目標，並且只要回傳目標是否存在， `mxn matrix` 有以下特性:
 +  `mxn matrix` 裡的所有值都是由左到右順序排序的。
