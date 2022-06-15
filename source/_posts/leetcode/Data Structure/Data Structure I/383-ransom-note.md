@@ -10,7 +10,7 @@ catalog: true
 tags: [LeetCode, Data Structure]
 ---
 
->[Data Structure I 筆記撰寫計畫](https://linyejoe2.github.io/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/Starting_write_Data_Structure_I_note/)
+>[Data Structure I 筆記撰寫計畫](/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/Starting_write_Data_Structure_I_note/)
 
 ## 敘述
 

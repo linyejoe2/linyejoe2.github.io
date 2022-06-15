@@ -10,7 +10,7 @@ description: 傳入兩個陣列，回傳這兩個陣列的交集。
 tags: [LeetCode, Data Structure, Two Pointers]
 ---
 
->[Data Structure I 筆記撰寫計畫](https://linyejoe2.github.io/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/Starting_write_Data_Structure_I_note/)
+>[Data Structure I 筆記撰寫計畫](/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/Starting_write_Data_Structure_I_note/)
 
 ## 敘述
 

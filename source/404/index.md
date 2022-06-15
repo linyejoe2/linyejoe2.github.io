@@ -32,7 +32,7 @@ function count() {
   document.getElementById('timeout').textContent = countTime;
   countTime -= 1;
   if(countTime === 0){
-    location.href = 'https://linyejoe2.github.io/';
+    location.href = '/';
   }
   setTimeout(() => {
     count();

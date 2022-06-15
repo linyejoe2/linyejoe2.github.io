@@ -10,7 +10,7 @@ description: 輸入兩個由小到大排序好的陣列及各自的長度，把�
 tags: [LeetCode, Data Structure]
 ---
 
->[Data Structure I 筆記撰寫計畫](https://linyejoe2.github.io/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/Starting_write_Data_Structure_I_note/)
+>[Data Structure I 筆記撰寫計畫](/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/Starting_write_Data_Structure_I_note/)
 
 ## 敘述
 

@@ -2,8 +2,8 @@
 layout:     post
 title:      "[LeetCode]Algorithm I 筆記撰寫計畫"
 subtitle:   "Algorithm I"
-date:       2022-06-14 108:10:00
-# updated:    2022-06-07 02:45:00
+date:       2022-06-14 18:10:00
+updated:    2022-06-16 15:44:00
 author:     "linyejoe2"
 header-style: text
 catalog: true
@@ -21,7 +21,7 @@ sticky: 999
 <!--more-->
 
 
-事情是這樣的，我剛完成 `Data Structure I 筆記撰寫計畫` 裡的 [Day7: Linked List](https://linyejoe2.github.io/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/Starting_write_Data_Structure_I_note/#06-x2F-13-%E7%AC%AC%E4%B8%83%E5%A4%A9) ，但重新整理清單之後，我的題目就被重置了，
+事情是這樣的，我剛完成 `Data Structure I 筆記撰寫計畫` 裡的 [Day7: Linked List](/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/Starting_write_Data_Structure_I_note/#06-x2F-13-%E7%AC%AC%E4%B8%83%E5%A4%A9) ，但重新整理清單之後，我的題目就被重置了，
 原來是 LeetCode 強制規定這些計畫必須要在計劃時間內全部做完，不然就要重做，
 我剛好在最後一天做完一半的題目，所以接下來的題目要再等七天才能做了，所以我就來換做 [演算法](https://leetcode.com/study-plan/algorithm/?progress=gxelya3) ~
 
@@ -33,16 +33,29 @@ sticky: 999
 
 ## 06/13 Day 1: Binary Search
 
-+ 704\. Binary Search `Easy` [題目](https://leetcode.com/problems/binary-search/) [筆記](https://linyejoe2.github.io/2022/06/13/leetcode/Algorithm/Algorithm%20I/704-binary-search/)
++ 704\. Binary Search `Easy` [題目](https://leetcode.com/problems/binary-search/) [筆記](/2022/06/13/leetcode/Algorithm/Algorithm%20I/704-binary-search/)
 + 278\. First Bad Version `Easy` [題目](https://leetcode.com/problems/first-bad-version/) [筆記](https:/linyejoe2.github.io/2022/06/13/leetcode/Algorithm/Algorithm%20I/278-first-bad-version/)
-+ 35\. Search Insert Position `Easy` [題目](https://leetcode.com/problems/search-insert-position/) [筆記](https://linyejoe2.github.io/2022/06/13/leetcode/Algorithm/Algorithm%20I/35-search-lnsert-position/)
++ 35\. Search Insert Position `Easy` [題目](https://leetcode.com/problems/search-insert-position/) [筆記](/2022/06/13/leetcode/Algorithm/Algorithm%20I/35-search-lnsert-position/)
 
 今天學了 Binary Search ，三題做完有由不懂到懂的感覺，所以你也可以發現我的成績是慢慢成長的，第二題小卡關，所以最後有參考評論區，整體來說有學到東西，非常好學習~
 
 
-## 06/13 Day 2 Two Pointers
+## 06/14 Day 2 Two Pointers
 
-+ 977\. Squares of a Sorted Array `Easy` [題目](https://leetcode.com/problems/squares-of-a-sorted-array/) [筆記](https:/linyejoe2.github.io/2022/06/14/leetcode/Algorithm/Algorithm%20I/977-squares-of-a-sorted-array/)
-+ 189\. Rotate Array `Medium` [題目](https://leetcode.com/problems/rotate-array/) [筆記](https:/linyejoe2.github.io/2022/06/14/leetcode/Algorithm/Algorithm%20I/189-rotate-array/)
++ 977\. Squares of a Sorted Array `Easy` [題目](https://leetcode.com/problems/squares-of-a-sorted-array/) [筆記](/2022/06/14/leetcode/Algorithm/Algorithm%20I/977-squares-of-a-sorted-array/)
++ 189\. Rotate Array `Medium` [題目](https://leetcode.com/problems/rotate-array/) [筆記](/2022/06/14/leetcode/Algorithm/Algorithm%20I/189-rotate-array/)
 
 今天雖然題目是 Two Pointers ，但是使用的解法完全沒有學到 Two Pointers 呢，之後再補上吧~
+
+## 06/15 Day 3 Two Pointers
+
++ 283\. Move Zeroes `Easy` [題目](https://leetcode.com/problems/move-zeroes/) [筆記](/2022/06/15/leetcode/Algorithm/Algorithm%20I/283-move-zeroes/)
++ 167\. Two Sum II - Input Array Is Sorted `Medium` [題目](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) [筆記]()
+
+第一題 283. Move Zeroes 自己只想出了內建函式的快速寫法，想不到怎麼用 Two Pointers 寫，於是參考了下評論區，雖然寫出來了，不過思路果然很難猜到，再努力吧~
+
+第二題 167. Two Sum II
+有想過兩種做法
+1. 兩個指針分別從頭跟尾開始遍歷
+2. 先找到中間，然後從中間開始往頭尾遍歷
+但是最後都沒寫出來，快升天了，最後參考了一下評論區的做法，的確是從頭尾開始，但是一次只動一個指針，運用的是題目**兩個數字加起來等於答案，且第一個數字一定小於第二個數字**的特性。

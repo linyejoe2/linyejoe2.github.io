@@ -24,40 +24,40 @@ sticky: 998
 ## 05/30 第一天
 
 + Day1: Array
-    + 217\. Contains Duplicate `Easy` [題目](https://leetcode.com/problems/contains-duplicate/) [筆記](https://linyejoe2.github.io/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/217_Contains_Duplicate/)
-    + 53\. Maximum Subarray `Easy` [題目](https://leetcode.com/problems/maximum-subarray/) [筆記](https://linyejoe2.github.io/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/53_Maximum_Subarray/)
+    + 217\. Contains Duplicate `Easy` [題目](https://leetcode.com/problems/contains-duplicate/) [筆記](/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/217_Contains_Duplicate/)
+    + 53\. Maximum Subarray `Easy` [題目](https://leetcode.com/problems/maximum-subarray/) [筆記](/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/53_Maximum_Subarray/)
 
 今天的兩題題目都是 `Easy` ，第一題算簡單，第二題想了很久沒有想到做法，於是參考了一下評論區，可能是因為第一天寫，總共花費的時間有點多，希望明天會有進步~~
 
 ## 05/31 第二天
 
 + Day2: Array
-    + 1\. Two Sum `Easy` [題目](https://leetcode.com/problems/two-sum/) [筆記](https://linyejoe2.github.io/2022/05/31/leetcode/Data%20Structure/Data%20Structure%20I/1_Two_Sum/)
-    + 88\. Merge Sorted Array `Easy` [題目](https://leetcode.com/problems/merge-sorted-array/) [筆記](https://linyejoe2.github.io/2022/05/31/leetcode/Data%20Structure/Data%20Structure%20I/88_Merge_Sorted_Array/)
+    + 1\. Two Sum `Easy` [題目](https://leetcode.com/problems/two-sum/) [筆記](/2022/05/31/leetcode/Data%20Structure/Data%20Structure%20I/1_Two_Sum/)
+    + 88\. Merge Sorted Array `Easy` [題目](https://leetcode.com/problems/merge-sorted-array/) [筆記](/2022/05/31/leetcode/Data%20Structure/Data%20Structure%20I/88_Merge_Sorted_Array/)
 
 今天的兩題題目都是 `Easy` ，今天一樣花費了很多時間在解題，大概四小時，所以從今天起嘗試加入新規則，如果題目半小時沒有進展，就參考一下評論區的解法，力求快速的掌握解題手感！
 
 ## 06/01 第三天
 
 + Day3: Array
-    + 350\. Intersection of Two Arrays II `Easy` [題目](https://leetcode.com/problems/intersection-of-two-arrays-ii/) [筆記](https://linyejoe2.github.io/2022/06/01/leetcode/Data%20Structure/Data%20Structure%20I/350_Intersection_of_Two_Arrays_II/)
-    + 121\. Best Time to Buy and Sell Stock `Easy` [題目](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) [筆記](https://linyejoe2.github.io/2022/06/01/leetcode/Data%20Structure/Data%20Structure%20I/121_best_time_to_buy_and_sell_stock/)
+    + 350\. Intersection of Two Arrays II `Easy` [題目](https://leetcode.com/problems/intersection-of-two-arrays-ii/) [筆記](/2022/06/01/leetcode/Data%20Structure/Data%20Structure%20I/350_Intersection_of_Two_Arrays_II/)
+    + 121\. Best Time to Buy and Sell Stock `Easy` [題目](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) [筆記](/2022/06/01/leetcode/Data%20Structure/Data%20Structure%20I/121_best_time_to_buy_and_sell_stock/)
 
 今天第一題算簡單，第二題算是我第一次接觸 `Dynamic Programming` ，所以卡了有點久，所幸最後算是有學到一點感覺~
 
 ## 06/02 第四天
 
 + Day4: Array
-    + 118\. Pascal's Triangle `Easy` [題目](https://leetcode.com/problems/pascals-triangle/) [筆記](https://linyejoe2.github.io/2022/06/02/leetcode/Data%20Structure/Data%20Structure%20I/118_Pascal's_Triangle/)
-    + 566\. Reshape the Matrix `Easy` [題目](https://leetcode.com/problems/reshape-the-matrix/) [筆記](https://linyejoe2.github.io/2022/06/02/leetcode/Data%20Structure/Data%20Structure%20I/566_Reshape_the_Matrix/)
+    + 118\. Pascal's Triangle `Easy` [題目](https://leetcode.com/problems/pascals-triangle/) [筆記](/2022/06/02/leetcode/Data%20Structure/Data%20Structure%20I/118_Pascal's_Triangle/)
+    + 566\. Reshape the Matrix `Easy` [題目](https://leetcode.com/problems/reshape-the-matrix/) [筆記](/2022/06/02/leetcode/Data%20Structure/Data%20Structure%20I/566_Reshape_the_Matrix/)
 
 今天我是先做第二題再做第一題，今天雖然提不太起勁做，但是第一題讓我第一次有真的只靠自己寫出 `Dynamic Programming` 的感覺，非常的棒，第二題的話，感覺他給的提示有點誤導，最後我有參考評論區，其實算是非常簡單。
 
 ## 06/06 第五天
 
 + Day5: Array
-    + 36\. Valid Sudoku `Medium` [題目](https://leetcode.com/problems/valid-sudoku/) [筆記](https://linyejoe2.github.io/2022/06/06/leetcode/Data%20Structure/Data%20Structure%20I/36-Valid-Sudoku/)
-    + 74\. Search a 2D Matrix `Medium` [題目](https://leetcode.com/problems/search-a-2d-matrix/) [筆記](https://linyejoe2.github.io/2022/06/06/leetcode/Data%20Structure/Data%20Structure%20I/74-Search-a-2D-Matrix/)
+    + 36\. Valid Sudoku `Medium` [題目](https://leetcode.com/problems/valid-sudoku/) [筆記](/2022/06/06/leetcode/Data%20Structure/Data%20Structure%20I/36-Valid-Sudoku/)
+    + 74\. Search a 2D Matrix `Medium` [題目](https://leetcode.com/problems/search-a-2d-matrix/) [筆記](/2022/06/06/leetcode/Data%20Structure/Data%20Structure%20I/74-Search-a-2D-Matrix/)
 
 距離上次寫這個計畫過了一個端午聯假，本來打算騎腳踏車上武嶺的，結果半路上被淋成了落湯雞zzz
 
@@ -70,24 +70,24 @@ sticky: 998
 ## 06/07 第六天
 
 + Day6: String
-    + 387\. First Unique Character in a String `Easy` [題目](https://leetcode.com/problems/first-unique-character-in-a-string/) [筆記](https://linyejoe2.github.io/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/387-first-unique-character-in-a-string/)
-    + 383\. Ransom Note `Easy` [題目](https://leetcode.com/problems/ransom-note/) [筆記](https://linyejoe2.github.io/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/383-ransom-note/)
-    + 242\. Valid Anagram `Easy` [題目](https://leetcode.com/problems/valid-anagram/) [筆記](https://linyejoe2.github.io/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/242-valid-anagram/)
+    + 387\. First Unique Character in a String `Easy` [題目](https://leetcode.com/problems/first-unique-character-in-a-string/) [筆記](/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/387-first-unique-character-in-a-string/)
+    + 383\. Ransom Note `Easy` [題目](https://leetcode.com/problems/ransom-note/) [筆記](/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/383-ransom-note/)
+    + 242\. Valid Anagram `Easy` [題目](https://leetcode.com/problems/valid-anagram/) [筆記](/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/242-valid-anagram/)
 
 今天是 String 系列的第一天(其實也是最後一天，明天變成 Linked List 了)，從今天開始很多題目都會變成一天三題，我要瘋啦！
 
 今天三題都是差不多的模式，做出字串的 `Hash Table` ，然後再針對 `Hash Table` 去做處理。
 
-第一題 [387\. First Unique Character in a String](https://linyejoe2.github.io/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/387-first-unique-character-in-a-string/) 跟第二題 [383\. Ransom Note](https://linyejoe2.github.io/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/383-ransom-note/) 我都是用 JS Object 去做 `Hash Table` ，
-第三題 [242\. Valid Anagram](https://linyejoe2.github.io/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/242-valid-anagram/) 則是使用 JS Map ，三題最後出來的成績差異有點大，
-以後 `Hash Table` 我會盡量用 JS Map 來實作。
+第一題 [387\. First Unique Character in a String](/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/387-first-unique-character-in-a-string/) 跟第二題 [383\. Ransom Note](/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/383-ransom-note/) 我都是用 JS Object 去做 `Hash Table` ，
+第三題 [242\. Valid Anagram](/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/242-valid-anagram/) 則是使用 JS Map ，三題最後出來的成績差異有點大，
+以後 `Hash Table` 我會盡量用 JS Map 來實做。
 
 ## 06/13 第七天
 
 + Day7: Linked List
-    + 141\. Linked List Cycle `Easy` [題目](https://leetcode.com/problems/linked-list-cycle/) [筆記](https://linyejoe2.github.io/2022/06/09/leetcode/Data%20Structure/Data%20Structure%20I/141-linked-list-cycle/)
-    + 21\. Merge Two Sorted Lists `Easy` [題目](https://leetcode.com/problems/merge-two-sorted-lists/) [筆記](https://linyejoe2.github.io/2022/06/10/leetcode/Data%20Structure/Data%20Structure%20I/21-merge-two-sorted-lists/)
-    + 203\. Remove Linked List Elements `Easy` [題目](https://leetcode.com/problems/remove-linked-list-elements/) [筆記](https://linyejoe2.github.io/2022/06/10/leetcode/Data%20Structure/Data%20Structure%20I/203-remove-linked-list-elements/)
+    + 141\. Linked List Cycle `Easy` [題目](https://leetcode.com/problems/linked-list-cycle/) [筆記](/2022/06/09/leetcode/Data%20Structure/Data%20Structure%20I/141-linked-list-cycle/)
+    + 21\. Merge Two Sorted Lists `Easy` [題目](https://leetcode.com/problems/merge-two-sorted-lists/) [筆記](/2022/06/10/leetcode/Data%20Structure/Data%20Structure%20I/21-merge-two-sorted-lists/)
+    + 203\. Remove Linked List Elements `Easy` [題目](https://leetcode.com/problems/remove-linked-list-elements/) [筆記](/2022/06/10/leetcode/Data%20Structure/Data%20Structure%20I/203-remove-linked-list-elements/)
 
 今天學的是 [Linked List](http://alrightchiu.github.io/SecondRound/linked-list-introjian-jie.html) ，原理非常的好懂，但是實際在做的時候需要思路需要轉變一下，整體來說是非常有趣的資料節構。
  
