@@ -50,7 +50,7 @@ sticky: 999
 ## 06/15 Day 3 Two Pointers
 
 + 283\. Move Zeroes `Easy` [題目](https://leetcode.com/problems/move-zeroes/) [筆記](/2022/06/15/leetcode/Algorithm/Algorithm%20I/283-move-zeroes/)
-+ 167\. Two Sum II - Input Array Is Sorted `Medium` [題目](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) [筆記]()
++ 167\. Two Sum II - Input Array Is Sorted `Medium` [題目](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) [筆記](/2022/06/15/leetcode/Algorithm/Algorithm%20I/167-two-sum-ii-input-array-is-sorted/)
 
 第一題 283. Move Zeroes 自己只想出了內建函式的快速寫法，想不到怎麼用 Two Pointers 寫，於是參考了下評論區，雖然寫出來了，不過思路果然很難猜到，再努力吧~
 
@@ -59,3 +59,10 @@ sticky: 999
 1. 兩個指針分別從頭跟尾開始遍歷
 2. 先找到中間，然後從中間開始往頭尾遍歷
 但是最後都沒寫出來，快升天了，最後參考了一下評論區的做法，的確是從頭尾開始，但是一次只動一個指針，運用的是題目**兩個數字加起來等於答案，且第一個數字一定小於第二個數字**的特性。
+
+## 06/16 Day 4 Two Pointers
+
++ 344\. Reverse String `Easy` [題目](https://leetcode.com/problems/reverse-string/) [筆記](/2022/06/16/leetcode/Algorithm/Algorithm%20I/344-reverse-string/)
++ 557\. Reverse Words in a String III `Medium` [題目](https://leetcode.com/problems/reverse-words-in-a-string-iii/) [筆記](/2022/06/16/leetcode/Algorithm/Algorithm%20I/557-reverse-words-in-a-string-iii/)
+
+這次的筆記 06/16 就寫好了，但拖到 06/24 才上線，假日去參加了 [kuso game jam 2022](https://www.facebook.com/TWKusoGameJam/) ，最後做出來的 game 果然也很糞，還有隊友喝太多一直狂吐，在這邊 shout out to 我兄弟大狗。
