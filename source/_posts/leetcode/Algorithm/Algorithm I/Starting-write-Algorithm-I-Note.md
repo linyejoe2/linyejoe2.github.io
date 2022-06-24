@@ -3,7 +3,7 @@ layout:     post
 title:      "[LeetCode]Algorithm I 筆記撰寫計畫"
 subtitle:   "Algorithm I"
 date:       2022-06-14 18:10:00
-updated:    2022-06-16 15:44:00
+updated:    2022-06-24
 author:     "linyejoe2"
 header-style: text
 catalog: true
@@ -63,6 +63,14 @@ sticky: 999
 ## 06/16 Day 4 Two Pointers
 
 + 344\. Reverse String `Easy` [題目](https://leetcode.com/problems/reverse-string/) [筆記](/2022/06/16/leetcode/Algorithm/Algorithm%20I/344-reverse-string/)
-+ 557\. Reverse Words in a String III `Medium` [題目](https://leetcode.com/problems/reverse-words-in-a-string-iii/) [筆記](/2022/06/16/leetcode/Algorithm/Algorithm%20I/557-reverse-words-in-a-string-iii/)
++ 557\. Reverse Words in a String III `Easy` [題目](https://leetcode.com/problems/reverse-words-in-a-string-iii/) [筆記](/2022/06/16/leetcode/Algorithm/Algorithm%20I/557-reverse-words-in-a-string-iii/)
 
 這次的筆記 06/16 就寫好了，但拖到 06/24 才上線，假日去參加了 [kuso game jam 2022](https://www.facebook.com/TWKusoGameJam/) ，最後做出來的 game 果然也很糞，還有隊友喝太多一直狂吐，在這邊 shout out to 我兄弟大狗。
+
+## 06/24 Day 5 Two Pointers
+
++ 876\. Middle of the Linked List `Easy` [題目](https://leetcode.com/problems/middle-of-the-linked-list/) [筆記](/2022/06/24/leetcode/Algorithm/Algorithm%20I/876-middle-of-the-linked-list/)
++ 19\. Remove Nth Node From End of List `Medium` [題目](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) [筆記](/2022/06/24/leetcode/Algorithm/Algorithm%20I/19-remove-nth-node-from-end-of-list/)
+
+今天是 Two Pointers 最後一天，今天的題目反而我覺得比較簡單，可能是因為 Linked List 的結構非常好懂吧~
+對 Linked List 有一點認識的人可以先看第二題，看不懂再去看第一題。
