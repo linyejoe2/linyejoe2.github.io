@@ -101,4 +101,3 @@ where id not in (select customerId from Orders)
 ![](https://i.imgur.com/daF6Ose.png)
 
 
-<!-- ##### 參考資料 -->
