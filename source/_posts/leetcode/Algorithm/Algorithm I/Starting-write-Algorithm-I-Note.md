@@ -74,3 +74,8 @@ sticky: 999
 
 今天是 Two Pointers 最後一天，今天的題目反而我覺得比較簡單，可能是因為 Linked List 的結構非常好懂吧~
 對 Linked List 有一點認識的人可以先看第二題，看不懂再去看第一題。
+
+## 08/15 Day 6 Sliding Window
+
++ 3\. Longest Substring Without Repeating Characters `Medium` [題目](https://leetcode.com/problems/longest-substring-without-repeating-characters/) [筆記](/2022/08/15/leetcode/Algorithm/Algorithm%20I/3-longest-substring-without-repeating/)
+
