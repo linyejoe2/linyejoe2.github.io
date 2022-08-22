@@ -78,4 +78,5 @@ sticky: 999
 ## 08/15 Day 6 Sliding Window
 
 + 3\. Longest Substring Without Repeating Characters `Medium` [題目](https://leetcode.com/problems/longest-substring-without-repeating-characters/) [筆記](/2022/08/15/leetcode/Algorithm/Algorithm%20I/3-longest-substring-without-repeating/)
++ 567\. Permutation in String `Medium` [題目](https://leetcode.com/problems/permutation-in-string/) [筆記](/2022/08/15/leetcode/Algorithm/Algorithm%20I/567-permutation-in-string/)
 

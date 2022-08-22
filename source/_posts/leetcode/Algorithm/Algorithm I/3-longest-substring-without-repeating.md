@@ -20,6 +20,9 @@ tags: [LeetCode, Algorithm, Hash Table, Sliding Window]
 + 花費時間: 1 小時
 + [題目](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 
+Given a string `s`, find the length of the **longest substring** without repeating characters.
+
+<!--more-->
 
 <details><summary>點我開啟限制與範例</summary>
     <pre>
