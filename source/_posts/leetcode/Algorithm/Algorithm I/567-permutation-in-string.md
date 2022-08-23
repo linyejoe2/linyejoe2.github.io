@@ -22,6 +22,8 @@ tags: [LeetCode, Algorithm, Hash Table, Sliding Window, Two Pointers]
 
 Given you two strings `s1` and `s2`, return `true` if `s2` contains a permutation of `s1` , otherwise return `false`.
 
+> permutation: 字母重組字
+
 <!--more-->
 
 <details><summary>點我開啟限制與範例</summary>
