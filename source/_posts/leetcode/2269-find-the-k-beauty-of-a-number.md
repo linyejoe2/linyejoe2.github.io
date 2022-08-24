@@ -83,7 +83,7 @@ java
 ```java=
 public int divisorSubstrings(int num, int k) {
   String numString = String.valueOf(num);
-  int left = 0;
+  int left = 0; 
   int window = 0;
   int count = 0;
 
