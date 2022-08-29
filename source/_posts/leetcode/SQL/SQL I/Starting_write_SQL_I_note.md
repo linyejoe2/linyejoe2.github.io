@@ -9,7 +9,7 @@ header-style: text
 catalog: true
 # description: "練習一些 SQL 題目"
 tags: [LeetCode, SQL] 
-sticky: 1000
+# sticky: 1000
 ---
 
 > 計畫: [SQL I](https://leetcode.com/study-plan/sql/)

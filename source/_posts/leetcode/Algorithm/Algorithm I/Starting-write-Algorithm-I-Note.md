@@ -80,3 +80,7 @@ sticky: 999
 + 3\. Longest Substring Without Repeating Characters `Medium` [題目](https://leetcode.com/problems/longest-substring-without-repeating-characters/) [筆記](/2022/08/15/leetcode/Algorithm/Algorithm%20I/3-longest-substring-without-repeating/)
 + 567\. Permutation in String `Medium` [題目](https://leetcode.com/problems/permutation-in-string/) [筆記](/2022/08/15/leetcode/Algorithm/Algorithm%20I/567-permutation-in-string/)
 
+## 08/29 Day 7 Breadth-First Search / Depth-First Search
+
++ 733\. Flood Fill `Easy` [題目](https://leetcode.com/problems/flood-fill/) [筆記](/2022/08/29/leetcode/Algorithm/Algorithm%20I/733-flood-fill/)
++ 567\. Permutation in String `Medium` [題目](https://leetcode.com/problems/max-area-of-island/?envType=study-plan&id=algorithm-i) [筆記](#)
