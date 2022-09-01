@@ -74,7 +74,7 @@ class TreeNode {
 }
 ```
 
-### TS Recursion to mergedTrees
+### 1. TS Recursion to mergedTrees
 
 ```TS=
 function mergeTrees(root1: TreeNode | null, root2: TreeNode | null): TreeNode | null {
@@ -88,7 +88,7 @@ function moveToNext(root1: TreeNode | null, root2: TreeNode | null, mergedTrees:
 
   if (root1?.left || root2?.left) {
     mergedTrees.left = new TreeNode(0);
-    moveToNext((root1?.left ? root1?.left : null), (root2?.left ? root2.left : null), mergedTrees.left);
+    moveToNext((root1?.left ? root1?.left : null), (root2?.left ? rㄏoot2.left : null), mergedTrees.left);
   }
   if (root1?.right || root2?.right) {
     mergedTrees.right = new TreeNode(0);
@@ -99,7 +99,7 @@ function moveToNext(root1: TreeNode | null, root2: TreeNode | null, mergedTrees:
 };
 ```
 
-### TS Recursion to root1
+### 2. TS Recursion to root1
 
 ```TS=
 function mergeTrees(root1: TreeNode | null, root2: TreeNode | null): TreeNode | null {

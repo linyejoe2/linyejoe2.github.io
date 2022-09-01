@@ -20,7 +20,6 @@ sticky: 999
 
 <!--more-->
 
-
 事情是這樣的，我剛完成 `Data Structure I 筆記撰寫計畫` 裡的 [Day7: Linked List](/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/Starting_write_Data_Structure_I_note/#06-x2F-13-%E7%AC%AC%E4%B8%83%E5%A4%A9) ，但重新整理清單之後，我的題目就被重置了，
 原來是 LeetCode 強制規定這些計畫必須要在計劃時間內全部做完，不然就要重做，
 我剛好在最後一天做完一半的題目，所以接下來的題目要再等七天才能做了，所以我就來換做 [演算法](https://leetcode.com/study-plan/algorithm/?progress=gxelya3) ~
@@ -30,7 +29,6 @@ sticky: 999
 + 跟著進度每天做答，並記錄在這個 Blog 上。
 + 如果半小時內沒有頭緒，就參考評論區的解法，力求半小時內解完一題！
 
-
 ## 06/13 Day 1: Binary Search
 
 + 704\. Binary Search `Easy` [題目](https://leetcode.com/problems/binary-search/) [筆記](/2022/06/13/leetcode/Algorithm/Algorithm%20I/704-binary-search/)
@@ -38,7 +36,6 @@ sticky: 999
 + 35\. Search Insert Position `Easy` [題目](https://leetcode.com/problems/search-insert-position/) [筆記](/2022/06/13/leetcode/Algorithm/Algorithm%20I/35-search-lnsert-position/)
 
 今天學了 Binary Search ，三題做完有由不懂到懂的感覺，所以你也可以發現我的成績是慢慢成長的，第二題小卡關，所以最後有參考評論區，整體來說有學到東西，非常好學習~
-
 
 ## 06/14 Day 2 Two Pointers
 
@@ -56,6 +53,7 @@ sticky: 999
 
 第二題 167. Two Sum II
 有想過兩種做法
+
 1. 兩個指針分別從頭跟尾開始遍歷
 2. 先找到中間，然後從中間開始往頭尾遍歷
 但是最後都沒寫出來，快升天了，最後參考了一下評論區的做法，的確是從頭尾開始，但是一次只動一個指針，運用的是題目**兩個數字加起來等於答案，且第一個數字一定小於第二個數字**的特性。
@@ -83,4 +81,9 @@ sticky: 999
 ## 08/29 Day 7 Breadth-First Search / Depth-First Search
 
 + 733\. Flood Fill `Easy` [題目](https://leetcode.com/problems/flood-fill/) [筆記](/2022/08/29/leetcode/Algorithm/Algorithm%20I/733-flood-fill/)
-+ 567\. Permutation in String `Medium` [題目](https://leetcode.com/problems/max-area-of-island/?envType=study-plan&id=algorithm-i) [筆記](#)
++ 695\. Max Area of Island `Medium` [題目](https://leetcode.com/problems/max-area-of-island/) [筆記](/2022/08/29/leetcode/Algorithm/Algorithm%20I/695-max-area-of-island/)
+
+## 08/30 Day 8 Breadth-First Search / Depth-First Search
+
++ 617\. Merge Two Binary Trees `Easy` [題目](https://leetcode.com/problems/merge-two-binary-trees/) [筆記](http://localhost:4000/2022/08/30/leetcode/Algorithm/Algorithm%20I/617-merge-two-binary-trees/)
++ 116\. Populating Next Right Pointers in Each Node `Easy` [題目](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/) [筆記](http://localhost:4000/2022/08/30/leetcode/Algorithm/Algorithm%20I/116-populating-next-right-pointers-in-each-node/)
