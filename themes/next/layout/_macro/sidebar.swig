@@ -22,7 +22,7 @@
         {{ __('sidebar.overview') }}
       </li>
       <li style="margin-left: 10px">
-        <a href="/" style="text-decoration:none;">
+        <a href="/" style="border: 0;">
           {{ __('sidebar.home') }}
         </a>
       </li>
@@ -50,6 +50,7 @@
     {%- endif %}
 
   </div>
+  
 </aside>
 <div id="sidebar-dimmer"></div>
 {% endmacro %}

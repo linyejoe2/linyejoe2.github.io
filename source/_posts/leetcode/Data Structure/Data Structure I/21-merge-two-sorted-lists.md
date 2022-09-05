@@ -2,13 +2,15 @@
 layout:     post
 title:      "[LeetCode]21. Merge Two Sorted Lists"
 subtitle:   "Data Structure I"
-date:       2022-06-10 10:12:00
+date:       2022-06-10
 author:     "linyejoe2"
 header-style: text
 catalog: true
 # description: 
 tags: [LeetCode, Data Structure, Linked List, Merge Sort]
 ---
+
+>[Data Structure I 筆記撰寫計畫](/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/Starting_write_Data_Structure_I_note/)
 
 ## 敘述
 
@@ -60,11 +62,24 @@ Output: [0]
 
 ## 筆記
 
-限制裡有一行寫著 (Both `list1` and `list2` are sorted in **non-decreasing** order.) ，所以我會會使用 `Merge Sort` ，做出自己的 `Sorted Linked list` 後回傳。
+### Java In-place iteration
 
-## 程式碼
+使用 Java 寫的版本，差別在更易懂，且是 In-place
 
-```ts=
+使用四個指針:
+
++ `head` : 指向答案 `list` 的開頭，方便等等回傳答案。
++ `nextNode` : 指向現在要合併的節點。
+
+### TypeScript Merge-list iteration
+
+>這是第一次寫這個題目時寫出來的，宣告了多餘的 `Merge-list`
+
+限制裡有一行寫著 (Both `list1` and `list2` are sorted in **non-decreasing** order.) ，所以我會使用 `Merge Sort` ，做出自己的 `Sorted Linked list` 後回傳。
+
+TypeScript
+
+```ts
 // class ListNode {
 //     val: number
 //     next: ListNode | null
@@ -121,21 +136,12 @@ function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode
 };
 ```
 
+
+
+
 ## 成績
 
-這個寫法多半就是正解了，但還有一個問題，就是我有宣告新的 List 來存資料，但其實可以用原來的兩個 List 就好，這樣可以節省很大部分的空間還有一點時間，以後有機會再把他完善。
-
-<!-- TODO -->
 
 ![](https://i.imgur.com/CCWx9z5.png)
-
-
-<details style='display:none;'><summary>點我開啟舊寫法/失敗寫法</summary>
-<pre>
-
-
-
-</pre></details>
-
 
 <!-- ##### 參考資料 -->

@@ -1,0 +1,15 @@
+{
+    "background_color": "purple",
+    "description": "I am a JavaScript Developer, write what i want to write, say what i want to say.",
+    "display": "fullscreen",
+    "icons": [
+      {
+        "src": "images/favicon.svg",
+        "sizes": "32x32",
+        "type": "image/svg"
+      }
+    ],
+    "name": "linye's Blog",
+    "short_name": "linye's Blog",
+    "start_url": "/"
+  }

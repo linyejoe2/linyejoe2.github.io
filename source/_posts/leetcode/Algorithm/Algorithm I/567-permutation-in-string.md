@@ -10,7 +10,7 @@ catalog: true
 tags: [LeetCode, Algorithm, Hash Table, Sliding Window, Two Pointers]
 ---
 
->[Algorithm I 筆記撰寫計畫](https://linyejoe2.github.io/2022/06/13/leetcode/Data%20Structure/Data%20Structure%20I/Starting-write-Algorithm-I-Note/)
+>[Algorithm I 筆記撰寫計畫](/2022/06/14/leetcode/Algorithm/Algorithm%20I/Starting-write-Algorithm-I-Note/)
 
 ## 敘述
 

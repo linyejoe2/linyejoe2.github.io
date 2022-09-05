@@ -24,11 +24,11 @@ minify: false
 custom_file_path:
   head: source/_data/head.swig
   #header: source/_data/header.swig
-  # sidebar: source/_data/sidebar.swig
+  sidebar: source/_data/sidebar.swig
   #postMeta: source/_data/post-meta.swig
   #postBodyEnd: source/_data/post-body-end.swig
   # footer: source/_data/footer.swig
-  #bodyEnd: source/_data/body-end.swig
+  # bodyEnd: source/_data/body.swig
   #variable: source/_data/variables.styl
   #mixin: source/_data/mixins.styl
   #style: source/_data/styles.styl
@@ -45,7 +45,7 @@ favicon:
   apple_touch_icon: /images/apple-touch-icon-next.jpg
   svg_icon: /images/favicon.svg
   safari_pinned_tab: /images/logo.svg
-  #android_manifest: /images/manifest.json
+  android_manifest: /images/manifest.json
   #ms_browserconfig: /images/browserconfig.xml
 
 # Show multilingual switcher in footer.
@@ -583,7 +583,7 @@ comments:
 
 # Disqus
 disqus:
-  enable: true
+  enable: false
   shortname: "linyejoe2"
   # count: true
   #post_meta_order: 0
@@ -741,7 +741,7 @@ algolia_search:
 # Local Search
 # Dependencies: https://github.com/theme-next/hexo-generator-searchdb
 local_search:
-  enable: false
+  enable: true
   # If auto, trigger search by changing input.
   # If manual, trigger search by pressing enter key or search button.
   trigger: auto

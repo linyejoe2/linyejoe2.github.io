@@ -114,6 +114,14 @@ theme: next
 sitemap:
   path: sitemap.xml
 
+# Search Setting
+# Docs: https://github.com/theme-next/hexo-generator-searchdb
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 
