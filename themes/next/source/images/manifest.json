@@ -1,15 +1,26 @@
 {
     "background_color": "purple",
     "description": "I am a JavaScript Developer, write what i want to write, say what i want to say.",
-    "display": "fullscreen",
+    "display": "standalone",
     "icons": [
       {
-        "src": "images/favicon.svg",
-        "sizes": "32x32",
-        "type": "image/svg"
+        "src": "favicon.svg",
+        "sizes": "150x150",
+        "type": "image/svg+xml"
+      },
+      {
+        "src": "/images/favicon-512x512-next.png",
+        "type": "image/png",
+        "sizes": "512x512"
+    },
+    {
+        "src": "/images/favicon-192x192-next.png",
+        "type": "image/png",
+        "sizes": "192x192"
       }
     ],
     "name": "linye's Blog",
     "short_name": "linye's Blog",
-    "start_url": "/"
+    "start_url": "/",
+    "lang": "zh-TW"
   }
