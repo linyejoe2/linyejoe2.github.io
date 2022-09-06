@@ -124,7 +124,7 @@ menu:
   #categories: /categories/ || fa fa-th
   archives: /archives/ || fa fa-archive
   #schedule: /schedule/ || fa fa-calendar
-  #sitemap: /sitemap.xml || fa fa-sitemap
+  # sitemap: /sitemap.xml || fa fa-sitemap
   # commonweal: /404/ || fa fa-heartbeat
 
 # Enable / Disable menu icons / item badges.
@@ -194,17 +194,17 @@ social:
 social_icons:
   enable: true
   icons_only: false
-  transition: false
+  transition: true
 
 # Blog rolls
 links_settings:
   icon: fa fa-link
   title: Links
   # Available values: block | inline
-  layout: block
+  layout: inline
 
 links:
-  #Title: http://yoursite.com
+  # Title: http://yoursite.com
 
 # Table of Contents in the Sidebar
 # Front-matter variable (unsupport wrap expand_all).
