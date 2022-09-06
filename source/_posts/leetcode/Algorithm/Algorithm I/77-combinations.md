@@ -17,7 +17,7 @@ tags: [LeetCode, Backtracking, Recursion]
 這是 `Algorithm I` 的第十一天第一個題目，總共有三題。
 
 + 難度: `Medium`
-+ 花費時間:
++ 花費時間: 4 hr
 + [題目](https://leetcode.com/problems/combinations/?envType=study-plan&id=algorithm-i)
 
 給你兩個數字 `n` 與 `k` 。
@@ -54,16 +54,14 @@ Output: [[1]]
 Explanation: There is 1 choose 1 = 1 total combination.
 ```
 
-<!-- **Example 3:**
-
-```=
-Input: head = []
-Output: []
-``` -->
-
 </pre></details>
 
-## 思路
+<details><summary>點我開啟思路</summary>
+    <pre>
+
+<p class="text-h2"> 思路 </p>
+
+====================以下全錯======================
 
 這題是要訓練 `Backtracking` ，意思就是要一直不停的對我的答案陣列做檢查，沒有的話再塞入答案陣列。
 
@@ -97,101 +95,86 @@ k 一定會少於 n
 
 透過上面的數字觀察，我發現，每個數字出現次數一定符合 `n - k + 1` 這個數字，除了當 k 是 1 的時候
 
+</pre></details>
+
 ## 筆記
 
-這題沒什麼限制，所以應該很多方法都可以做，這邊提供兩個方法
+`Backtracking` 回朔法
 
-### 1. Array iteration
+回朔法的關鍵是，先沿著一條路走到底，然後再回到上個節點重作
 
-這是我自己想到的方法，我相信也是相對直觀的。
+回朔法有以下幾個特色
 
-1. 遍歷 `Linked-list` 把所有的 `Node` 存進 `Array`
-2. 從 `Array` 的最後一個值開始，把 `next` 指向 `Array` 的上一個值。
++ 通常會寫成 DFS 的樣子
 
-TypeScript
+回朔法的框架必須要有以下幾個條件
 
-```TS=
-function reverseList(head: ListNode | null): ListNode | null {
-    // 例外處理
-    if (!head) return null;
++ 選擇清單: 有什麼選擇的清單
++ 選路: 選擇一個子層前往
++ 返回: 回到父層
++ 終止條件: 到達決策樹邊界，通常會接著 `return`(此題來說是 `k = 2` 時會到達決策樹邊界)
 
-    // 建立一個 Arr 儲存所有 Node
-    let NodeArr: ListNode[] = [];
+以這題來說，每個節點等於選擇的數字，他的所有子節點等於可選擇的數字，於是我們可以設想出以下的選擇樹
 
-    // 遍歷一次 linked-list 把所有節點放進 Arr
-    let nextNode = head;
-    while (true) {
-        NodeArr.push(nextNode);
-        if (nextNode.next) {
-            nextNode = nextNode.next;
-        } else break;
+假設 `n = 4`, `k = 2`
+
++ `root node`
+  + 選擇清單: `1 ~ (n = 4)`
+  + 選路: `[1, 2, 3, 4] => 1`
+  + 當前組合: `[]`
+  + 返回: 無，因為是 `root`
+  + 終止條件: 不會觸發
++ `1`
+  + 選擇清單 `2 ~ 4`
+  + 選路: `[2, 3, 4] => 2`
+  + 當前組合: `[1]`
+  + 返回: 當這個節點的選路全部被選完，則會觸發返回，撤銷選擇 `1` ，然後選擇 `2`
+  + 終止條件: 不會觸發
++ `2`
+  + 當前組合: `[1, 2]`
+  + 終止條件: 由於組合已經滿了，所以觸發這條路線的終止條件。
+
+## 程式
+
+```TS
+function combine(n: number, k: number): number[][] {
+  let resultArr: number[][] = [];
+
+  // 深度優先走訪每個節點
+  function _dfs(start: number, currentResult: number[] = []) {
+
+    // 終止條件
+    if (currentResult.length === k) {
+      // 把當前組合塞入答案陣列( resultArr )
+      resultArr.push([...currentResult]);
+      // 終止這條路線
+      return;
     }
 
-    // 先噴出最後一顆，我們不需要
-    NodeArr.pop();
-
-    // 遍歷 Arr 把 next 做回去
-    head = nextNode;
-    for (let i = NodeArr.length - 1; i > 0; i--) {
-        // 噴出 Arr 最後一顆
-        nextNode.next = NodeArr.pop()!;
-        nextNode = nextNode.next;
+    // 每 for 一次，會選擇一個不同的節點進入
+    for (let i = start; i <= n; i++) {
+      // 進入一個節點
+      currentResult.push(i);
+      // 遍歷這個節點的子節點
+      _dfs(i + 1, currentResult);
+      // 撤銷進入這個節點(返回上一層)
+      currentResult.pop();
     }
 
-    // 防止迴圈
-    nextNode.next = null;
+    return;
+  }
 
-    return head;
+  _dfs(1)
+
+  return resultArr;
 };
 ```
 
-### 2. In-place iteration
-
-有點類似 `two-pointers` 的概念
-
-1. 宣告兩個指針存取當前的 `head` 跟 `head.next` = `nextHead`
-2. 宣告一個 `tempNode` 佔存 `nextHead.next`
-3. `nextHead.next` 指向 `haed`
-4. `head` 往後推
-5. `nextHead` 往後推
-6. 重複上述步驟直到 `nextHead == null`
-
-Java
-
-```Java=
-public ListNode reverseList(ListNode head) {
-    // 例外處理
-    if (head == null) return head;
-
-    // 先存下 next
-    ListNode nextHead = head.next;
-
-    // 把 head.next 指向 null 避免迴圈
-    head.next = null;
-
-    while (nextHead != null) {
-        //// 很簡單的轉換
-        // 先存下 next
-        ListNode tempNode = nextHead.next;
-        // 把 nextHead.next 往前指
-        nextHead.next = head;
-        // 把 head 往後推
-        head = nextHead;
-        // 把 nextHead 往後推
-        nextHead = tempNode;
-    }
-
-    return (head);
-}
-```
-
-還有 recursion 版本的，但是都大同小異，就等下次遇到這個題目再來做就好。
-
 ## 成績
 
-![score-image](https://i.imgur.com/YBVpi6s.png)
+![score-image](https://i.imgur.com/lLR8oZm.png)
 
-<details style='display:none;'><summary>點我開啟舊寫法/失敗寫法</summary>
+<details><summary>點我開啟舊寫法/失敗寫法</summary>
 <pre>
 
 ```TS
@@ -272,4 +255,7 @@ function combine(n: number, k: number): number[][] {
 
 </pre></details>
 
-<!-- ##### 參考資料 -->
+##### 參考資料
+
++ [Backtracking 回溯法 – 陪你刷題](https://haogroot.com/2020/09/21/backtracking-leetcode/)
++ [discuss](https://leetcode.com/problems/combinations/discuss/794032/PythonJSGo-by-DFS-%2B-backtracking-w-Hint)
