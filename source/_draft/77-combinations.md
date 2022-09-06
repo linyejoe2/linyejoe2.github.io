@@ -194,6 +194,82 @@ public ListNode reverseList(ListNode head) {
 <details style='display:none;'><summary>點我開啟舊寫法/失敗寫法</summary>
 <pre>
 
+```TS
+function combine(n: number, k: number): number[][] {
+    let ansArr: number[][] = [];
+    let ansStrArr: string[] = [];
+
+    // 如果只求一位，那麼就把答案塞一塞之後就可以回傳了
+    if (k === 1) {
+        for (let i = 1; i <= n; i++) {
+            ansArr.push([i]);
+        }
+        return ansArr;
+    }
+
+    // 算每個數字會在答案中出現多少次的算式，通過觀察規律可以得到這個算式
+    let m = n - k + 1;
+
+    // 宣告 Map: key = 1 ~ n 的所有數字都有, val = 這個數字的存貨(就是上面算出來的 m )
+    const ansNumMap = new Map<number, number>();
+    for (let i = 1; i <= n; i++) {
+        ansNumMap.set(i, m);
+    }
+
+    let ansArrIndex = 0;
+    while (ansArrIndex) {
+        ansArr[ansArrIndex] = [];
+
+        for (let i = 1; i <= n; i++) {
+            // 如果 ansNumMap 裡還有值
+            if (ansNumMap.get(i)) {
+
+                // 檢查他有沒有在現在這個組合中 && 他還有沒有存貨在 map 裡
+                if (ansArr[ansArrIndex].indexOf(i) === -1 && ansNumMap.get(i)! > 0) {
+                    // 把他塞到答案的這個組合中
+                    ansArr[ansArrIndex].push(i);
+                }
+            }
+
+            // 如果已經塞滿了，就做重複檢查
+            if (ansArr[ansArrIndex].length === k) {
+                // 如果已經有這個組合了，就把他刪掉，然後重來
+                if (ansStrArr.indexOf(ansArr[ansArrIndex].join("")) != -1) {
+                    ansArr[ansArrIndex] = [];
+                    continue;
+                }
+
+                // 塞一個進去，就要減少一個存貨
+                ansNumMap.set(i, ansNumMap.get(i)! - 1);
+
+                // 如果沒有存貨了，就把這個 key 刪掉
+                if (ansNumMap.get(i) === 0) ansNumMap.delete(i);
+
+                // 如果沒有，就把組合加進 ansStrArr 然後跳過這個迴圈
+                ansStrArr.push(ansArr[ansArrIndex].join(""));
+                break
+            };
+
+            // 塞一個進去，就要減少一個存貨
+            ansNumMap.set(i, ansNumMap.get(i)! - 1);
+
+            // 如果沒有存貨了，就把這個 key 刪掉
+            if (ansNumMap.get(i) === 0) ansNumMap.delete(i);
+
+
+        }
+
+        // 如果 Map 裡都空了，代表全部找完了，就回傳答案。
+        if (ansNumMap.size === 0) return ansArr;
+        console.log(ansNumMap.size);
+        console.log(ansArr);
+
+        // 把答案陣列往後推一位
+        ansArrIndex++;
+    }
+};
+```
+
 </pre></details>
 
 <!-- ##### 參考資料 -->

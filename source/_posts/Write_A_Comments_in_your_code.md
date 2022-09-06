@@ -26,6 +26,7 @@ tags: [C#, Csharp]
 
 - [C#](#C#)
 - [Python](#Python)
+- [JavaScript](#JavaScript)
 
 # C#
 

@@ -27,8 +27,9 @@ custom_file_path:
   sidebar: source/_data/sidebar.swig
   #postMeta: source/_data/post-meta.swig
   #postBodyEnd: source/_data/post-body-end.swig
+  # postBodyEnd: source/_data/body.swig
   # footer: source/_data/footer.swig
-  # bodyEnd: source/_data/body.swig
+  bodyEnd: source/_data/body.swig
   #variable: source/_data/variables.styl
   #mixin: source/_data/mixins.styl
   #style: source/_data/styles.styl

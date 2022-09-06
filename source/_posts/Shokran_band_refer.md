@@ -10,6 +10,7 @@ tags: [Metal, Djent, Metalcore]
 ---
 
 # [金屬樂團]Shokran
+
 > 一群誤入邪教的毛子
 
 -----
@@ -21,8 +22,6 @@ tags: [Metal, Djent, Metalcore]
 |經紀公司|獨立樂團|
 |曲風|Djent,Metalcore|
 |社群|[Facebook](https://www.facebook.com/Sh0kran),[Instagram](https://www.instagram.com/shokran_band/),[YouTube](https://www.youtube.com/user/ShokranBand),[vk](https://vk.com/shokran)
-
-
 
 ## 團員
 
@@ -38,8 +37,6 @@ tags: [Metal, Djent, Metalcore]
 - 貝斯 - Valery Yushkevich
 - 吉他 - Alexander Burlakov
 
-
-
 成軍於2012年的Shokran，最早只是吉他手Dmitry Demyanenko的一張個人EP **Sixth Sense**，
 純音樂的Djent，聽一次是不錯，但是沒辦法反覆聽，不是很合我的胃口。
 > ![](https://i.imgur.com/BDNdGP4.jpg)
@@ -50,7 +47,6 @@ tags: [Metal, Djent, Metalcore]
 2014年，Shokran發行了他們的第一張專輯**Supreme Truth**，並開始在俄羅斯各地巡迴，此時他們在專輯裡就展現了濃厚的埃及氣氛，主唱的聲音也很有變化性，整張專輯聽起來給人耳目一新的清新感。
 > ![](https://i.imgur.com/p3ND6OY.jpg)
 > 個人評分:4
-
 
 正當樂團平步青雲時，主唱貝斯跟節奏吉他的退團影響了整個樂團，也導致了樂團成型為現在的成員。
 

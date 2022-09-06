@@ -48,7 +48,7 @@ Output: 0
 初步構想
 設定一個陣列最小值(min)
 和一個最大值(max)
-然後只要arr[min+1] < arr[min] && arr[max-1] > arr[max] 
+然後只要 `arr[min+1] < arr[min] && arr[max-1] > arr[max]`
 就回傳 arr[min - max]
 就可以了
 
