@@ -48,4 +48,10 @@
         margin-inline-end: 0px;
         padding-top: 10px;
     }
+
+    details {
+        background: #404040 !important;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
 </style>

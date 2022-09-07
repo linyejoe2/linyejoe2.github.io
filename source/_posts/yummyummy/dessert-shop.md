@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "[東湖冰誌]1. 糖水冰室．東湖人氣冰店．東湖捷運站 5 分鐘！<br>真的太好吃啦！ linyejoe2 的美食日誌！"
+title:      "[東湖冰誌] 糖水冰室．東湖人氣冰店．東湖捷運站 5 分鐘！<br>真的太好吃啦！ linyejoe2 的美食日誌！"
 subtitle:   "真的太好吃啦！ linyejoe2 的美食日誌！"
 date:       2022-09-06
 author:     "linyejoe2"
@@ -12,6 +12,8 @@ tags: [food, dessert, ice]
 ![pre-view-post-image](https://i.imgur.com/6Xw3l82.png)
 
 第一站選到這間[糖水冰室]，從東湖捷運站走出來只要五分鐘，藏身在東湖路起點的小巷子裡，每天回家都會撇到一眼，於是今天吃完旁邊的本家咖哩後，就選擇來吃這間冰店，順便寫我的第一篇東湖冰誌！
+
+<!--more-->
 
 # 環境
 

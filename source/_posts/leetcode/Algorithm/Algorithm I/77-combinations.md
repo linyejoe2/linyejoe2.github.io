@@ -18,7 +18,7 @@ tags: [LeetCode, Backtracking, Recursion]
 
 + 難度: `Medium`
 + 花費時間: 4 hr
-+ [題目](https://leetcode.com/problems/combinations/?envType=study-plan&id=algorithm-i)
++ [題目](https://leetcode.com/problems/combinations/)
 
 給你兩個數字 `n` 與 `k` 。
 返回一個陣列，列出在 `1` 到 `n` 之間的所有不重複的 `k` 組數字。

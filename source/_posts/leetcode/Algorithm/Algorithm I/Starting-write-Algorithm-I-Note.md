@@ -101,12 +101,15 @@ sticky: 999
 
 ## 08/30 Day 8 Breadth-First Search / Depth-First Search
 
-+ 617\. Merge Two Binary Trees `Easy` [題目](https://leetcode.com/problems/merge-two-binary-trees/) [筆記](http://localhost:4000/2022/08/30/leetcode/Algorithm/Algorithm%20I/617-merge-two-binary-trees/)
-+ 116\. Populating Next Right Pointers in Each Node `Easy` [題目](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/) [筆記](http://localhost:4000/2022/08/30/leetcode/Algorithm/Algorithm%20I/116-populating-next-right-pointers-in-each-node/)
++ 617\. Merge Two Binary Trees `Easy` [題目](https://leetcode.com/problems/merge-two-binary-trees/) [筆記](/2022/08/30/leetcode/Algorithm/Algorithm%20I/617-merge-two-binary-trees/)
++ 116\. Populating Next Right Pointers in Each Node `Easy` [題目](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/) [筆記](/2022/08/30/leetcode/Algorithm/Algorithm%20I/116-populating-next-right-pointers-in-each-node/)
 
-<!-- --------------
+--------------
+
 ## 09/05 Day 9 Breadth-First Search / Depth-First Search
-TODO -->
+
++ 542\. 01 Matrix `Medium` [題目](https://leetcode.com/problems/01-matrix/) [筆記](/2022/09/07/leetcode/Algorithm/Algorithm%20I/542-01-matrix/)
++ 994\. Potting Oranges `Medium` [題目](https://leetcode.com/problems/rotting-oranges) 筆記
 
 --------------
 
@@ -124,4 +127,3 @@ TODO -->
 + 77\. Combinations `Medium` [題目](https://leetcode.com/problems/combinations/) [筆記](/2022/09/05/leetcode/Algorithm/Algorithm%20I/77-combinations/)
 + 46\. Permutations `Medium` 題目 筆記
 + 784\. Letter Case Permutation `Medium` 題目 筆記
-
