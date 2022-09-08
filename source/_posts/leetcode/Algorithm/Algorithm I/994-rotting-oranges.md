@@ -7,7 +7,7 @@ author:     "linyejoe2"
 header-style: text
 catalog: true
 # description: 
-tags: [LeetCode, Array, Dynamic Programming, Breadth-First Search, Matrix]
+tags: [LeetCode, Array, Breadth-First Search, Matrix]
 categories: [LeetCode, Algorithm I]
 ---
 
@@ -19,41 +19,59 @@ categories: [LeetCode, Algorithm I]
 
 + 難度: `Medium`
 + 花費時間: 2 hr
-+ [題目](https://leetcode.com/problems/01-matrix/)
++ [題目](https://leetcode.com/problems/rotting-oranges/)
 
-給你一個 `MxN binary matrix` `mat` ，返回一個 `MxN matrix` 計算每個非零的值跟最近的零的距離，然後取代在他的值上。
+給你一個 `MxN Matrix` `grid` ，裡面包含了空盒子，新鮮的橘子，腐爛的橘子。
 
-上下左右才算相鄰，側面的就算要走兩格了。
+若每過一天每個腐爛的橘子都會腐爛他上下左右的新鮮橘子，
+則至少要過幾天所有的橘子才會被腐爛。
 
 <!--more-->
+
++ 0: 空盒子
++ 1: 新鮮的橘子
++ 2: 腐爛的橘子
+
+橘子只能透過橘子傳遞腐爛，空盒子是不行的。
+
+如果有橘子腐爛不到，那麼回傳 `-1` 代表永遠不會腐爛。
+
+回傳最少需要幾天才會腐爛完成。
 
 <details><summary>點我開啟限制與範例</summary>
 
 **限制:**
 
-+ `m == mat.length`
-+ `n == mat[i].length`
-+ `1 <= m, n <= 104`
-+ `1 <= m * n <= 104`
-+ `mat[i][j]` is either `0` or `1`.
-+ There is at least one `0` in `mat`.
+-   `m == grid.length`
+-   `n == grid[i].length`
+-   `1 <= m, n <= 10`
+-   `grid[i][j]` is `0`, `1`, or `2`.
 
 **Example 1:**
 
-![example-image-1](https://assets.leetcode.com/uploads/2021/04/24/01-1-grid.jpg)
+![example-image-1](https://assets.leetcode.com/uploads/2019/02/16/oranges.png)
 
 ```=
-Input: mat = [[0,0,0],[0,1,0],[0,0,0]]
-Output: [[0,0,0],[0,1,0],[0,0,0]]
+Input: grid = [[2,1,1],[1,1,0],[0,1,1]]
+Output: 4
 ```
 
 **Example 2:**
 
-![example-image-2](https://assets.leetcode.com/uploads/2021/04/24/01-2-grid.jpg)
+<!-- ![example-image-2](https://assets.leetcode.com/uploads/2021/04/24/01-2-grid.jpg) -->
 
 ```=
-Input: mat = [[0,0,0],[0,1,0],[1,1,1]]
-Output: [[0,0,0],[0,1,0],[1,2,1]]
+Input: grid = [[2,1,1],[0,1,1],[1,0,1]]
+Output: -1
+Explanation: The orange in the bottom left corner (row 2, column 0) is never rotten, because rotting only happens 4-directionally.
+```
+
+**Example 3:**
+
+```=
+Input: grid = [[0,2]]
+Output: 0
+Explanation: Since there are already no fresh oranges at minute 0, the answer is just 0.
 ```
 
 </details>
