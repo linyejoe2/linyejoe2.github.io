@@ -8,6 +8,7 @@ header-style: text
 catalog: true
 # description: 
 tags: [LeetCode, Data Structure, Linked List]
+categories: [LeetCode, Data Structure, Data Structure I]
 ---
 
 ## 敘述

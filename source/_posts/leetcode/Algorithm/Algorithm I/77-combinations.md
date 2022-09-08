@@ -8,6 +8,7 @@ header-style: text
 catalog: true
 # description: 
 tags: [LeetCode, Backtracking, Recursion]
+categories: [LeetCode, Algorithm, Algorithm I]
 ---
 
 >[Algorithm I 筆記撰寫計畫](/2022/06/14/leetcode/Algorithm/Algorithm%20I/Starting-write-Algorithm-I-Note/)

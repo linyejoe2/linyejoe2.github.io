@@ -7,9 +7,10 @@ author:     "Qing"
 header-style: text
 catalog: true
 tags: [Metal, Djent, Metalcore]
+categories: [金屬樂團]
 ---
 
-# [金屬樂團]Shokran
+# \[金屬樂團\]Shokran
 
 > 一群誤入邪教的毛子
 

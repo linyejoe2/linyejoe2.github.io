@@ -7,6 +7,7 @@ author:     "linyejoe2"
 header-style: text
 catalog: true
 tags: [food, dessert, ice]
+categories: [東湖冰誌]
 ---
 
 ![pre-view-post-image](https://i.imgur.com/6Xw3l82.png)

@@ -54,4 +54,10 @@
         padding: 10px;
         margin-bottom: 20px;
     }
+
+    .fa-leetcode::before {
+        content: url('/images/leetcode.svg');
+        display: inline-block;
+        width: 13px;
+    }
 </style>

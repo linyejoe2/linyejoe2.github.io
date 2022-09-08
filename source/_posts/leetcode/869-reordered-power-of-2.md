@@ -7,6 +7,7 @@ author:     "linyejoe2"
 header-style: text
 catalog: true
 tags: [LeetCode, Math, LeetCoding Challenge]
+categories: [LeetCode]
 ---
 
 ## 敘述

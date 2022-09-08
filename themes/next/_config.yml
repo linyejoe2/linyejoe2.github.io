@@ -121,7 +121,7 @@ menu:
   home: / || fa fa-home
   # about: /about/ || fa fa-user
   tags: /tags/ || fa fa-tags
-  #categories: /categories/ || fa fa-th
+  categories: /categories/ || fa fa-th
   archives: /archives/ || fa fa-archive
   #schedule: /schedule/ || fa fa-calendar
   # sitemap: /sitemap.xml || fa fa-sitemap
@@ -180,9 +180,10 @@ site_state: true
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
   GitHub: https://github.com/linyejoe2 || fab fa-github
-  E-Mail: linyejoe2@gmail.com || fa fa-envelope
-  StackOverflow: https://stackoverflow.com/users/18842709/linyejoe2 || fab fa-stack-overflow
+  # E-Mail: /?mail || fa fa-envelope
   LinkedIn: https://www.linkedin.com/in/cheng-qing-lin-666542235 || fa-brands fa-linkedin
+  LeetCode: https://leetcode.com/linyejoe2/ || fa-brands fa-leetcode
+  StackOverflow: https://stackoverflow.com/users/18842709/linyejoe2 || fab fa-stack-overflow
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
   #Twitter: https://twitter.com/yourname || fab fa-twitter

@@ -8,6 +8,7 @@ header-style: text
 catalog: true
 # description: 
 tags: [LeetCode, SQL I]
+categories: [LeetCode, SQL, SQL I]
 ---
 
 >[SQL I 筆記撰寫計畫](/2022/06/27/leetcode/SQL/SQL%20I/Starting_write_SQL_I_note/)

@@ -8,6 +8,7 @@ header-style: text
 catalog: true
 # description: 
 tags: [LeetCode, Sliding Window]
+categories: [LeetCode]
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "[JSP]JSP標準標籤庫(JSTL)"
-subtitle:   "你可以使用JSTL來處理一些通用性的任務，類似JSP裡的Jquery"
+subtitle:   "你可以使用JSTL來處理一些通用性的任務，類似JS裡的Jquery"
 date:       2022-02-11
 author:     "linyejoe2"
 header-style: text

@@ -8,6 +8,7 @@ header-style: text
 catalog: true
 description: 輸入一個包含數字的陣列(nums)及一個目標數字(target)，回傳包和兩個位於原陣列內的數字的陣列，這兩個數字相加要等於目標數字。
 tags: [LeetCode, Data Structure]
+categories: [LeetCode, Data Structure, Data Structure I]
 ---
 
 >[Data Structure I 筆記撰寫計畫](/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/Starting_write_Data_Structure_I_note/)

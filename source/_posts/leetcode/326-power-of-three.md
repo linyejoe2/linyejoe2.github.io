@@ -8,6 +8,7 @@ header-style: text
 catalog: true
 # description: 
 tags: [LeetCode, Math]
+categories: [LeetCode]
 ---
 
 ## 敘述

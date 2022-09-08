@@ -1,17 +1,9 @@
 ---
-layout:     post
 title:      "[LeetCode] Algorithm I 筆記撰寫計畫"
 subtitle:   "Algorithm I"
-date:       2022-06-14 18:10:00
-updated:    2022-06-24
 author:     "linyejoe2"
 header-style: text
-catalog: true
 # description: ""
-tags: [LeetCode, Algorithm]
-categories: [LeetCode, Algorithm, Algorithm I]
-sticky: 999
-project: true
 ---
 
 > 計畫: [Algorithm I](https://leetcode.com/study-plan/algorithm/)

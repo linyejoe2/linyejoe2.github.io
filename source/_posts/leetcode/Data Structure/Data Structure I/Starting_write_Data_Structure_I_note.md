@@ -41,7 +41,7 @@ tags: [LeetCode, Data Structure]
 
 + Day3: Array
     + 350\. Intersection of Two Arrays II `Easy` [題目](https://leetcode.com/problems/intersection-of-two-arrays-ii/) [筆記](/2022/06/01/leetcode/Data%20Structure/Data%20Structure%20I/350_Intersection_of_Two_Arrays_II/)
-    + 121\. Best Time to Buy and Sell Stock `Easy` [題目](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) [筆記](/2022/06/01/leetcode/Data%20Structure/Data%20Structure%20I/121_best_time_to_buy_and_sell_stock/)
+    + 121\. Best Time to Buy and Sell Stock `Easy` [題目](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) [筆記](/2022/06/01/leetcode/Data%20Structure/Data%20Structure%20I/121_Best_Time_to_Buy_and_Sell_Stock/)
 
 今天第一題算簡單，第二題算是我第一次接觸 `Dynamic Programming` ，所以卡了有點久，所幸最後算是有學到一點感覺~
 
