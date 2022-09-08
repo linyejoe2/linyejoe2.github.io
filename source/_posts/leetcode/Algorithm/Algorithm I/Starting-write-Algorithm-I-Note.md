@@ -9,7 +9,7 @@ header-style: text
 catalog: true
 # description: ""
 tags: [LeetCode, Algorithm]
-categories: [LeetCode, Algorithm, Algorithm I]
+categories: [LeetCode, Algorithm I]
 sticky: 999
 project: true
 ---
@@ -111,7 +111,7 @@ project: true
 ## 09/05 Day 9 Breadth-First Search / Depth-First Search
 
 + 542\. 01 Matrix `Medium` [題目](https://leetcode.com/problems/01-matrix/) [筆記](/2022/09/07/leetcode/Algorithm/Algorithm%20I/542-01-matrix/)
-+ 994\. Potting Oranges `Medium` [題目](https://leetcode.com/problems/rotting-oranges) 筆記
++ 994\. Potting Oranges `Medium` [題目](https://leetcode.com/problems/rotting-oranges) [筆記](http://localhost:4000/2022/09/07/leetcode/Algorithm/Algorithm%20I/994-rotting-oranges/)
 
 --------------
 

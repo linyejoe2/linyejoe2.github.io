@@ -8,7 +8,7 @@ header-style: text
 catalog: true
 description: 輸入一個包含數字的陣列，找出裡面總和最大的 `subarray` ，並回傳。
 tags: [LeetCode, Data Structure]
-categories: [LeetCode, Data Structure, Data Structure I]
+categories: [LeetCode, Data Structure I]
 ---
 
 >[Data Structure I 筆記撰寫計畫](/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/Starting_write_Data_Structure_I_note/)

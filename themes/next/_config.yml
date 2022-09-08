@@ -191,6 +191,7 @@ social:
   #YouTube: https://youtube.com/yourname || fab fa-youtube
   #Instagram: https://instagram.com/yourname || fab fa-instagram
   #Skype: skype:yourname?call|chat || fab fa-skype
+  # keybr: https://www.keybr.com/profile/d1mn1ym
 
 social_icons:
   enable: true

@@ -8,7 +8,7 @@ header-style: text
 catalog: true
 description: 輸入兩個由小到大排序好的陣列及各自的長度，把第二個陣列的值放入第一個陣列中並且排序好即可，不用回傳。
 tags: [LeetCode, Data Structure]
-categories: [LeetCode, Data Structure, Data Structure I]
+categories: [LeetCode, Data Structure I]
 ---
 
 >[Data Structure I 筆記撰寫計畫](/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/Starting_write_Data_Structure_I_note/)

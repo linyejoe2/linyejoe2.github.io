@@ -8,7 +8,7 @@ header-style: text
 catalog: true
 # description: 
 tags: [LeetCode, Array, Dynamic Programming, Breadth-First Search, Matrix]
-categories: [LeetCode, Algorithm, Algorithm I]
+categories: [LeetCode, Algorithm I]
 ---
 
 >[Algorithm I 筆記撰寫計畫](/2022/06/14/leetcode/Algorithm/Algorithm%20I/Starting-write-Algorithm-I-Note/)

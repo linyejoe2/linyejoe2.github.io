@@ -8,7 +8,7 @@ header-style: text
 catalog: true
 # description: 
 tags: [LeetCode, Data Structure, Linked List, Two Pointers, Hash Table]
-categories: [LeetCode, Data Structure, Data Structure I]
+categories: [LeetCode, Data Structure I]
 ---
 
 ## 敘述
