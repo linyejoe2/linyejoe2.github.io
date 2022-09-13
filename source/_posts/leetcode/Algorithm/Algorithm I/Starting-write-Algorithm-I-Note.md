@@ -127,7 +127,7 @@ project: true
 ## 09/05 Day 11 Recursion / Backtracking
 
 + 77\. Combinations `Medium` [題目](https://leetcode.com/problems/combinations/) [筆記](/2022/09/05/leetcode/Algorithm/Algorithm%20I/77-combinations/)
-+ 46\. Permutations `Medium` 題目 筆記
++ 46\. Permutations `Medium` [題目](https://leetcode.com/problems/permutations/) [筆記](/2022/09/13/leetcode/Algorithm/Algorithm%20I/46-permutations/)
 + 784\. Letter Case Permutation `Medium` 題目 筆記
 
 ## 09/13 Day 12 Dynamic Programming
