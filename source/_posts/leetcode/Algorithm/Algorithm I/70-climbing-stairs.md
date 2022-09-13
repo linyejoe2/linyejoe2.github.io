@@ -7,7 +7,7 @@ author:     "linyejoe2"
 header-style: text
 catalog: true
 # description: 
-tags: [LeetCode, Math, Dynamic Programming, Memoization]
+tags: [LeetCode, Math, Dynamic Programming, Memoization, fibonacci]
 categories: [LeetCode, Algorithm I]
 ---
 
@@ -18,7 +18,7 @@ categories: [LeetCode, Algorithm I]
 這是 `Algorithm I` 的第十二天第一個題目，總共有三題。
 
 + 難度: `Easy`
-+ 花費時間:
++ 花費時間: 30 min
 + [題目](https://leetcode.com/problems/climbing-stairs/)
 
 你面前有一個 `n` 階的樓梯，你一次可以走一步或是兩步，請算出你總共有幾種爬法。
@@ -29,7 +29,7 @@ categories: [LeetCode, Algorithm I]
 
 **限制:**
 
--   `1 <= n <= 45`
++ `1 <= n <= 45`
 
 **Example 1:**
 
@@ -58,32 +58,28 @@ Explanation: There are three ways to climb to the top.
 
 </details>
 
-<details><summary>點我開啟思路</summary>
-
-<p class="text-h2"> 思路 </p>
+## 思路
 
 DP 的重點就是找規律，所以通常我會先沙盤推演一波找規律，如果我沒有什麼想法的話。
 
 下面是我沙盤推演 `test case` 從 1 ~ 6
 
 ```rust
-1 // n = 1, count = 1
+1 // n = 1, ans count = 1
 1
-2 // n = 2, count = 2
+2 // n = 2, ans count = 2
 11 2
-3 // n = 3, count = 3
+3 // n = 3, ans count = 3
 111 12 21
-4 // n = 4, count = 5 從這步開始可以看出他有斐波那契的跡象
+4 // n = 4, ans count = 5 從這步開始可以看出他有斐波那契的跡象
 1111 211 121 112 22
-5 // n = 5, count = 8
+5 // n = 5, ans count = 8
 11111 2111 1211 1121 1112 221 212 122
-6 // n = 6, count = 13
+6 // n = 6, ans count = 13
 111111 21111 12111 11211 11121 11112 2211 2121 2112 1221 1122 1212 222
 ```
 
 由上方沙盤推演就可以得出，答案就會等於對 n 做斐波那契。
-
-</details>
 
 ## 筆記
 
@@ -108,16 +104,40 @@ TypeScript 實做:
 
 ```TS=
 function climbStairs(n: number): number {
-  let a = 1, b = 1, c = 1;
-  for (let i = 0; i < n; i++) {
-    c = a + b;
+  /**
+   * a = ans when one stair
+   * b = ans when two stairs
+   * count = fibonacci count when n stairs
+   */
+  let a = 1, b = 2, count = 0;
+
+  // base case
+  if (n === a || n === b) return n;
+
+  // starting with three stairs
+  for (let i = 3; i < n + 1; i++) {
+    /**
+     * a position = i - 2 = 1
+     * b position = i - 1 = 2
+     * count position will be 3 when take count.
+     */
+    // count when three stairs will equal to a plus b (fibonacci)
+    count = a + b;
+
+    // set a position to b
+    a = b;
+
+    // set b position to count position.
+    b = count;
   }
+  return count;
 };
+
 ```
 
 ## 成績
 
-![score-image](https://i.imgur.com/KYXTmMZ.png)
+![score-image](https://i.imgur.com/UnaQT1u.png)
 
 <!-- ##### 參考資料 -->
 
