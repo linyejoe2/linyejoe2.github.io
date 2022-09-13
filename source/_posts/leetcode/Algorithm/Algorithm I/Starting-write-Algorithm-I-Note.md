@@ -129,3 +129,9 @@ project: true
 + 77\. Combinations `Medium` [題目](https://leetcode.com/problems/combinations/) [筆記](/2022/09/05/leetcode/Algorithm/Algorithm%20I/77-combinations/)
 + 46\. Permutations `Medium` 題目 筆記
 + 784\. Letter Case Permutation `Medium` 題目 筆記
+
+## 09/13 Day 12 Dynamic Programming
+
++ 70\. Climbing Stairs `Easy` [題目](https://leetcode.com/problems/climbing-stairs/) [筆記](/2022/09/12/leetcode/Algorithm/Algorithm%20I/70-climbing-stairs/)
++ 198\. House Robber `Medium` 題目 筆記
++ 120\. Trangle `Medium` 題目 筆記
