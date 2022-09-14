@@ -17,7 +17,7 @@ categories: [LeetCode, Algorithm I]
 
 這是 `Algorithm I` 的第四天第一個題目，總共有兩題。
 
-+ 難度: `Easy` 
++ 難度: `Easy`
 + 花費時間: 30min
 + [題目](https://leetcode.com/problems/reverse-string/)
 
@@ -27,16 +27,13 @@ categories: [LeetCode, Algorithm I]
 
 <!--more-->
 
-
-
 <details><summary>點我開啟限制與範例</summary>
 <pre>
 
 **限制:**
 
--   `1 <= s.length <= 105`
--   `s[i]` is a [printable ascii character](https://en.wikipedia.org/wiki/ASCII#Printable_characters).
-
++ `1 <= s.length <= 105`
++ `s[i]` is a [printable ascii character](https://en.wikipedia.org/wiki/ASCII#Printable_characters).
 
 **Example 1:**
 
@@ -51,6 +48,7 @@ Output: ["o","l","l","e","h"]
 Input: s = ["H","a","n","n","a","h"]
 Output: ["h","a","n","n","a","H"]
 ```
+
 </pre></details>
 
 ## 筆記
@@ -96,14 +94,11 @@ var reverseString = function(s) {
 Two Pointers 成績
 ![](https://i.imgur.com/kZ5HgK4.png)
 
-
 內建函式 reverse() 寫法成績
 ![](https://i.imgur.com/Oclfd2Z.png)
 
 <details style='display:none;'><summary>點我開啟舊寫法/失敗寫法</summary>
 <pre>
-
-
 
 </pre></details>
 

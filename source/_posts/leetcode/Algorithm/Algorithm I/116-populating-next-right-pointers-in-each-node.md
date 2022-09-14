@@ -74,7 +74,7 @@ Output: []
 
 程式碼: TypeScript 實作
 
-```TS
+```TS=
 function connect(root: TreeNode | null): TreeNode | null {
     // 例外處理
     if (!root) return root;
