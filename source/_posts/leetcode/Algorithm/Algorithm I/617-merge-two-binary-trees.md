@@ -7,7 +7,7 @@ author:     "linyejoe2"
 header-style: text
 catalog: true
 # description: 
-tags: [LeetCode, Tree, Depth-First Search, Breadth-First Search, Binary Tree]
+tags: [LeetCode, Tree, Depth-First Search, Breadth-First Search, Binary Tree, Recursion]
 categories: [LeetCode, Algorithm I]
 ---
 

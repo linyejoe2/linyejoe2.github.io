@@ -7,7 +7,7 @@ author:     "linyejoe2"
 header-style: text
 catalog: true
 # description: 
-tags: [LeetCode, Array, Depth-First Search, Breadth-First Search, Matrix]
+tags: [LeetCode, Array, Depth-First Search, Breadth-First Search, Matrix, Recursion, Iteration]
 categories: [LeetCode, Algorithm I]
 ---
 
@@ -71,7 +71,7 @@ Explanation: The starting pixel is already colored 0, so no changes are made to 
 
 這題有一個重點是，由於替換後的數字就不會等於原數字了，所以基本上題目已經**強制避免讓你走到走過的地方**，這在很多高級題目上是不會有的。
 
-## JS DFS Recursion
+## JS DFS Recursive
 
 ```JS=
 /**
@@ -115,7 +115,7 @@ function moveToNext(image, sr, sc, targetNum, startNum) {
 };
 ```
 
-## Java BFS iteration
+## Java BFS Iterative
 
 ```Java=
 class Solution {

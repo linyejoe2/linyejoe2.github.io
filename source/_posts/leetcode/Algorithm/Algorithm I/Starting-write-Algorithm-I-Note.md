@@ -136,4 +136,18 @@ project: true
 
 + 70\. Climbing Stairs `Easy` [題目](https://leetcode.com/problems/climbing-stairs/) [筆記](/2022/09/12/leetcode/Algorithm/Algorithm%20I/70-climbing-stairs/)
 + 198\. House Robber `Medium` [題目](https://leetcode.com/problems/house-robber/) [筆記](/2022/09/14/leetcode/Algorithm/Algorithm%20I/198-house-robber/)
-+ 120\. Trangle `Medium` 題目 筆記
++ 120\. Triangle `Medium` [題目](https://leetcode.com/problems/triangle/) [筆記](/2022/09/21/leetcode/Algorithm/Algorithm%20I/120.%20Triangle/)
+
+--------------
+
+## 09/13 Day 13 Bit Manipulation
+
++ 231\. Power of Two `Easy` [題目](https://leetcode.com/problems/power-of-two/) 筆記
++ 191\. Number of 1 Bits `Easy` [題目](https://leetcode.com/problems/number-of-1-bits/) 筆記
+
+--------------
+
+## 09/13 Day 14 Bit Manipulation
+
++ 190\. Reverse Bits `Easy` [題目](https://leetcode.com/problems/reverse-bits/) 筆記
++ 136\. Single Number `Easy` [題目](https://leetcode.com/problems/single-number/) 筆記

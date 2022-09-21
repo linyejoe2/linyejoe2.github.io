@@ -7,7 +7,7 @@ author:     "linyejoe2"
 header-style: text
 catalog: true
 # description: 
-tags: [LeetCode, Linked List, Recursion]
+tags: [LeetCode, Linked List, Recursion, Iteration, Two-Pointers]
 categories: [LeetCode, Algorithm I]
 ---
 
@@ -63,7 +63,7 @@ Output: []
 
 這題沒什麼限制，所以應該很多方法都可以做，這邊提供兩個方法
 
-### 1. Array iteration
+### 1. Array iterative
 
 這是我自己想到的方法，我相信也是相對直觀的。
 
@@ -107,7 +107,7 @@ function reverseList(head: ListNode | null): ListNode | null {
 };
 ```
 
-### 2. In-place iteration
+### 2. In-place iterative
 
 有點類似 `two-pointers` 的概念
 
