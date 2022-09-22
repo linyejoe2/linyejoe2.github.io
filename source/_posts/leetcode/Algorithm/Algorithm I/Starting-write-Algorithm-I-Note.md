@@ -22,7 +22,7 @@ project: true
 
 <!--more-->
 
-事情是這樣的，我剛完成 `Data Structure I 筆記撰寫計畫` 裡的 [Day7: Linked List](/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/Starting_write_Data_Structure_I_note/#06-x2F-13-%E7%AC%AC%E4%B8%83%E5%A4%A9) ，但重新整理清單之後，我的題目就被重置了，
+事情是這樣的，我剛完成 `Data Structure I 筆記撰寫計畫` 裡的 [Day7: Linked List](/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/starting-write-data-structure-i-note/#06-x2F-13-%E7%AC%AC%E4%B8%83%E5%A4%A9) ，但重新整理清單之後，我的題目就被重置了，
 原來是 LeetCode 強制規定這些計畫必須要在計劃時間內全部做完，不然就要重做，
 我剛好在最後一天做完一半的題目，所以接下來的題目要再等七天才能做了，所以我就來換做 [演算法](https://leetcode.com/study-plan/algorithm/?progress=gxelya3) ~
 
@@ -120,7 +120,7 @@ project: true
 + 21\. Merge Two Sorted Lists `Easy` [題目](https://leetcode.com/problems/merge-two-sorted-lists/) [筆記](/2022/06/10/leetcode/Data%20Structure/Data%20Structure%20I/21-merge-two-sorted-lists/)
 + 206\. Reverse Linked List `Easy` [題目](https://leetcode.com/problems/reverse-linked-list/) [筆記](/2022/09/01/leetcode/Algorithm/Algorithm%20I/206-reverse-linked-list/)
 
-第一題之前在 [Data Structure I](/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/Starting_write_Data_Structure_I_note/#06-x2F-13-%E7%AC%AC%E4%B8%83%E5%A4%A9) 也有做到，這次就來補充其他寫法。
+第一題之前在 [Data Structure I](/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/starting-write-data-structure-i-note/#06-x2F-13-%E7%AC%AC%E4%B8%83%E5%A4%A9) 也有做到，這次就來補充其他寫法。
 
 --------------
 
@@ -136,7 +136,7 @@ project: true
 
 + 70\. Climbing Stairs `Easy` [題目](https://leetcode.com/problems/climbing-stairs/) [筆記](/2022/09/12/leetcode/Algorithm/Algorithm%20I/70-climbing-stairs/)
 + 198\. House Robber `Medium` [題目](https://leetcode.com/problems/house-robber/) [筆記](/2022/09/14/leetcode/Algorithm/Algorithm%20I/198-house-robber/)
-+ 120\. Triangle `Medium` [題目](https://leetcode.com/problems/triangle/) [筆記](/2022/09/21/leetcode/Algorithm/Algorithm%20I/120.%20Triangle/)
++ 120\. Triangle `Medium` [題目](https://leetcode.com/problems/triangle/) [筆記](/2022/09/21/leetcode/Algorithm/Algorithm%20I/120-triangle/)
 
 --------------
 

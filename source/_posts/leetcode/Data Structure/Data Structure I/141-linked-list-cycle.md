@@ -11,6 +11,8 @@ tags: [LeetCode, Data Structure, Linked List, Two Pointers, Hash Table]
 categories: [LeetCode, Data Structure I]
 ---
 
+>[Data Structure I 筆記撰寫計畫](/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/starting-write-data-structure-i-note/)
+
 ## 敘述
 
 這是 `Data Structure I` 的第八天第一個題目，總共有三題。

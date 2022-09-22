@@ -11,7 +11,7 @@ tags: [LeetCode, Data Structure]
 categories: [LeetCode, Data Structure I]
 ---
 
->[Data Structure I 筆記撰寫計畫](/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/Starting_write_Data_Structure_I_note/)
+>[Data Structure I 筆記撰寫計畫](/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/starting-write-data-structure-i-note/)
 
 ## 敘述
 
