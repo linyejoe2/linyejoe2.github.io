@@ -68,4 +68,6 @@ categories: [東湖冰誌]
 + FB: https://www.facebook.com/people/%E7%B3%96%E6%B0%B4%E5%86%B0%E5%AE%A4/100064250041300/
 + IG: https://www.instagram.com/_dessert.shop_/
 
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14455.854404075704!2d121.6136303!3d25.0692228!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5ceafc67f499b76c!2z57OW5rC05Yaw5a6k!5e0!3m2!1sen!2stw!4v1663818322560!5m2!1sen!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
 [糖水冰室]: /2022/09/06/yummyummy/dessert-shop/

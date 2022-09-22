@@ -2,7 +2,7 @@
 layout:     post
 title:      "[LeetCode]203. Remove Linked List Elements"
 subtitle:   "Data Structure I"
-date:       2022-06-10 14:21:00
+date:       2022-06-10
 author:     "linyejoe2"
 header-style: text
 catalog: true

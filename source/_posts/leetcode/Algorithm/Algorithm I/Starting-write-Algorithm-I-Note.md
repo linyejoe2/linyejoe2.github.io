@@ -10,8 +10,7 @@ catalog: true
 # description: ""
 tags: [LeetCode, Algorithm]
 categories: [LeetCode, Algorithm I]
-sticky: 999
-project: true
+# sticky: 999
 ---
 
 > 計畫: [Algorithm I](https://leetcode.com/study-plan/algorithm/)

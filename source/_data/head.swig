@@ -60,4 +60,27 @@
         display: inline-block;
         width: 13px;
     }
+
+    th,
+    td {
+        border-top:  1px solid rgb(100, 96, 96);
+        border-left:  1px solid rgb(100, 96, 96);
+        border-bottom: 1px solid rgb(97, 80, 80);
+        border-right: 1px solid rgb(97, 80, 80);
+    }
+
+    table {
+        margin: auto auto 20px 20px;
+        width: auto;
+        font-size: 18px;
+        border: 2px solid rgb(80, 77, 77);
+    }
+
+    .post-body img {
+        margin-left: 20px;
+    }
+
+    .post-body iframe {
+        margin-left: 20px;
+    }
 </style>
