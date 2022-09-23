@@ -14,7 +14,7 @@ categories: [LeetCode, Data Structure I]
 > [Algorithm I 筆記撰寫計畫](/2022/06/14/leetcode/Algorithm/Algorithm%20I/Starting-write-Algorithm-I-Note/#09-x2F-13-Day-12-Dynamic-Programming) 第十二天第三題，共三題。
 
 + 難度: `Easy`
-+ 花費時間:
++ 花費時間: 30 min
 + 題目: [83. Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)
 
 給你一個 `Linked List` 的 `head` ，刪除所有重複的節點，然後回傳新的 `Linked List`
