@@ -11,7 +11,7 @@ tags: [LeetCode, Data Structure, Linked List, Iteration]
 categories: [LeetCode, Data Structure I]
 ---
 
-> [Algorithm I 筆記撰寫計畫](/2022/06/14/leetcode/Algorithm/Algorithm%20I/Starting-write-Algorithm-I-Note/#09-x2F-13-Day-12-Dynamic-Programming) 第十二天第三題，共三題。
+> [Algorithm I 筆記撰寫計畫](/2022/06/14/leetcode/Algorithm/Algorithm%20I/Starting-write-Algorithm-I-Note/#09-x2F-13-Day-12-Dynamic-Programming) 第八天第二題，共兩題。
 
 + 難度: `Easy`
 + 花費時間: 30 min

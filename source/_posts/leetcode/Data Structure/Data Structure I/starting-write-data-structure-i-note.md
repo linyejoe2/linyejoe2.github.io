@@ -7,7 +7,7 @@ updated:    2022-06-13 09:00:00
 author:     "linyejoe2"
 header-style: text
 catalog: true
-description: "0613更新啦~~~~<br>------更新到第七天----------下面是原文-----------<br>從今天開始做 LeetCode 的學習計畫，然後每天記錄題目。"
+# description: "0613更新啦~~~~<br>------更新到第七天----------下面是原文-----------<br>從今天開始做 LeetCode 的學習計畫，然後每天記錄題目。"
 tags: [LeetCode, Data Structure]
 categories: [LeetCode, Data Structure I]
 sticky: 998
@@ -21,6 +21,8 @@ sticky: 998
 
 + 跟著進度每天做答，並記錄在這個 Blog 上。
 + 如果半小時內沒有頭緒，就參考評論區的解法，力求半小時內解完一題！
+
+<!-- more -->
 
 ## 05/30 第一天
 
@@ -98,3 +100,8 @@ sticky: 998
 + 83\. Remove Duplicates from Sorted List `Easy` [題目](https://leetcode.com/problems/remove-duplicates-from-sorted-list/) [筆記](/2022/09/22/leetcode/Data%20Structure/Data%20Structure%20I/83-remove-duplicates-from-sorted-list/)
 
 206\. 之前在[Algorithm I 筆記撰寫計畫](/2022/06/14/leetcode/Algorithm/Algorithm%20I/Starting-write-Algorithm-I-Note/)已經做過了~
+
+## 09/23 Day 9 Linked List
+
++ 20\. Valid Parentheses `Easy` [題目](https://leetcode.com/problems/valid-parentheses/) 筆記
++ 232\. Implement Queue using Stacks `Easy` [題目](https://leetcode.com/problems/implement-queue-using-stacks/) 筆記
