@@ -103,5 +103,5 @@ sticky: 998
 
 ## 09/23 Day 9 Linked List
 
-+ 20\. Valid Parentheses `Easy` [題目](https://leetcode.com/problems/valid-parentheses/) 筆記
-+ 232\. Implement Queue using Stacks `Easy` [題目](https://leetcode.com/problems/implement-queue-using-stacks/) 筆記
++ 20\. Valid Parentheses `Easy` [題目](https://leetcode.com/problems/valid-parentheses/) [筆記](/2022/09/22/leetcode/Data%20Structure/Data%20Structure%20I/20-valid-parentheses/)
++ 232\. Implement Queue using Stacks `Easy` [題目](https://leetcode.com/problems/implement-queue-using-stacks/) [筆記](/2022/09/26/leetcode/Data%20Structure/Data%20Structure%20I/232-implement-queue-using-stacks/)
