@@ -105,3 +105,9 @@ sticky: 998
 
 + 20\. Valid Parentheses `Easy` [題目](https://leetcode.com/problems/valid-parentheses/) [筆記](/2022/09/22/leetcode/Data%20Structure/Data%20Structure%20I/20-valid-parentheses/)
 + 232\. Implement Queue using Stacks `Easy` [題目](https://leetcode.com/problems/implement-queue-using-stacks/) [筆記](/2022/09/26/leetcode/Data%20Structure/Data%20Structure%20I/232-implement-queue-using-stacks/)
+
+## 09/27 Day 10 Tree
+
++ 144\. Binary Tree Preorder Traversal `Easy` [題目](https://leetcode.com/problems/binary-tree-preorder-traversal/) [筆記](/2022/09/27/leetcode/Data%20Structure/Data%20Structure%20I/144-binary-tree-preorder-traversal/)
++ 94\. Binary Tree Inorder Traversal `Easy` [題目](https://leetcode.com/problems/binary-tree-inorder-traversal/) 筆記
++ 145\. Binary Tree Postorder Traversal `Easy` [題目](https://leetcode.com/problems/binary-tree-postorder-traversal/) 筆記

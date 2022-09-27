@@ -7,7 +7,7 @@ author:     "linyejoe2"
 header-style: text
 catalog: true
 # description: 
-tags: [LeetCode, Linked List, Recursion, Iteration, Two-Pointers]
+tags: [LeetCode, Linked List, Iteration, Two-Pointers]
 categories: [LeetCode, Algorithm I]
 ---
 
