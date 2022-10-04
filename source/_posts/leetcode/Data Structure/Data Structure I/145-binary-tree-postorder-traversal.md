@@ -2,7 +2,7 @@
 layout:     post
 title:      "[LeetCode]145. Binary Tree Postorder Traversal"
 subtitle:   "Data Structure I"
-date:       2022-09-30
+date:       2022-10-03
 author:     "linyejoe2"
 header-style: text
 catalog: true
@@ -11,10 +11,10 @@ tags: [LeetCode, Tree, Depth-First Search, Binary Tree, Recursion, Iteration]
 categories: [LeetCode, Data Structure I]
 ---
 
-> [Algorithm I 筆記撰寫計畫](/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/starting-write-data-structure-i-note/#09-x2F-27-Day-10-Tree) 第十天第二題，共三題。
+> [Algorithm I 筆記撰寫計畫](/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/starting-write-data-structure-i-note/#09-x2F-27-Day-10-Tree) 第十天第三題，共三題。
 
 + 難度: `Easy`
-+ 花費時間: 
++ 花費時間: 30 min
 + 題目: [145. Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/)
 
 後續遍歷一個二元樹，然後把結果回傳。
@@ -91,29 +91,22 @@ function postorderTraversal(root: TreeNode | null, res: number[] = []): number[]
 
 ```ts=
 function postorderTraversal(root: TreeNode | null): number[] {
+  // 例外處理
+  if (!root) return [];
   // 答案陣列
-  const result: number[] = [];
-  // 儲存走過的父節點
-  const traverseds: TreeNode[] = [];
+  let result: number[] = [];
+  // 待處理的節點
+  let stack: TreeNode[] = [root];
 
-  // 只要現在的 head 還有值，或是走過的節點還有值，就繼續跑
-  while (root || traverseds.length > 0) {
-    // 節點還有值，就把節點塞進去，然後往左走。
-    if (root) {
-      traverseds.push(root);
-      root = root.left;
-    } else  {
-      // 當前節點沒有值了，就往當前節點父節點的右節點走。
-      root = traverseds[traverseds.length - 1];
-      if (root.right) {
-        // 如果有右節點，就繼續跑
-        root = root.right;
-      } else {
-        // 如果沒有右節點，就把值塞進去
-        root = traverseds.pop()!;
-        result.push(root.val);
-      }
-    }
+  // 只要 stack 裡還有節點，就繼續跑
+  while(stack.length > 0) {
+    // 把最後一個節點拿出來
+    let node = stack.pop()!;
+    // 把這個節點的值放進答案陣列的最前面
+    result.unshift(node.val);
+    // 如果他有左右，就放進 stack 裡等待處理
+    if (node.left) stack.push(node.left);
+    if (node.right) stack.push(node.right);
   }
   return result;
 };
@@ -124,10 +117,10 @@ function postorderTraversal(root: TreeNode | null): number[] {
 
 Language|Runtime|Beats|Memory Usage|Beats
 -|-|-|-|-
-TS iterative|73 ms|90.15%|44.4 MB|53.69%
-TS recursive|88 ms|73.51%|43.8 MB|96.60%
+TS iterative|91 ms|74.63%|44.7 MB|18.41%
+TS recursive|80 ms|82.21%|43.9 MB|87.98%
 
-![score-image](https://i.imgur.com/NnAlRoZ.png)
+![score-image](https://i.imgur.com/RpH1kId.png)
 
 <!-- ##### 參考資料
 

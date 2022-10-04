@@ -110,4 +110,4 @@ sticky: 998
 
 + 144\. Binary Tree Preorder Traversal `Easy` [題目](https://leetcode.com/problems/binary-tree-preorder-traversal/) [筆記](/2022/09/27/leetcode/Data%20Structure/Data%20Structure%20I/144-binary-tree-preorder-traversal/)
 + 94\. Binary Tree Inorder Traversal `Easy` [題目](https://leetcode.com/problems/binary-tree-inorder-traversal/) [筆記](/2022/09/30/leetcode/Data%20Structure/Data%20Structure%20I/94-binary-tree-inorder-traversal/)
-+ 145\. Binary Tree Postorder Traversal `Easy` [題目](https://leetcode.com/problems/binary-tree-postorder-traversal/) 筆記
++ 145\. Binary Tree Postorder Traversal `Easy` [題目](https://leetcode.com/problems/binary-tree-postorder-traversal/) [筆記](/2022/10/03/leetcode/Data%20Structure/Data%20Structure%20I/145-binary-tree-postorder-traversal/)
