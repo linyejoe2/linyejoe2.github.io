@@ -115,5 +115,5 @@ sticky: 998
 ## 10/05 Day 11 Tree
 
 + 102\. Binary Tree Level Order Traversal `Easy` [題目](https://leetcode.com/problems/binary-tree-postorder-traversal/) [筆記](/2022/10/05/leetcode/Data%20Structure/Data%20Structure%20I/102-binary-tree-level-order-traversal/)
-+ 102\. Maximum Depth of Binary Tree `Easy` 題目 筆記
-+ 102\. Symmetric Tree `Easy` 題目 筆記
++ 104\. Maximum Depth of Binary Tree `Easy` [題目](https://leetcode.com/problems/maximum-depth-of-binary-tree/) [筆記](/2022/10/05/leetcode/Data%20Structure/Data%20Structure%20I/104-maximum-depth-of-binary-tree/)
++ 101\. Symmetric Tree `Easy` 題目 筆記
