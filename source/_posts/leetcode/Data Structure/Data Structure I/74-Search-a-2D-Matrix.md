@@ -40,13 +40,13 @@ categories: [LeetCode, Data Structure I]
 
 **Example 1:**
 
-![](https://assets.leetcode.com/uploads/2020/10/05/mat.jpg)
+![example-image-1](https://assets.leetcode.com/uploads/2020/10/05/mat.jpg)
 
 
 
 **Example 2:**
 
-![](https://assets.leetcode.com/uploads/2020/10/05/mat2.jpg)
+![example-image-2](https://assets.leetcode.com/uploads/2020/10/05/mat2.jpg)
 
 ```=
 Input: matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 13
