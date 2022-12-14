@@ -136,7 +136,7 @@ function rob(nums: number[]): number {
 ```TS=
 function rob(nums: number[], i: number = 1): number {
   // 如果整排都搶完了，就回家。
-  if (i === nums.length) return nums[nums.length];
+  if (i === nums.length) return nums[nums.length - 1];
   /**
    * 如果要搶現在這間，就要放棄前面那間搶完的錢。
    * 相反的，如果搶了前面那間，則不能搶現在這家，所以總共搶了多少會跟走到上一間房時一樣。
