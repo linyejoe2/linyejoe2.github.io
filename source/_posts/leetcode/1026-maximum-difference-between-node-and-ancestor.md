@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "[LeetCode]1026. Maximum Difference Between Node and Ancestor"
-subtitle:   "LeetCoding Challenge"
+subtitle:   "Daily Challenge"
 date:       2022-12-09
 author:     "linyejoe2"
 header-style: text

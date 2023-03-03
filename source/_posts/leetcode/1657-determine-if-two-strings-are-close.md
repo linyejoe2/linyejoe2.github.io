@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "[LeetCode]1657. Determine if Two Strings Are Close"
-subtitle:   "LeetCoding Challenge"
+subtitle:   "Daily Challenge"
 date:       2022-12-02
 author:     "linyejoe2"
 header-style: text

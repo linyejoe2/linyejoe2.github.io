@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "[LeetCode]876. Middle of the Linked List"
-subtitle:   "LeetCoding Challenge"
+subtitle:   "Daily Challenge"
 date:       2022-12-05
 author:     "linyejoe2"
 header-style: text

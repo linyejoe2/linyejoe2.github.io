@@ -1,12 +1,12 @@
 ---
 layout:     post
 title:      "[LeetCode]869. Reordered Power of 2"
-subtitle:   "LeetCoding Challenge"
+subtitle:   "Daily Challenge"
 date:       2022-08-26
 author:     "linyejoe2"
 header-style: text
 catalog: true
-tags: [LeetCode, Math, LeetCoding Challenge]
+tags: [LeetCode, Math, Daily Challenge]
 categories: [LeetCode]
 ---
 
