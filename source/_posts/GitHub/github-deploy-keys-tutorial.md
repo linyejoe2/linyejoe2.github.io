@@ -8,7 +8,8 @@ header-style: text
 catalog: true
 tags: [github, ssh]
 categories: [GitHub]
-description: "在使用 GitHub 的時候常常看到可以使用 SSH 來操作 repo ，但是不知道怎麼用的話，看這篇就對了！<br>跟小夥伴一起使用 GitHub 時，每次都只能使用 https 來連接遠端伺服器(也就是 GitHub )，今天就來教大家怎麼建立及使用 GitHub Deply Keys ，然後快樂的用 ssh 來操作 repo !"
+description: "在使用 GitHub 的時候常常看到可以使用 SSH 來操作 repo ，但是不知道怎麼用的話，看這篇就對了！"
+# d: "<br>跟小夥伴一起使用 GitHub 時，每次都只能使用 https 來連接遠端伺服器(也就是 GitHub )，今天就來教大家怎麼建立及使用 GitHub Deply Keys ，然後快樂的用 ssh 來操作 repo !"
 ---
 
 # 怎麼建立及使用 GitHub Deploy Keys
