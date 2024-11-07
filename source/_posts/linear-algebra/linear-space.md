@@ -18,7 +18,7 @@ description: "向量空間（Vector Space）是線性代數中的核心概念之
 
 # 定義
 
-向量空間 $V$ 是一組向量和數量運算的集合，並滿足一些基本性質。我們定義 $V$ 是在體 $\mathbb{F}$ 上的向量空間，若滿足以下條件：
+向量空間 $V$ 是一組向量和數量運算的集合，並滿足一些基本性質。我們定義 $V$ 是在[體](https://zh.wikipedia.org/wiki/%E5%9F%9F_(%E6%95%B0%E5%AD%A6)) $\mathbb{F}$ 上的向量空間，若滿足以下條件：
 
 1. **向量加法**：對於任意的向量 $\vec{u}, \vec{v} \in V$，定義一個運算 $+$ 使得 $\vec{u} + \vec{v} \in V$。
 2. **數量乘法**：對於任意的 $a \in \mathbb{F}$ 和 $\vec{v} \in V$，定義一個運算 $\cdot$ 使得 $a \cdot \vec{v} \in V$。
