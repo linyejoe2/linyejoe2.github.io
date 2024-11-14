@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.jpg">
+  <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.svg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/images/manifest.json">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"linyejoe2.site","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="敘述  難度: Medium 花費時間: 10 分鐘 題目  給你一個包含英文的陣列 haystack ，再給你一個包含英文的陣列 needle 找出 needle 有沒有存在於 haystack 裡，有的話就回傳第一個值的索引。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[LeetCode]28. Find the Index of the First Occurrence in a String">
+<meta property="og:url" content="https://linyejoe2.site/2023/03/03/leetcode/23-march-daily-challenge/28-find-the-index-of-the-first-occurrence-in-a-string/index.html">
+<meta property="og:site_name" content="linye&#39;s Blog">
+<meta property="og:description" content="敘述  難度: Medium 花費時間: 10 分鐘 題目  給你一個包含英文的陣列 haystack ，再給你一個包含英文的陣列 needle 找出 needle 有沒有存在於 haystack 裡，有的話就回傳第一個值的索引。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2023-03-03T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-03-03T00:00:00.000Z">
+<meta property="article:author" content="linyejoe2">
+<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="String">
+<meta property="article:tag" content="Daily Challenge">
+<meta property="article:tag" content="Two Pointers">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://linyejoe2.site/2023/03/03/leetcode/23-march-daily-challenge/28-find-the-index-of-the-first-occurrence-in-a-string/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
+
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99"
+    src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(() => {
+        let deferredPrompt;
+        $("#installApp").hide();
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            deferredPrompt = e;
+            $("#installApp").show();
+        });
+
+        const installApp = document.getElementById('installApp');
+
+        installApp.addEventListener('click', async () => {
+            if (deferredPrompt !== null) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    deferredPrompt = null;
+                }
+            }
+        });
+    })
+
+    if ('serviceWorker' in navigator) {   // 檢查browser有無支援serviceWorker
+        navigator.serviceWorker.register('/sw.js').then(function () {   // register會回傳一個Promise
+            console.log('Service worker registered!');
+        });
+    }
+
+</script>
+
+<style>
+    .text-h2 {
+        font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+        font-weight: bold;
+        line-height: 1.5;
+        margin: 20px 0 15px;
+        font-size: 1.375em;
+        display: block;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-top: 10px;
+    }
+
+    details {
+        background: #404040 !important;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .fa-leetcode::before {
+        content: url('/images/leetcode.svg');
+        display: inline-block;
+        width: 13px;
+    }
+
+    th,
+    td {
+        border-top:  1px solid rgb(100, 96, 96);
+        border-left:  1px solid rgb(100, 96, 96);
+        border-bottom: 1px solid rgb(97, 80, 80);
+        border-right: 1px solid rgb(97, 80, 80);
+    }
+
+    table {
+        margin: auto auto 20px 20px;
+        width: auto;
+        font-size: 18px;
+        border: 2px solid rgb(80, 77, 77);
+    }
+
+    .post-body img {
+        margin-left: 20px;
+    }
+
+    .post-body iframe {
+        margin-left: 20px;
+    }
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BNBZGX2HKV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BNBZGX2HKV');
+</script>
+  <title>[LeetCode]28. Find the Index of the First Occurrence in a String | linye's Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162002287-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-162002287-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title"><img class="site-title-img" src="/images/favicon.svg">linye's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">全端工程師心得分享</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://linyejoe2.site/2023/03/03/leetcode/23-march-daily-challenge/28-find-the-index-of-the-first-occurrence-in-a-string/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgur.com/sevJWXJ.jpg">
+      <meta itemprop="name" content="linyejoe2">
+      <meta itemprop="description" content="JavaScript 全端工程師，對電腦相關的東西都有興趣，想了解也想嘗試，興趣是玩金屬樂，所以部落格裡有時還會混入幾篇金屬樂的文章。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linye's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [LeetCode]28. Find the Index of the First Occurrence in a String
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2023-03-03 00:00:00" itemprop="dateCreated datePublished" datetime="2023-03-03T00:00:00+00:00">2023-03-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/2023-march-daily-challenge/" itemprop="url" rel="index"><span itemprop="name">2023 march daily challenge</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <!-- >[Algorithm I 筆記撰寫計畫](/2022/06/14/leetcode/Algorithm/Algorithm%20I/Starting-write-Algorithm-I-Note/) -->
+<h2 id="敘述"><a class="markdownIt-Anchor" href="#敘述"></a> 敘述</h2>
+<ul>
+<li>難度: <code>Medium</code></li>
+<li>花費時間: 10 分鐘</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/description/">題目</a></li>
+</ul>
+<p>給你一個包含英文的陣列 <code>haystack</code> ，再給你一個包含英文的陣列 <code>needle</code></p>
+<p>找出 <code>needle</code> 有沒有存在於 <code>haystack</code> 裡，有的話就回傳第一個值的索引。</p>
+<span id="more"></span>
+<details><summary>點我開啟限制與範例</summary>
+    <pre>
+<p><strong>限制:</strong></p>
+<ul>
+<li><code>1 &lt;= haystack.length, needle.length &lt;= 10^4</code></li>
+<li><code>haystack</code> and <code>needle</code> consist of only lowercase English characters.</li>
+</ul>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: haystack = &quot;sadbutsad&quot;, needle = &quot;sad&quot;</span><br><span class="line">Output: 0</span><br><span class="line">Explanation: &quot;sad&quot; occurs at index 0 and 6.</span><br><span class="line">The first occurrence is at index 0, so we return 0.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: haystack = &quot;leetcode&quot;, needle = &quot;leeto&quot;</span><br><span class="line">Output: -1</span><br><span class="line">Explanation: &quot;leeto&quot; did not occur in &quot;leetcode&quot;, so we return -1.</span><br></pre></td></tr></table></figure>
+<p></pre></details></p>
+<h2 id="初見"><a class="markdownIt-Anchor" href="#初見"></a> 初見</h2>
+<p>想要用 <code>Two Pointers</code> 來做</p>
+<h2 id="筆記"><a class="markdownIt-Anchor" href="#筆記"></a> 筆記</h2>
+<p>使用 <code>Sliding Window</code> 來做</p>
+<ol>
+<li>判斷 <code>needle[0]</code> 是否等於 <code>haystack[i]</code>
+<ol>
+<li>如果等於: 進入 Window 內部比較，如果都等於，代表有正解，回傳 <code>haystack[i]</code></li>
+<li>如果不等於: Window 橫移一格 =&gt; i += 1</li>
+</ol>
+</li>
+</ol>
+<p><code>TypeScript:</code></p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">strStr</span>(<span class="params">haystack: <span class="built_in">string</span>, needle: <span class="built_in">string</span></span>): <span class="built_in">number</span> &#123;</span><br><span class="line">  <span class="comment">// let j = 0, k = 0</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; haystack.<span class="property">length</span> - needle.<span class="property">length</span> + <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// if equal to needle&#x27;s head</span></span><br><span class="line">    <span class="keyword">if</span> (haystack[i] == needle[<span class="number">0</span>]) &#123;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; needle.<span class="property">length</span>; j++) &#123;</span><br><span class="line">          <span class="comment">// recursive check needle&#x27;s word</span></span><br><span class="line">          <span class="keyword">if</span> (haystack[i + j] != needle[j]) <span class="keyword">throw</span> <span class="literal">undefined</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> i</span><br><span class="line">      &#125; <span class="keyword">catch</span> (e) &#123; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>雖然通過了，但是效果比較不好。</p>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>Runtime</th>
+<th>Beats</th>
+<th>Memory Usage</th>
+<th>Beats</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TypeScript</td>
+<td>147 ms</td>
+<td>5.52%</td>
+<td>50.4 mb</td>
+<td>5.16%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="改良"><a class="markdownIt-Anchor" href="#改良"></a> 改良</h3>
+<p>改用另一種寫法</p>
+<ol>
+<li>迴圈平移 <code>Window</code></li>
+<li>每次都檢查 <code>Window</code> 裡面有沒有相等</li>
+<li>有就回傳</li>
+</ol>
+<p><code>TypeScript</code></p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">strStr</span>(<span class="params">haystack: <span class="built_in">string</span>, needle: <span class="built_in">string</span></span>): <span class="built_in">number</span> &#123;</span><br><span class="line">  <span class="comment">// Sliding Window</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; haystack.<span class="property">length</span> - needle.<span class="property">length</span> + <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// recursive check needle&#x27;s word</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; needle.<span class="property">length</span>; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (haystack[i + j] != needle[j]) <span class="keyword">break</span></span><br><span class="line">      <span class="keyword">if</span> (j == needle.<span class="property">length</span> - <span class="number">1</span>) <span class="keyword">return</span> i</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><code>C++</code></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">strStr</span><span class="params">(string haystack, string needle)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> m = needle.<span class="built_in">length</span>();</span><br><span class="line">        <span class="type">int</span> n = haystack.<span class="built_in">length</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n - m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; m; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (haystack[i + j] != needle[j]) <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">if</span> (j == m - <span class="number">1</span>) <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>Runtime</th>
+<th>Beats</th>
+<th>Memory Usage</th>
+<th>Beats</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TypeScript</td>
+<td>60 ms</td>
+<td>94.13%</td>
+<td>42.9 mb</td>
+<td>73.13%</td>
+</tr>
+<tr>
+<td>C++</td>
+<td>4 ms</td>
+<td>38.84%</td>
+<td>6.3 mb</td>
+<td>69.99%</td>
+</tr>
+</tbody>
+</table>
+<!-- <details style='display:none;'><summary>點我開啟舊寫法/失敗寫法</summary>
+<pre>
+
+</pre></details> -->
+<!-- ##### 參考資料 -->
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+              <a href="/tags/String/" rel="tag"># String</a>
+              <a href="/tags/Daily-Challenge/" rel="tag"># Daily Challenge</a>
+              <a href="/tags/Two-Pointers/" rel="tag"># Two Pointers</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/12/19/leetcode/1971-find-if-path-exists-in-graph/" rel="prev" title="[LeetCode]1971. Find if Path Exists in Graph">
+      <i class="fa fa-chevron-left"></i> [LeetCode]1971. Find if Path Exists in Graph
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/11/05/linear-algebra/linear-space/" rel="next" title="[線性代數] Vector Space (向量空間)">
+      [線性代數] Vector Space (向量空間) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+<div class="toggle sidebar-toggle">
+  <span class="toggle-line toggle-line-first"></span>
+  <span class="toggle-line toggle-line-middle"></span>
+  <span class="toggle-line toggle-line-last"></span>
+</div>
+
+<aside class="sidebar">
+  <div class="sidebar-inner">
+
+    <ul class="sidebar-nav motion-element">
+      <li class="sidebar-nav-toc">
+        文章目錄
+      </li>
+      <li class="sidebar-nav-overview">
+        本站概要
+      </li>
+      <li style="margin-left: 10px">
+        <a href="/" style="border: 0;">
+          回到首頁
+        </a>
+      </li>
+    </ul>
+
+    <!--noindex-->
+    <div class="post-toc-wrap sidebar-panel">
+      <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%98%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text"> 敘述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E8%A6%8B"><span class="nav-number">2.</span> <span class="nav-text"> 初見</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AD%86%E8%A8%98"><span class="nav-number">3.</span> <span class="nav-text"> 筆記</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%B9%E8%89%AF"><span class="nav-number">3.1.</span> <span class="nav-text"> 改良</span></a></li></ol></li></ol></div>
+    </div>
+    <!--/noindex-->
+
+    <div class="site-overview-wrap sidebar-panel">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="linyejoe2"
+      src="https://i.imgur.com/sevJWXJ.jpg">
+  <p class="site-author-name" itemprop="name">linyejoe2</p>
+  <div class="site-description" itemprop="description">JavaScript 全端工程師，對電腦相關的東西都有興趣，想了解也想嘗試，興趣是玩金屬樂，所以部落格裡有時還會混入幾篇金屬樂的文章。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">88</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/linyejoe2" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;linyejoe2" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/randy-lin/" title="LinkedIn → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;randy-lin&#x2F;" rel="noopener" target="_blank"><i class="fa-brands fa-linkedin fa-fw"></i>LinkedIn</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.com/linyejoe2/" title="LeetCode → https:&#x2F;&#x2F;leetcode.com&#x2F;linyejoe2&#x2F;" rel="noopener" target="_blank"><i class="fa-brands fa-leetcode fa-fw"></i>LeetCode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/18842709/linyejoe2" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;18842709&#x2F;linyejoe2" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+
+<style>
+</style>
+<div style="margin-top: 10px;">
+  <span class="links-of-author-item">
+    <a id="installApp"><i class="fa-solid fa-download fa-fw"></i> Add to Home Page</a>
+  </span>
+</div>
+    </div>
+
+  </div>
+  
+</aside>
+<div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">linyejoe2</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'dark',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+      
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+
+
+  
+<script color="200,200,200" opacity="0.8" zIndex="-1" count="99"
+    src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+</body>
+</html>

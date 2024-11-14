@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.jpg">
+  <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.svg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/images/manifest.json">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"linyejoe2.site","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="計畫: Data Structure I   前言 以前有曾經想要跟著 LeetCode 做他的 Daily Challenge ，但是後來發現裡面有些題目對我來說難度太高了，導致我可能一題難的要做三四個小時，這樣的狀況持續了大概兩個月之後我覺得不行，應該要換個學習方法，所以我就找到了 LeetCode 有這個 Study Plan ，我覺得很適合我這種初學者，於是從今天開始就照著這個學習計畫每">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[LeetCode]Data Structure I 筆記撰寫計畫">
+<meta property="og:url" content="https://linyejoe2.site/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/starting-write-data-structure-i-note/index.html">
+<meta property="og:site_name" content="linye&#39;s Blog">
+<meta property="og:description" content="計畫: Data Structure I   前言 以前有曾經想要跟著 LeetCode 做他的 Daily Challenge ，但是後來發現裡面有些題目對我來說難度太高了，導致我可能一題難的要做三四個小時，這樣的狀況持續了大概兩個月之後我覺得不行，應該要換個學習方法，所以我就找到了 LeetCode 有這個 Study Plan ，我覺得很適合我這種初學者，於是從今天開始就照著這個學習計畫每">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2022-05-30T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-13T09:00:00.000Z">
+<meta property="article:author" content="linyejoe2">
+<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="Data Structure">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://linyejoe2.site/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/starting-write-data-structure-i-note/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
+
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99"
+    src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(() => {
+        let deferredPrompt;
+        $("#installApp").hide();
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            deferredPrompt = e;
+            $("#installApp").show();
+        });
+
+        const installApp = document.getElementById('installApp');
+
+        installApp.addEventListener('click', async () => {
+            if (deferredPrompt !== null) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    deferredPrompt = null;
+                }
+            }
+        });
+    })
+
+    if ('serviceWorker' in navigator) {   // 檢查browser有無支援serviceWorker
+        navigator.serviceWorker.register('/sw.js').then(function () {   // register會回傳一個Promise
+            console.log('Service worker registered!');
+        });
+    }
+
+</script>
+
+<style>
+    .text-h2 {
+        font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+        font-weight: bold;
+        line-height: 1.5;
+        margin: 20px 0 15px;
+        font-size: 1.375em;
+        display: block;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-top: 10px;
+    }
+
+    details {
+        background: #404040 !important;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .fa-leetcode::before {
+        content: url('/images/leetcode.svg');
+        display: inline-block;
+        width: 13px;
+    }
+
+    th,
+    td {
+        border-top:  1px solid rgb(100, 96, 96);
+        border-left:  1px solid rgb(100, 96, 96);
+        border-bottom: 1px solid rgb(97, 80, 80);
+        border-right: 1px solid rgb(97, 80, 80);
+    }
+
+    table {
+        margin: auto auto 20px 20px;
+        width: auto;
+        font-size: 18px;
+        border: 2px solid rgb(80, 77, 77);
+    }
+
+    .post-body img {
+        margin-left: 20px;
+    }
+
+    .post-body iframe {
+        margin-left: 20px;
+    }
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BNBZGX2HKV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BNBZGX2HKV');
+</script>
+  <title>[LeetCode]Data Structure I 筆記撰寫計畫 | linye's Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162002287-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-162002287-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title"><img class="site-title-img" src="/images/favicon.svg">linye's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">全端工程師心得分享</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://linyejoe2.site/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/starting-write-data-structure-i-note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgur.com/sevJWXJ.jpg">
+      <meta itemprop="name" content="linyejoe2">
+      <meta itemprop="description" content="JavaScript 全端工程師，對電腦相關的東西都有興趣，想了解也想嘗試，興趣是玩金屬樂，所以部落格裡有時還會混入幾篇金屬樂的文章。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linye's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [LeetCode]Data Structure I 筆記撰寫計畫
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2022-05-30 00:00:00" itemprop="dateCreated datePublished" datetime="2022-05-30T00:00:00+00:00">2022-05-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2022-06-13 09:00:00" itemprop="dateModified" datetime="2022-06-13T09:00:00+00:00">2022-06-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/Data-Structure-I/" itemprop="url" rel="index"><span itemprop="name">Data Structure I</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>計畫: <a target="_blank" rel="noopener" href="https://leetcode.com/study-plan/data-structure/?progress=6ofm59r">Data Structure I</a></p>
+</blockquote>
+<h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
+<p>以前有曾經想要跟著 LeetCode 做他的 <a target="_blank" rel="noopener" href="https://leetcode.com/discuss/general-discussion/655704/">Daily Challenge</a> ，但是後來發現裡面有些題目對我來說難度太高了，導致我可能一題難的要做三四個小時，這樣的狀況持續了大概兩個月之後我覺得不行，應該要換個學習方法，所以我就找到了 LeetCode 有這個 <a target="_blank" rel="noopener" href="https://leetcode.com/study-plan/">Study Plan</a> ，我覺得很適合我這種初學者，於是從今天開始就照著這個學習計畫每天學習並把做到的題目紀錄在這個 Blog 上！</p>
+<ul>
+<li>跟著進度每天做答，並記錄在這個 Blog 上。</li>
+<li>如果半小時內沒有頭緒，就參考評論區的解法，力求半小時內解完一題！</li>
+</ul>
+<span id="more"></span>
+<h2 id="0530-第一天"><a class="markdownIt-Anchor" href="#0530-第一天"></a> 05/30 第一天</h2>
+<ul>
+<li>Day1: Array
+<ul>
+<li>217. Contains Duplicate <code>Easy</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/contains-duplicate/">題目</a> <a href="/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/217_Contains_Duplicate/">筆記</a></li>
+<li>53. Maximum Subarray <code>Easy</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/maximum-subarray/">題目</a> <a href="/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/53_Maximum_Subarray/">筆記</a></li>
+</ul>
+</li>
+</ul>
+<p>今天的兩題題目都是 <code>Easy</code> ，第一題算簡單，第二題想了很久沒有想到做法，於是參考了一下評論區，可能是因為第一天寫，總共花費的時間有點多，希望明天會有進步~~</p>
+<h2 id="0531-第二天"><a class="markdownIt-Anchor" href="#0531-第二天"></a> 05/31 第二天</h2>
+<ul>
+<li>Day2: Array
+<ul>
+<li>1. Two Sum <code>Easy</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/two-sum/">題目</a> <a href="/2022/05/31/leetcode/Data%20Structure/Data%20Structure%20I/1_Two_Sum/">筆記</a></li>
+<li>88. Merge Sorted Array <code>Easy</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/merge-sorted-array/">題目</a> <a href="/2022/05/31/leetcode/Data%20Structure/Data%20Structure%20I/88_Merge_Sorted_Array/">筆記</a></li>
+</ul>
+</li>
+</ul>
+<p>今天的兩題題目都是 <code>Easy</code> ，今天一樣花費了很多時間在解題，大概四小時，所以從今天起嘗試加入新規則，如果題目半小時沒有進展，就參考一下評論區的解法，力求快速的掌握解題手感！</p>
+<h2 id="0601-第三天"><a class="markdownIt-Anchor" href="#0601-第三天"></a> 06/01 第三天</h2>
+<ul>
+<li>Day3: Array
+<ul>
+<li>350. Intersection of Two Arrays II <code>Easy</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/intersection-of-two-arrays-ii/">題目</a> <a href="/2022/06/01/leetcode/Data%20Structure/Data%20Structure%20I/350_Intersection_of_Two_Arrays_II/">筆記</a></li>
+<li>121. Best Time to Buy and Sell Stock <code>Easy</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/">題目</a> <a href="/2022/06/01/leetcode/Data%20Structure/Data%20Structure%20I/121_Best_Time_to_Buy_and_Sell_Stock/">筆記</a></li>
+</ul>
+</li>
+</ul>
+<p>今天第一題算簡單，第二題算是我第一次接觸 <code>Dynamic Programming</code> ，所以卡了有點久，所幸最後算是有學到一點感覺~</p>
+<h2 id="0602-第四天"><a class="markdownIt-Anchor" href="#0602-第四天"></a> 06/02 第四天</h2>
+<ul>
+<li>Day4: Array
+<ul>
+<li>118. Pascal’s Triangle <code>Easy</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/pascals-triangle/">題目</a> <a href="/2022/06/02/leetcode/Data%20Structure/Data%20Structure%20I/118_Pascal's_Triangle/">筆記</a></li>
+<li>566. Reshape the Matrix <code>Easy</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/reshape-the-matrix/">題目</a> <a href="/2022/06/02/leetcode/Data%20Structure/Data%20Structure%20I/566_Reshape_the_Matrix/">筆記</a></li>
+</ul>
+</li>
+</ul>
+<p>今天我是先做第二題再做第一題，今天雖然提不太起勁做，但是第一題讓我第一次有真的只靠自己寫出 <code>Dynamic Programming</code> 的感覺，非常的棒，第二題的話，感覺他給的提示有點誤導，最後我有參考評論區，其實算是非常簡單。</p>
+<h2 id="0606-第五天"><a class="markdownIt-Anchor" href="#0606-第五天"></a> 06/06 第五天</h2>
+<ul>
+<li>Day5: Array
+<ul>
+<li>36. Valid Sudoku <code>Medium</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/valid-sudoku/">題目</a> <a href="/2022/06/06/leetcode/Data%20Structure/Data%20Structure%20I/36-Valid-Sudoku/">筆記</a></li>
+<li>74. Search a 2D Matrix <code>Medium</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/search-a-2d-matrix/">題目</a> <a href="/2022/06/06/leetcode/Data%20Structure/Data%20Structure%20I/74-Search-a-2D-Matrix/">筆記</a></li>
+</ul>
+</li>
+</ul>
+<p>距離上次寫這個計畫過了一個端午聯假，本來打算騎腳踏車上武嶺的，結果半路上被淋成了落湯雞zzz</p>
+<p>今天是 Array 系列的最後一天，並且今天重磅祭出了兩題的 <code>Medium</code> ，但是實際做完的感覺… 好像沒有想像中的難嘛，<br />
+我覺得歸根究底還是因為這些題目都是一些比較早期出的題目，所以雖然是 <code>Medium</code> 但是邏輯其實都很好去想像。</p>
+<p>今天第一題有稍微參考下評論區，不然我只想得出暴力解，事實證明評論區的解法也挺暴力，但比我本來想的好看多了，<br />
+第二題我花了10分鐘就做完了，出題者的邏輯還挺好猜的，今天解題很愉快~~</p>
+<h2 id="0607-第六天"><a class="markdownIt-Anchor" href="#0607-第六天"></a> 06/07 第六天</h2>
+<ul>
+<li>Day6: String
+<ul>
+<li>387. First Unique Character in a String <code>Easy</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/first-unique-character-in-a-string/">題目</a> <a href="/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/387-first-unique-character-in-a-string/">筆記</a></li>
+<li>383. Ransom Note <code>Easy</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/ransom-note/">題目</a> <a href="/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/383-ransom-note/">筆記</a></li>
+<li>242. Valid Anagram <code>Easy</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/valid-anagram/">題目</a> <a href="/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/242-valid-anagram/">筆記</a></li>
+</ul>
+</li>
+</ul>
+<p>今天是 String 系列的第一天(其實也是最後一天，明天變成 Linked List 了)，從今天開始很多題目都會變成一天三題，我要瘋啦！</p>
+<p>今天三題都是差不多的模式，做出字串的 <code>Hash Table</code> ，然後再針對 <code>Hash Table</code> 去做處理。</p>
+<p>第一題 <a href="/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/387-first-unique-character-in-a-string/">387. First Unique Character in a String</a> 跟第二題 <a href="/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/383-ransom-note/">383. Ransom Note</a> 我都是用 JS Object 去做 <code>Hash Table</code> ，<br />
+第三題 <a href="/2022/06/07/leetcode/Data%20Structure/Data%20Structure%20I/242-valid-anagram/">242. Valid Anagram</a> 則是使用 JS Map ，三題最後出來的成績差異有點大，<br />
+以後 <code>Hash Table</code> 我會盡量用 JS Map 來實做。</p>
+<h2 id="0613-第七天"><a class="markdownIt-Anchor" href="#0613-第七天"></a> 06/13 第七天</h2>
+<ul>
+<li>Day7: Linked List
+<ul>
+<li>141. Linked List Cycle <code>Easy</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/linked-list-cycle/">題目</a> <a href="/2022/06/09/leetcode/Data%20Structure/Data%20Structure%20I/141-linked-list-cycle/">筆記</a></li>
+<li>21. Merge Two Sorted Lists <code>Easy</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/merge-two-sorted-lists/">題目</a> <a href="/2022/06/10/leetcode/Data%20Structure/Data%20Structure%20I/21-merge-two-sorted-lists/">筆記</a></li>
+<li>203. Remove Linked List Elements <code>Easy</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/remove-linked-list-elements/">題目</a> <a href="/2022/06/10/leetcode/Data%20Structure/Data%20Structure%20I/203-remove-linked-list-elements/">筆記</a></li>
+</ul>
+</li>
+</ul>
+<p>今天學的是 <a target="_blank" rel="noopener" href="http://alrightchiu.github.io/SecondRound/linked-list-introjian-jie.html">Linked List</a> ，原理非常的好懂，但是實際在做的時候需要思路需要轉變一下，整體來說是非常有趣的資料節構。</p>
+<h2 id="0922-day-8-linked-list"><a class="markdownIt-Anchor" href="#0922-day-8-linked-list"></a> 09/22 Day 8 Linked List</h2>
+<ul>
+<li>206. Reverse Linked List <code>Easy</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/reverse-linked-list/">題目</a> <a href="/2022/09/01/leetcode/Algorithm/Algorithm%20I/206-reverse-linked-list/">筆記</a></li>
+<li>83. Remove Duplicates from Sorted List <code>Easy</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/remove-duplicates-from-sorted-list/">題目</a> <a href="/2022/09/22/leetcode/Data%20Structure/Data%20Structure%20I/83-remove-duplicates-from-sorted-list/">筆記</a></li>
+</ul>
+<p>206. 之前在<a href="/2022/06/14/leetcode/Algorithm/Algorithm%20I/Starting-write-Algorithm-I-Note/">Algorithm I 筆記撰寫計畫</a>已經做過了~</p>
+<h2 id="0923-day-9-linked-list"><a class="markdownIt-Anchor" href="#0923-day-9-linked-list"></a> 09/23 Day 9 Linked List</h2>
+<ul>
+<li>20. Valid Parentheses <code>Easy</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/valid-parentheses/">題目</a> <a href="/2022/09/22/leetcode/Data%20Structure/Data%20Structure%20I/20-valid-parentheses/">筆記</a></li>
+<li>232. Implement Queue using Stacks <code>Easy</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/implement-queue-using-stacks/">題目</a> <a href="/2022/09/26/leetcode/Data%20Structure/Data%20Structure%20I/232-implement-queue-using-stacks/">筆記</a></li>
+</ul>
+<h2 id="0927-day-10-tree"><a class="markdownIt-Anchor" href="#0927-day-10-tree"></a> 09/27 Day 10 Tree</h2>
+<ul>
+<li>144. Binary Tree Preorder Traversal <code>Easy</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/binary-tree-preorder-traversal/">題目</a> <a href="/2022/09/27/leetcode/Data%20Structure/Data%20Structure%20I/144-binary-tree-preorder-traversal/">筆記</a></li>
+<li>94. Binary Tree Inorder Traversal <code>Easy</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/binary-tree-inorder-traversal/">題目</a> <a href="/2022/09/30/leetcode/Data%20Structure/Data%20Structure%20I/94-binary-tree-inorder-traversal/">筆記</a></li>
+<li>145. Binary Tree Postorder Traversal <code>Easy</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/binary-tree-postorder-traversal/">題目</a> <a href="/2022/10/03/leetcode/Data%20Structure/Data%20Structure%20I/145-binary-tree-postorder-traversal/">筆記</a></li>
+</ul>
+<h2 id="1005-day-11-tree"><a class="markdownIt-Anchor" href="#1005-day-11-tree"></a> 10/05 Day 11 Tree</h2>
+<ul>
+<li>102. Binary Tree Level Order Traversal <code>Easy</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/binary-tree-postorder-traversal/">題目</a> <a href="/2022/10/05/leetcode/Data%20Structure/Data%20Structure%20I/102-binary-tree-level-order-traversal/">筆記</a></li>
+<li>104. Maximum Depth of Binary Tree <code>Easy</code> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/maximum-depth-of-binary-tree/">題目</a> <a href="/2022/10/05/leetcode/Data%20Structure/Data%20Structure%20I/104-maximum-depth-of-binary-tree/">筆記</a></li>
+<li>101. Symmetric Tree <code>Easy</code> 題目 筆記</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+              <a href="/tags/Data-Structure/" rel="tag"># Data Structure</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/04/06/JS_adventure_7/" rel="prev" title="[JaveScript]JS全端大冒險No.7 body-parse">
+      <i class="fa fa-chevron-left"></i> [JaveScript]JS全端大冒險No.7 body-parse
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/05/30/leetcode/Data%20Structure/Data%20Structure%20I/53_Maximum_Subarray/" rel="next" title="[LeetCode]53. Maximum Subarray">
+      [LeetCode]53. Maximum Subarray <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+<div class="toggle sidebar-toggle">
+  <span class="toggle-line toggle-line-first"></span>
+  <span class="toggle-line toggle-line-middle"></span>
+  <span class="toggle-line toggle-line-last"></span>
+</div>
+
+<aside class="sidebar">
+  <div class="sidebar-inner">
+
+    <ul class="sidebar-nav motion-element">
+      <li class="sidebar-nav-toc">
+        文章目錄
+      </li>
+      <li class="sidebar-nav-overview">
+        本站概要
+      </li>
+      <li style="margin-left: 10px">
+        <a href="/" style="border: 0;">
+          回到首頁
+        </a>
+      </li>
+    </ul>
+
+    <!--noindex-->
+    <div class="post-toc-wrap sidebar-panel">
+      <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text"> 前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0530-%E7%AC%AC%E4%B8%80%E5%A4%A9"><span class="nav-number">2.</span> <span class="nav-text"> 05&#x2F;30 第一天</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0531-%E7%AC%AC%E4%BA%8C%E5%A4%A9"><span class="nav-number">3.</span> <span class="nav-text"> 05&#x2F;31 第二天</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0601-%E7%AC%AC%E4%B8%89%E5%A4%A9"><span class="nav-number">4.</span> <span class="nav-text"> 06&#x2F;01 第三天</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0602-%E7%AC%AC%E5%9B%9B%E5%A4%A9"><span class="nav-number">5.</span> <span class="nav-text"> 06&#x2F;02 第四天</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0606-%E7%AC%AC%E4%BA%94%E5%A4%A9"><span class="nav-number">6.</span> <span class="nav-text"> 06&#x2F;06 第五天</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0607-%E7%AC%AC%E5%85%AD%E5%A4%A9"><span class="nav-number">7.</span> <span class="nav-text"> 06&#x2F;07 第六天</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0613-%E7%AC%AC%E4%B8%83%E5%A4%A9"><span class="nav-number">8.</span> <span class="nav-text"> 06&#x2F;13 第七天</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0922-day-8-linked-list"><span class="nav-number">9.</span> <span class="nav-text"> 09&#x2F;22 Day 8 Linked List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0923-day-9-linked-list"><span class="nav-number">10.</span> <span class="nav-text"> 09&#x2F;23 Day 9 Linked List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0927-day-10-tree"><span class="nav-number">11.</span> <span class="nav-text"> 09&#x2F;27 Day 10 Tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1005-day-11-tree"><span class="nav-number">12.</span> <span class="nav-text"> 10&#x2F;05 Day 11 Tree</span></a></li></ol></div>
+    </div>
+    <!--/noindex-->
+
+    <div class="site-overview-wrap sidebar-panel">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="linyejoe2"
+      src="https://i.imgur.com/sevJWXJ.jpg">
+  <p class="site-author-name" itemprop="name">linyejoe2</p>
+  <div class="site-description" itemprop="description">JavaScript 全端工程師，對電腦相關的東西都有興趣，想了解也想嘗試，興趣是玩金屬樂，所以部落格裡有時還會混入幾篇金屬樂的文章。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">88</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/linyejoe2" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;linyejoe2" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/randy-lin/" title="LinkedIn → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;randy-lin&#x2F;" rel="noopener" target="_blank"><i class="fa-brands fa-linkedin fa-fw"></i>LinkedIn</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.com/linyejoe2/" title="LeetCode → https:&#x2F;&#x2F;leetcode.com&#x2F;linyejoe2&#x2F;" rel="noopener" target="_blank"><i class="fa-brands fa-leetcode fa-fw"></i>LeetCode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/18842709/linyejoe2" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;18842709&#x2F;linyejoe2" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+
+<style>
+</style>
+<div style="margin-top: 10px;">
+  <span class="links-of-author-item">
+    <a id="installApp"><i class="fa-solid fa-download fa-fw"></i> Add to Home Page</a>
+  </span>
+</div>
+    </div>
+
+  </div>
+  
+</aside>
+<div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">linyejoe2</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'dark',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+      
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+
+
+  
+<script color="200,200,200" opacity="0.8" zIndex="-1" count="99"
+    src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+</body>
+</html>

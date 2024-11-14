@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>總覽</title>
+    <link href="./style.css" rel="stylesheet">
+    <!-- CDN -->
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+    </style>
+
+    <style>
+        aside .sidebar h3 {
+            margin-left: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="./img/logo.png" alt="">
+                    <h2 class="text-muted">FOX<span class="danger">KIT</span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close</span>
+                </div>
+            </div>
+            <div class="sidebar">
+                <a href="#">
+                    <span class="material-icons-sharp">grid_view</span>
+                    <h3>總覽</h3>
+                </a>
+                <a href="#" class="active">
+                    <span class="material-icons-sharp">person_outline</span>
+                    <h3>顧客</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">receipt_long</span>
+                    <h3>訂單</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">insights</span>
+                    <h3>分析</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">mail_outline</span>
+                    <h3>訊息</h3>
+                    <span class="message-count">26</span>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">inventory</span>
+                    <h3>產品</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">report_gmailerrorred</span>
+                    <h3>報表</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">settings</span>
+                    <h3>設定</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">add</span>
+                    <h3>新增 產品</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">logout</span>
+                    <h3>登出</h3>
+                </a>
+            </div>
+        </aside>
+        <main>
+            <h1>總覽</h1>
+
+            <div class="date">
+                <input type="date">
+            </div>
+
+            <div class="insights">
+                <div class="sales">
+                    <span class="material-icons-sharp">
+                        analytics
+                    </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>總銷售額</h3>
+                            <h1>$25,024</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="number">
+                                <p>81%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">最近24小時</small>
+                </div>
+                <!-- END OF SALES -->
+                <div class="expenses">
+                    <span class="material-icons-sharp">
+                        bar_chart
+                    </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>總支出</h3>
+                            <h1>$14,160</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="number">
+                                <p>62%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">最近24小時</small>
+                </div>
+                <!-- END OF EXPENSES -->
+                <div class="income">
+                    <span class="material-icons-sharp">
+                        stacked_line_chart
+                    </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>淨利潤</h3>
+                            <h1>$10,864</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="number">
+                                <p>44%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">最近24小時</small>
+                </div>
+                <!-- END OF INCOME -->
+            </div>
+            <div class="recent-orders">
+                <h2>最新訂單</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>產品名稱</th>
+                            <th>產品識別碼</th>
+                            <th>付款方式</th>
+                            <th>狀態</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Foldable Mini Drone</td>
+                            <td>85631</td>
+                            <td>分期</td>
+                            <td class="warning">處理中</td>
+                            <td class="primary">詳細資訊...</td>
+                        </tr>
+                        <tr>
+                            <td>Foldable Mini Drone</td>
+                            <td>85631</td>
+                            <td>分期</td>
+                            <td class="warning">處理中</td>
+                            <td class="primary">詳細資訊...</td>
+                        </tr>
+                        <tr>
+                            <td>Foldable Mini Drone</td>
+                            <td>85631</td>
+                            <td>分期</td>
+                            <td class="warning">處理中</td>
+                            <td class="primary">詳細資訊...</td>
+                        </tr>
+                        <tr>
+                            <td>Foldable Mini Drone</td>
+                            <td>85631</td>
+                            <td>分期</td>
+                            <td class="warning">處理中</td>
+                            <td class="primary">詳細資訊...</td>
+                        </tr>
+                        <tr>
+                            <td>Foldable Mini Drone</td>
+                            <td>85631</td>
+                            <td>分期</td>
+                            <td class="warning">處理中</td>
+                            <td class="primary">詳細資訊...</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <a href="#">顯示更多...</a>
+            </div>
+        </main>
+        <!-- END OF MAIN -->
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">
+                        menu
+                    </span>
+
+                </button>
+                <div class="theme-toggler">
+                    <span class="material-icons-sharp active">
+                        light_mode
+                    </span>
+                    <span class="material-icons-sharp">
+                        dark_mode
+                    </span>
+                </div>
+                <div class="locale-selector" title="切換語言">
+                    <span class="material-icons-sharp">
+                        public
+                    </span>
+                    <div class="locale-list">
+                        <div class="selected">繁體中文</div>
+                        <div class="option">美式英語</div>
+                    </div>
+                    <!-- <Select >
+                        <option value="CN-TW">繁體中文</option>
+                        <option value="US">美式英語</option>
+                    </Select> -->
+                    <!-- <div class="locale-list">
+                        <li>繁體中文</li>
+                        <li>美式英語</li>
+                    </div> -->
+                </div>
+                <div class="profile">
+                    <div class="info">
+                        <p>嗨, <b>Qing</b></p>
+                        <small class="text-muted">管理員</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="./img/1524413192469.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- END OF TOP -->
+            <div class="recent-updates">
+                <h2>最新購買</h2>
+                <div class="updates">
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="./img/profile-1.png" alt="">
+                        </div>
+                        <div class="message">
+                            <p><b>Jack Wang</b> 購買了一組鍵盤鍵帽</p>
+                            <small class="text-muted">2分鐘前</small>
+                        </div>
+                    </div>
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="./img/profile-1.png" alt="">
+                        </div>
+                        <div class="message">
+                            <p><b>Jack Wang</b> 購買了一組鍵盤鍵帽</p>
+                            <small class="text-muted">2分鐘前</small>
+                        </div>
+                    </div>
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="./img/profile-1.png" alt="">
+                        </div>
+                        <div class="message">
+                            <p><b>Jack Wang</b> 購買了一組鍵盤鍵帽</p>
+                            <small class="text-muted">2分鐘前</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /* END OF RECENT UPDATES */ -->
+            <div class="sales-analytics">
+                <h2>銷售分析</h2>
+                <div class="item online">
+                    <div class="icon">
+                        <span class="material-icons-sharp">
+                            shopping_cart
+                        </span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>線上訂單</h3>
+                            <small class="text-muted">最近24小時</small>
+                        </div>
+                        <h5 class="success">+39%</h5>
+                        <h3>3849 <small class="text-muted">件</small></h3>
+                    </div>
+                </div>
+                <div class="item offline">
+                    <div class="icon">
+                        <span class="material-icons-sharp">
+                            local_mall
+                        </span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>實體訂單</h3>
+                            <small class="text-muted">最近24小時</small>
+                        </div>
+                        <h5 class="danger">-17%</h5>
+                        <h3>1100 <small class="text-muted">件</small></h3>
+                    </div>
+                </div>
+                <div class="item customers">
+                    <div class="icon">
+                        <span class="material-icons-sharp">
+                            person
+                        </span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>新會員</h3>
+                            <small class="text-muted">最近24小時</small>
+                        </div>
+                        <h5 class="success">+25%</h5>
+                        <h3>849 <small class="text-muted">位</small></h3>
+                    </div>
+                </div>
+                <div class="item add-product">
+                    <div>
+                        <span class="material-icons-sharp">
+                            add
+                        </span>
+                        <h3>新增分析</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+
+</html>

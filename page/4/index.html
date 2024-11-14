@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.jpg">
+  <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.svg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/images/manifest.json">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"linyejoe2.site","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="JavaScript 全端工程師，對電腦相關的東西都有興趣，想了解也想嘗試，興趣是玩金屬樂，所以部落格裡有時還會混入幾篇金屬樂的文章。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="linye&#39;s Blog">
+<meta property="og:url" content="https://linyejoe2.site/page/4/index.html">
+<meta property="og:site_name" content="linye&#39;s Blog">
+<meta property="og:description" content="JavaScript 全端工程師，對電腦相關的東西都有興趣，想了解也想嘗試，興趣是玩金屬樂，所以部落格裡有時還會混入幾篇金屬樂的文章。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:author" content="linyejoe2">
+<meta property="article:tag" content="前端,後端,全端,網頁,技術,網頁開發,前端開發,後端開發,JavaScript,HTML,python,CSS,metal,NU metal,metal core">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://linyejoe2.site/page/4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-TW'
+  };
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
+
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99"
+    src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(() => {
+        let deferredPrompt;
+        $("#installApp").hide();
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            deferredPrompt = e;
+            $("#installApp").show();
+        });
+
+        const installApp = document.getElementById('installApp');
+
+        installApp.addEventListener('click', async () => {
+            if (deferredPrompt !== null) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    deferredPrompt = null;
+                }
+            }
+        });
+    })
+
+    if ('serviceWorker' in navigator) {   // 檢查browser有無支援serviceWorker
+        navigator.serviceWorker.register('/sw.js').then(function () {   // register會回傳一個Promise
+            console.log('Service worker registered!');
+        });
+    }
+
+</script>
+
+<style>
+    .text-h2 {
+        font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+        font-weight: bold;
+        line-height: 1.5;
+        margin: 20px 0 15px;
+        font-size: 1.375em;
+        display: block;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-top: 10px;
+    }
+
+    details {
+        background: #404040 !important;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .fa-leetcode::before {
+        content: url('/images/leetcode.svg');
+        display: inline-block;
+        width: 13px;
+    }
+
+    th,
+    td {
+        border-top:  1px solid rgb(100, 96, 96);
+        border-left:  1px solid rgb(100, 96, 96);
+        border-bottom: 1px solid rgb(97, 80, 80);
+        border-right: 1px solid rgb(97, 80, 80);
+    }
+
+    table {
+        margin: auto auto 20px 20px;
+        width: auto;
+        font-size: 18px;
+        border: 2px solid rgb(80, 77, 77);
+    }
+
+    .post-body img {
+        margin-left: 20px;
+    }
+
+    .post-body iframe {
+        margin-left: 20px;
+    }
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BNBZGX2HKV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BNBZGX2HKV');
+</script>
+  <title>linye's Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162002287-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-162002287-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title"><img class="site-title-img" src="/images/favicon.svg">linye's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">全端工程師心得分享</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://linyejoe2.site/2022/08/29/leetcode/Algorithm/Algorithm%20I/733-flood-fill/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgur.com/sevJWXJ.jpg">
+      <meta itemprop="name" content="linyejoe2">
+      <meta itemprop="description" content="JavaScript 全端工程師，對電腦相關的東西都有興趣，想了解也想嘗試，興趣是玩金屬樂，所以部落格裡有時還會混入幾篇金屬樂的文章。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linye's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/29/leetcode/Algorithm/Algorithm%20I/733-flood-fill/" class="post-title-link" itemprop="url">[LeetCode]733. Flood Fill</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2022-08-29 00:00:00" itemprop="dateCreated datePublished" datetime="2022-08-29T00:00:00+00:00">2022-08-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/Algorithm-I/" itemprop="url" rel="index"><span itemprop="name">Algorithm I</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p><a href="/2022/06/14/leetcode/Algorithm/Algorithm%20I/Starting-write-Algorithm-I-Note/">Algorithm I 筆記撰寫計畫</a></p>
+</blockquote>
+<h2 id="敘述"><a class="markdownIt-Anchor" href="#敘述"></a> 敘述</h2>
+<p>這是 <code>Algorithm I</code> 的第七天第一個題目，總共有兩題。</p>
+<ul>
+<li>難度: <code>Easy</code></li>
+<li>花費時間: 20 min</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/flood-fill/">題目</a></li>
+</ul>
+<p>給你一個 <code>MxN Matrix</code> 還有一個指定的點位 (<code>sr</code>, <code>sc</code>) 從點位開始，相鄰的點位如果跟原點位同數字的話，就把相鄰的點位替換成目標數字。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/08/29/leetcode/Algorithm/Algorithm%20I/733-flood-fill/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://linyejoe2.site/2022/08/26/leetcode/869-reordered-power-of-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgur.com/sevJWXJ.jpg">
+      <meta itemprop="name" content="linyejoe2">
+      <meta itemprop="description" content="JavaScript 全端工程師，對電腦相關的東西都有興趣，想了解也想嘗試，興趣是玩金屬樂，所以部落格裡有時還會混入幾篇金屬樂的文章。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linye's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/26/leetcode/869-reordered-power-of-2/" class="post-title-link" itemprop="url">[LeetCode]869. Reordered Power of 2</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2022-08-26 00:00:00" itemprop="dateCreated datePublished" datetime="2022-08-26T00:00:00+00:00">2022-08-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="敘述"><a class="markdownIt-Anchor" href="#敘述"></a> 敘述</h2>
+<p>寫每日練習</p>
+<ul>
+<li>難度: <code>Medium</code></li>
+<li>花費時間: 30 min</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/reordered-power-of-2/">題目</a></li>
+</ul>
+<p>給你一個數字 <code>n</code> ，找出這個數字在任何排列下(前面不能為零)如果有 2 的冪次就回傳 <code>true</code> 沒有則回傳 <code>false</code> 。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/08/26/leetcode/869-reordered-power-of-2/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://linyejoe2.site/2022/08/24/leetcode/326-power-of-three/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgur.com/sevJWXJ.jpg">
+      <meta itemprop="name" content="linyejoe2">
+      <meta itemprop="description" content="JavaScript 全端工程師，對電腦相關的東西都有興趣，想了解也想嘗試，興趣是玩金屬樂，所以部落格裡有時還會混入幾篇金屬樂的文章。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linye's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/24/leetcode/326-power-of-three/" class="post-title-link" itemprop="url">[LeetCode]326. Power Of Three</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2022-08-24 00:00:00" itemprop="dateCreated datePublished" datetime="2022-08-24T00:00:00+00:00">2022-08-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="敘述"><a class="markdownIt-Anchor" href="#敘述"></a> 敘述</h2>
+<p>寫每日練習</p>
+<ul>
+<li>難度: <code>Easy</code></li>
+<li>花費時間: 5 min</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/power-of-three/">題目</a></li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/08/24/leetcode/326-power-of-three/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://linyejoe2.site/2022/08/23/leetcode/2269-find-the-k-beauty-of-a-number/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgur.com/sevJWXJ.jpg">
+      <meta itemprop="name" content="linyejoe2">
+      <meta itemprop="description" content="JavaScript 全端工程師，對電腦相關的東西都有興趣，想了解也想嘗試，興趣是玩金屬樂，所以部落格裡有時還會混入幾篇金屬樂的文章。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linye's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/23/leetcode/2269-find-the-k-beauty-of-a-number/" class="post-title-link" itemprop="url">[LeetCode]2269. Find the K-Beauty of a Number</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2022-08-23 00:00:00" itemprop="dateCreated datePublished" datetime="2022-08-23T00:00:00+00:00">2022-08-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="敘述"><a class="markdownIt-Anchor" href="#敘述"></a> 敘述</h2>
+<p>之前寫了兩題比較難的 <code>Sliding Window</code> ，覺得自己還沒有到很熟悉，所以找了幾題來練習。</p>
+<ul>
+<li>難度: <code>Easy</code></li>
+<li>花費時間: 30 min</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-the-k-beauty-of-a-number/">題目</a></li>
+</ul>
+<p>給你兩個數字 <code>num</code> 跟 <code>k</code> ，前者是你要處理的數字，後者是 <code>substring</code> 的寬度，<br />
+依照 <code>Sliding Window</code> 的原理，在 <code>num</code> 裡取出所有大小為 <code>k</code> 的 <code>substring</code> ，回傳<strong>這些值之中可以整除 num 的值的數量</strong>。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/08/23/leetcode/2269-find-the-k-beauty-of-a-number/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://linyejoe2.site/2022/08/15/leetcode/Algorithm/Algorithm%20I/3-longest-substring-without-repeating/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgur.com/sevJWXJ.jpg">
+      <meta itemprop="name" content="linyejoe2">
+      <meta itemprop="description" content="JavaScript 全端工程師，對電腦相關的東西都有興趣，想了解也想嘗試，興趣是玩金屬樂，所以部落格裡有時還會混入幾篇金屬樂的文章。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linye's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/15/leetcode/Algorithm/Algorithm%20I/3-longest-substring-without-repeating/" class="post-title-link" itemprop="url">[LeetCode]3. Longest Substring Without Repeating Characters</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2022-08-15 00:00:00" itemprop="dateCreated datePublished" datetime="2022-08-15T00:00:00+00:00">2022-08-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/Algorithm-I/" itemprop="url" rel="index"><span itemprop="name">Algorithm I</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p><a href="/2022/06/14/leetcode/Algorithm/Algorithm%20I/Starting-write-Algorithm-I-Note/">Algorithm I 筆記撰寫計畫</a></p>
+</blockquote>
+<h2 id="敘述"><a class="markdownIt-Anchor" href="#敘述"></a> 敘述</h2>
+<p>這是 <code>Algorithm I</code> 的第六天第一個題目，總共有兩題。</p>
+<ul>
+<li>難度: <code>Medium</code></li>
+<li>花費時間: 1 小時</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/longest-substring-without-repeating-characters/">題目</a></li>
+</ul>
+<p>Given a string <code>s</code>, find the length of the <strong>longest substring</strong> without repeating characters.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/08/15/leetcode/Algorithm/Algorithm%20I/3-longest-substring-without-repeating/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://linyejoe2.site/2022/08/15/leetcode/Algorithm/Algorithm%20I/567-permutation-in-string/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgur.com/sevJWXJ.jpg">
+      <meta itemprop="name" content="linyejoe2">
+      <meta itemprop="description" content="JavaScript 全端工程師，對電腦相關的東西都有興趣，想了解也想嘗試，興趣是玩金屬樂，所以部落格裡有時還會混入幾篇金屬樂的文章。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linye's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/15/leetcode/Algorithm/Algorithm%20I/567-permutation-in-string/" class="post-title-link" itemprop="url">[LeetCode]567. Permutation In String</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2022-08-15 00:00:00" itemprop="dateCreated datePublished" datetime="2022-08-15T00:00:00+00:00">2022-08-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/Algorithm-I/" itemprop="url" rel="index"><span itemprop="name">Algorithm I</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p><a href="/2022/06/14/leetcode/Algorithm/Algorithm%20I/Starting-write-Algorithm-I-Note/">Algorithm I 筆記撰寫計畫</a></p>
+</blockquote>
+<h2 id="敘述"><a class="markdownIt-Anchor" href="#敘述"></a> 敘述</h2>
+<p>這是 <code>Algorithm I</code> 的第六天第二個題目，總共有兩題。</p>
+<ul>
+<li>難度: <code>Medium</code></li>
+<li>花費時間: 3 小時</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/permutation-in-string/">題目</a></li>
+</ul>
+<p>Given you two strings <code>s1</code> and <code>s2</code>, return <code>true</code> if <code>s2</code> contains a permutation of <code>s1</code> , otherwise return <code>false</code>.</p>
+<blockquote>
+<p>permutation: 字母重組字</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/08/15/leetcode/Algorithm/Algorithm%20I/567-permutation-in-string/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://linyejoe2.site/2022/06/30/leetcode/SQL/SQL%20I/1484-group-sold-products-by-the-date/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgur.com/sevJWXJ.jpg">
+      <meta itemprop="name" content="linyejoe2">
+      <meta itemprop="description" content="JavaScript 全端工程師，對電腦相關的東西都有興趣，想了解也想嘗試，興趣是玩金屬樂，所以部落格裡有時還會混入幾篇金屬樂的文章。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linye's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/06/30/leetcode/SQL/SQL%20I/1484-group-sold-products-by-the-date/" class="post-title-link" itemprop="url">[LeetCode]1484. Group Sold Products By The Date</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2022-06-30 00:00:00" itemprop="dateCreated datePublished" datetime="2022-06-30T00:00:00+00:00">2022-06-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/SQL-I/" itemprop="url" rel="index"><span itemprop="name">SQL I</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p><a href="/2022/06/27/leetcode/SQL/SQL%20I/Starting_write_SQL_I_note/">SQL I 筆記撰寫計畫</a></p>
+</blockquote>
+<h2 id="敘述"><a class="markdownIt-Anchor" href="#敘述"></a> 敘述</h2>
+<p>這是 <code>SQL I</code> 的第三天第二個題目，總共有三題。</p>
+<ul>
+<li>難度: <code>Easy</code></li>
+<li>花費時間: 30</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/group-sold-products-by-the-date/">題目</a></li>
+</ul>
+<p>老闆給你一張表 <code>Activities</code> ，裡面記載了他在某天賣出了什麼產品，他現在希望你針對這張表作出一張報表，符合以下格式…</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/06/30/leetcode/SQL/SQL%20I/1484-group-sold-products-by-the-date/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://linyejoe2.site/2022/06/30/leetcode/SQL/SQL%20I/1527-patients-with-a-condition/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgur.com/sevJWXJ.jpg">
+      <meta itemprop="name" content="linyejoe2">
+      <meta itemprop="description" content="JavaScript 全端工程師，對電腦相關的東西都有興趣，想了解也想嘗試，興趣是玩金屬樂，所以部落格裡有時還會混入幾篇金屬樂的文章。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linye's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/06/30/leetcode/SQL/SQL%20I/1527-patients-with-a-condition/" class="post-title-link" itemprop="url">[LeetCode]1527. Patients With a Condition</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2022-06-30 00:00:00" itemprop="dateCreated datePublished" datetime="2022-06-30T00:00:00+00:00">2022-06-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/SQL-I/" itemprop="url" rel="index"><span itemprop="name">SQL I</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p><a href="/2022/06/27/leetcode/SQL/SQL%20I/Starting_write_SQL_I_note/">SQL I 筆記撰寫計畫</a></p>
+</blockquote>
+<h2 id="敘述"><a class="markdownIt-Anchor" href="#敘述"></a> 敘述</h2>
+<p>這是 <code>SQL I</code> 的第三天第三個題目，總共有三題。</p>
+<ul>
+<li>難度: <code>Easy</code></li>
+<li>花費時間: 5min</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/patients-with-a-condition/">題目</a></li>
+</ul>
+<p>你有一張表 <code>Patients</code> 裡面記載了許多病人的名字還有他們有什麼病，現在你只想看到那些有型一糖尿病的病人…</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/06/30/leetcode/SQL/SQL%20I/1527-patients-with-a-condition/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://linyejoe2.site/2022/06/30/leetcode/SQL/SQL%20I/1667-fix-names-in-a-table/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgur.com/sevJWXJ.jpg">
+      <meta itemprop="name" content="linyejoe2">
+      <meta itemprop="description" content="JavaScript 全端工程師，對電腦相關的東西都有興趣，想了解也想嘗試，興趣是玩金屬樂，所以部落格裡有時還會混入幾篇金屬樂的文章。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linye's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/06/30/leetcode/SQL/SQL%20I/1667-fix-names-in-a-table/" class="post-title-link" itemprop="url">[LeetCode]1667. Fix Names in a Table</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2022-06-30 00:00:00" itemprop="dateCreated datePublished" datetime="2022-06-30T00:00:00+00:00">2022-06-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/SQL-I/" itemprop="url" rel="index"><span itemprop="name">SQL I</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p><a href="/2022/06/27/leetcode/SQL/SQL%20I/Starting_write_SQL_I_note/">SQL I 筆記撰寫計畫</a></p>
+</blockquote>
+<h2 id="敘述"><a class="markdownIt-Anchor" href="#敘述"></a> 敘述</h2>
+<p>這是 <code>SQL I</code> 的第三天第一個題目，總共有三題。</p>
+<ul>
+<li>難度: <code>Easy</code></li>
+<li>花費時間: 5min</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/fix-names-in-a-table/">題目</a></li>
+</ul>
+<p>給你一張表 <code>Users</code> ，這張表記載了很多 user 的名字，但是也包含很多的大小寫轉換錯誤，現在希望你撰寫一個 SELECT 語法，要顯示符合<strong>規範</strong>的名字。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/06/30/leetcode/SQL/SQL%20I/1667-fix-names-in-a-table/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://linyejoe2.site/2022/06/30/leetcode/SQL/SQL%20I/196-delete-duplicate-emails/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgur.com/sevJWXJ.jpg">
+      <meta itemprop="name" content="linyejoe2">
+      <meta itemprop="description" content="JavaScript 全端工程師，對電腦相關的東西都有興趣，想了解也想嘗試，興趣是玩金屬樂，所以部落格裡有時還會混入幾篇金屬樂的文章。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linye's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/06/30/leetcode/SQL/SQL%20I/196-delete-duplicate-emails/" class="post-title-link" itemprop="url">[LeetCode]196. Delete Duplicate Emails</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2022-06-30 00:00:00" itemprop="dateCreated datePublished" datetime="2022-06-30T00:00:00+00:00">2022-06-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/SQL-I/" itemprop="url" rel="index"><span itemprop="name">SQL I</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p><a href="/2022/06/27/leetcode/SQL/SQL%20I/Starting_write_SQL_I_note/">SQL I 筆記撰寫計畫</a></p>
+</blockquote>
+<h2 id="敘述"><a class="markdownIt-Anchor" href="#敘述"></a> 敘述</h2>
+<p>這是 <code>SQL I</code> 的第二天第三個題目，總共有三題。</p>
+<ul>
+<li>難度: <code>Easy</code></li>
+<li>花費時間: 10min</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/delete-duplicate-emails/">題目</a></li>
+</ul>
+<p>給你一張表 <code>Person</code> ，這張表裡存了一堆 email ，但是裡面有些 email 是重複的，現在請你撰寫一個 DELETE 語法來刪除這些重複的 email 資料。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/06/30/leetcode/SQL/SQL%20I/196-delete-duplicate-emails/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一頁"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一頁"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+<div class="toggle sidebar-toggle">
+  <span class="toggle-line toggle-line-first"></span>
+  <span class="toggle-line toggle-line-middle"></span>
+  <span class="toggle-line toggle-line-last"></span>
+</div>
+
+<aside class="sidebar">
+  <div class="sidebar-inner">
+
+    <ul class="sidebar-nav motion-element">
+      <li class="sidebar-nav-toc">
+        文章目錄
+      </li>
+      <li class="sidebar-nav-overview">
+        本站概要
+      </li>
+      <li style="margin-left: 10px">
+        <a href="/" style="border: 0;">
+          回到首頁
+        </a>
+      </li>
+    </ul>
+
+    <!--noindex-->
+    <div class="post-toc-wrap sidebar-panel">
+    </div>
+    <!--/noindex-->
+
+    <div class="site-overview-wrap sidebar-panel">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="linyejoe2"
+      src="https://i.imgur.com/sevJWXJ.jpg">
+  <p class="site-author-name" itemprop="name">linyejoe2</p>
+  <div class="site-description" itemprop="description">JavaScript 全端工程師，對電腦相關的東西都有興趣，想了解也想嘗試，興趣是玩金屬樂，所以部落格裡有時還會混入幾篇金屬樂的文章。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">88</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/linyejoe2" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;linyejoe2" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/randy-lin/" title="LinkedIn → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;randy-lin&#x2F;" rel="noopener" target="_blank"><i class="fa-brands fa-linkedin fa-fw"></i>LinkedIn</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.com/linyejoe2/" title="LeetCode → https:&#x2F;&#x2F;leetcode.com&#x2F;linyejoe2&#x2F;" rel="noopener" target="_blank"><i class="fa-brands fa-leetcode fa-fw"></i>LeetCode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/18842709/linyejoe2" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;18842709&#x2F;linyejoe2" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+
+<style>
+</style>
+<div style="margin-top: 10px;">
+  <span class="links-of-author-item">
+    <a id="installApp"><i class="fa-solid fa-download fa-fw"></i> Add to Home Page</a>
+  </span>
+</div>
+    </div>
+
+  </div>
+  
+</aside>
+<div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">linyejoe2</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'dark',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+      
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+
+
+  
+<script color="200,200,200" opacity="0.8" zIndex="-1" count="99"
+    src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+</body>
+</html>

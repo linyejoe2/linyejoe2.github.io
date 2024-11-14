@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.jpg">
+  <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.svg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/images/manifest.json">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"linyejoe2.site","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="私鏈作為區塊鏈的應用之一擁有很高的發展性，任何人、單位、機關，都可以建立自己的私鏈來儲存重要資訊，並且私鏈也提供了跟公鏈一樣的以下幾種特性...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 Geth 建立 POA 私鏈">
+<meta property="og:url" content="https://linyejoe2.site/2024/11/14/Build_POA_chain_with_Geth/index.html">
+<meta property="og:site_name" content="linye&#39;s Blog">
+<meta property="og:description" content="私鏈作為區塊鏈的應用之一擁有很高的發展性，任何人、單位、機關，都可以建立自己的私鏈來儲存重要資訊，並且私鏈也提供了跟公鏈一樣的以下幾種特性...">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/ZpfqhJi.png">
+<meta property="og:image" content="https://i.imgur.com/Cr1YAZV.png">
+<meta property="og:image" content="https://i.imgur.com/5Rv6Hmn.png">
+<meta property="og:image" content="https://i.imgur.com/DgObQ3H.png">
+<meta property="og:image" content="https://i.imgur.com/YMmkfV1.png">
+<meta property="og:image" content="https://i.imgur.com/LIgg9gD.png">
+<meta property="og:image" content="https://i.imgur.com/kCRssbD.png">
+<meta property="og:image" content="https://i.imgur.com/MeD6tGg.png">
+<meta property="og:image" content="https://i.imgur.com/ysDYUo4.png">
+<meta property="og:image" content="https://i.imgur.com/JKwj3KV.png">
+<meta property="og:image" content="https://i.imgur.com/GHVFZoE.png">
+<meta property="article:published_time" content="2024-11-14T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-11-14T00:00:00.000Z">
+<meta property="article:author" content="linyejoe2">
+<meta property="article:tag" content="geth">
+<meta property="article:tag" content="block chain">
+<meta property="article:tag" content="私鏈">
+<meta property="article:tag" content="ethereum">
+<meta property="article:tag" content="區塊鏈">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/ZpfqhJi.png">
+
+<link rel="canonical" href="https://linyejoe2.site/2024/11/14/Build_POA_chain_with_Geth/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
+
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99"
+    src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(() => {
+        let deferredPrompt;
+        $("#installApp").hide();
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            deferredPrompt = e;
+            $("#installApp").show();
+        });
+
+        const installApp = document.getElementById('installApp');
+
+        installApp.addEventListener('click', async () => {
+            if (deferredPrompt !== null) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    deferredPrompt = null;
+                }
+            }
+        });
+    })
+
+    if ('serviceWorker' in navigator) {   // 檢查browser有無支援serviceWorker
+        navigator.serviceWorker.register('/sw.js').then(function () {   // register會回傳一個Promise
+            console.log('Service worker registered!');
+        });
+    }
+
+</script>
+
+<style>
+    .text-h2 {
+        font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+        font-weight: bold;
+        line-height: 1.5;
+        margin: 20px 0 15px;
+        font-size: 1.375em;
+        display: block;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-top: 10px;
+    }
+
+    details {
+        background: #404040 !important;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .fa-leetcode::before {
+        content: url('/images/leetcode.svg');
+        display: inline-block;
+        width: 13px;
+    }
+
+    th,
+    td {
+        border-top:  1px solid rgb(100, 96, 96);
+        border-left:  1px solid rgb(100, 96, 96);
+        border-bottom: 1px solid rgb(97, 80, 80);
+        border-right: 1px solid rgb(97, 80, 80);
+    }
+
+    table {
+        margin: auto auto 20px 20px;
+        width: auto;
+        font-size: 18px;
+        border: 2px solid rgb(80, 77, 77);
+    }
+
+    .post-body img {
+        margin-left: 20px;
+    }
+
+    .post-body iframe {
+        margin-left: 20px;
+    }
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BNBZGX2HKV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BNBZGX2HKV');
+</script>
+  <title>使用 Geth 建立 POA 私鏈 | linye's Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162002287-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-162002287-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title"><img class="site-title-img" src="/images/favicon.svg">linye's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">全端工程師心得分享</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://linyejoe2.site/2024/11/14/Build_POA_chain_with_Geth/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgur.com/sevJWXJ.jpg">
+      <meta itemprop="name" content="linyejoe2">
+      <meta itemprop="description" content="JavaScript 全端工程師，對電腦相關的東西都有興趣，想了解也想嘗試，興趣是玩金屬樂，所以部落格裡有時還會混入幾篇金屬樂的文章。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linye's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          使用 Geth 建立 POA 私鏈
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2024-11-14 00:00:00" itemprop="dateCreated datePublished" datetime="2024-11-14T00:00:00+00:00">2024-11-14</time>
+            </span>
+
+          
+            <div class="post-description">私鏈作為區塊鏈的應用之一擁有很高的發展性，任何人、單位、機關，都可以建立自己的私鏈來儲存重要資訊，並且私鏈也提供了跟公鏈一樣的以下幾種特性...</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>私鏈作為區塊鏈的應用之一擁有很高的發展性，任何人、單位、機關，都可以建立自己的私鏈來儲存重要資訊，並且私鏈也提供了跟公鏈一樣的以下幾種特性:</p>
+<ul>
+<li>不可竄改性(immutable): 任何人都不能竄改已經寫入鏈上的資料，就算修改了，也會在鏈上留下永久性的修改紀錄。</li>
+<li>公開性(transparent): 所有數據都被公開記錄在區塊鏈上，只要有辦法存取區塊鏈節點(EtherScan, JSON-RPC)，也就可以查詢這些紀錄。</li>
+<li>匿名性(anonymous): 所有錢包都是匿名的，你不能透過錢包得知錢包主人的其他資訊。</li>
+<li>共識機制(consensus): 半數鏈上的簽名節點都必須承認某一筆交易，交易才會達成共識，也就是被這條區塊鏈承認，這個機制的好處就是，除了社交工程之外，比較難用黑客技術竄改交易紀錄或偷錢，當然還是有例外(51%攻擊)</li>
+</ul>
+<p>今天要實作的是 POA(授權證明) 鏈， POA 也是私鏈最常用的共識機制，以下簡單的分析一下POA 跟其他共識機制(POS, POW)的差別。</p>
+<ol>
+<li>交易確認方式: POA 由數個指定的<strong>權威節點</strong>來簽名交易，沒經過同意的其他人是不能加入進來<strong>挖礦</strong>的。</li>
+<li>高性能，低延遲: 由於 POA 只能由權威節點簽名交易，不需要大量的計算來驗證交易，因此交易確認速度比起其他共識機制要快，非常適合需要高吞吐量和低延遲的應用，例如供應鏈、物流追蹤等。</li>
+<li>中心化: 由於簽名的權力掌握在少數的權威節點手上，也就代表它不再去中心化。</li>
+<li>節能: 不需要大量的計算及驗證。</li>
+</ol>
+<h1 id="前置工作"><a class="markdownIt-Anchor" href="#前置工作"></a> 前置工作</h1>
+<p>以下我們把 POA 私鏈簡稱為 POA ，我們要做的是一個權威節點(authority node)，以下簡稱節點，一個 POA 最少只需要一個權威節點就可以運作。</p>
+<p>想要做一個 POA ，必須先準備以下的東西:</p>
+<ul>
+<li>一台電腦(伺服器)，最好是 linux 作業系統的，筆者使用的是 Ubuntu 22.04.2 LTS(Docker:<a target="_blank" rel="noopener" href="https://hub.docker.com/r/alnoda/ubuntu-workspace">alnoda/ubuntu-workspace</a>)</li>
+<li>Geth 主程式: 從 <a target="_blank" rel="noopener" href="https://github.com/ethereum/go-ethereum/tags">https://github.com/ethereum/go-ethereum/tags</a> 可以下載到，注意 Geth 從版本 1.14 之後就不支持 POA 共識機制了，所以必須使用 1.14 前的，筆者使用的是 <a target="_blank" rel="noopener" href="https://github.com/ethereum/go-ethereum/releases/tag/v1.9.25">v1.9.25</a></li>
+<li>可以自訂連線區塊鏈網路的 ethereum wallet，筆者使用 <a target="_blank" rel="noopener" href="https://metamask.io/">MetaMask</a></li>
+</ul>
+<h1 id="安裝並運行-geth"><a class="markdownIt-Anchor" href="#安裝並運行-geth"></a> 安裝並運行 Geth</h1>
+<blockquote>
+<p>由於筆者使用 Docker 來做練習，不使用 Docker 的可以跳過這節。</p>
+</blockquote>
+<h2 id="運行-docker-container"><a class="markdownIt-Anchor" href="#運行-docker-container"></a> 運行 Docker Container</h2>
+<p>筆者使用 Docker on windows(WSL) 來練習架設 Geth ，所以我們先來啟動一個 container 。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 運行 container</span></span><br><span class="line">docker run --name space-1 -d -p 3051:3051 -p 30303:30303 -v C:\geth:/root/geth alnoda/ubuntu-workspace</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用 zsh 進入 container</span></span><br><span class="line">docker <span class="built_in">exec</span> -it --user=root space-1 zsh</span><br></pre></td></tr></table></figure>
+<ul>
+<li>–name: container 的名字</li>
+<li>-d: 背景運行(daemon)</li>
+<li>-p: 指定 container 跟 host 的埠映射，設定方式是 <code>-p &#123;host-port&#125;:&#123;container-port&#125;</code>
+<ul>
+<li>3051: 讓使用者連接節點的埠。</li>
+<li>30303: Geth 的 p2p port ，讓節點間可以互相搜尋並建立連線的 port ，這個 port 讓我們以後可以擴充我們的 POA ，加入更多的節點。</li>
+</ul>
+</li>
+<li>-v: volume ，讓 Geth 裡的資訊可以持久化存取，可以簡單的看成把 <code>C:\geth</code> 這個資料夾 mount 到 <code>/root/geth</code> 上</li>
+<li>alnoda/ubuntu-workspace: 指定的 docker image ，我使用的這個 image 讓 docker container 可以像 VM 一樣做一些簡單的沙盒測試。</li>
+</ul>
+<p>然後我們 <code>cd /root/geth</code> 可以看到筆者把 geth 主程式放在這個資料夾底下:</p>
+<p><img src="https://i.imgur.com/ZpfqhJi.png" alt="container-1" /></p>
+<h2 id="撰寫-genesisjson"><a class="markdownIt-Anchor" href="#撰寫-genesisjson"></a> 撰寫 genesis.json</h2>
+<p>現在我們在 <code>/root/geth</code> 目錄底下，有 geth 主程式，我們要撰寫創世區塊 genesis.json ，這個檔案可以幫助 geth 設定鏈的資訊。</p>
+<p><code>/root/geth/genesis.json</code></p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;config&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;chainId&quot;</span><span class="punctuation">:</span> <span class="number">66</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;homesteadBlock&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;eip150Block&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;eip155Block&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;eip158Block&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;byzantiumBlock&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;constantinopleBlock&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;petersburgBlock&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;istanbulBlock&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;clique&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;period&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;epoch&quot;</span><span class="punctuation">:</span> <span class="number">30000</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;alloc&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;556c1aaea8c1ec17a544ba6787a346b6bb05fa9e&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;balance&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x52b7d2dcc80cd2e4000000&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;extraData&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x0000000000000000000000000000000000000000000000000000000000000000556c1aaea8c1ec17a544ba6787a346b6bb05fa9e0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;coinbase&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x0000000000000000000000000000000000000000&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;difficulty&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x1&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;gasLimit&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x77359400&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;gasUsed&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;nonce&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;mixHash&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;parentHash&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;timestamp&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x5ff27a04&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>chainId: 鏈 ID</li>
+<li>homesteadBlock, eip150Block, eip155Block, eip158Block, byzantiumBlock, constantinopleBlock, petersburgBlock, istanbulBlock: 這些是 Ethereum 歷史上的硬分岔，設為 0 表示啟用這些硬分叉。</li>
+<li>clique: POA 的一種
+<ul>
+<li>period: 幾秒生成一個新的區塊，設定為零是因為這是私鏈，我們不希望有空的區塊被產生。</li>
+<li>epoch: 經過幾個區塊後重新選舉驗證者。</li>
+</ul>
+</li>
+<li>alloc: 初始資金要分配給誰，後續我們會修改分配的地址。</li>
+<li>extraData: 設定 POA 的驗證者是誰，目前是 <code>0x556c1aaea8c1ec17a544ba6787a346b6bb05fa9e</code> 這個地址，等等也會修改。</li>
+<li>coinbase: 礦工地址， POA 沒有礦工。</li>
+<li>difficulty: 挖出區塊的難度， POA 可以設定為沒有難度。</li>
+<li>gasLimit: 每個區塊的 gas 上限。</li>
+<li>gasUsed: 創世區塊使用的 gas 數量。</li>
+<li>nonce, mixHash, parentHash: 創世區塊默認。</li>
+</ul>
+<p><img src="https://i.imgur.com/Cr1YAZV.png" alt="container-2" /></p>
+<p>到目前為止我們在 <code>/root/geth</code> 裡有 geth 主程式跟創世區塊設定檔 <code>genesis.json</code>。</p>
+<h2 id="創建使用者"><a class="markdownIt-Anchor" href="#創建使用者"></a> 創建使用者</h2>
+<p><code>./geth account new</code> 建立新的使用者(地址)，創建過程會需要使用者輸入密碼。</p>
+<p><img src="https://i.imgur.com/5Rv6Hmn.png" alt="container-3" /></p>
+<p>將密碼寫入 <code>/root/geth/password</code> 裡備用<br />
+我們得到了一個新的帳號 0x7d454A2fA9487B563ecc1d96C9339Ce4e74163ED ，現在修改 <code>genesis.json</code> ，把 alloc 跟 extraData 裡的地址都改成剛剛創建的地址，如下顯示修改完的檔案:</p>
+<p><code>genesis.json</code></p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;config&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;chainId&quot;</span><span class="punctuation">:</span> <span class="number">66</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;homesteadBlock&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;eip150Block&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;eip155Block&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;eip158Block&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;byzantiumBlock&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;constantinopleBlock&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;petersburgBlock&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;istanbulBlock&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;clique&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;period&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;epoch&quot;</span><span class="punctuation">:</span> <span class="number">30000</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;alloc&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;7d454A2fA9487B563ecc1d96C9339Ce4e74163ED&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;balance&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x52b7d2dcc80cd2e4000000&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;extraData&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x00000000000000000000000000000000000000000000000000000000000000007d454A2fA9487B563ecc1d96C9339Ce4e74163ED0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;coinbase&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x0000000000000000000000000000000000000000&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;difficulty&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x1&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;gasLimit&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x77359400&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;gasUsed&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;nonce&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;mixHash&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;parentHash&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;timestamp&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x5ff27a04&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="初始化後運行-geth"><a class="markdownIt-Anchor" href="#初始化後運行-geth"></a> 初始化後運行 Geth</h2>
+<p>使用 <code>./geth init genesis.json</code> 初始化創世區塊:</p>
+<p><img src="https://i.imgur.com/DgObQ3H.png" alt="container-4" /></p>
+<p>可以看到由於筆者使用的是 Docker ，所以在 USB Device 的地方有報錯，不過這不影響 POA 。<br />
+最後顯示成功寫入創世狀態。</p>
+<p>使用以下指令開始運行 Geth</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">./geth \</span><br><span class="line">--miner.gastarget 2000000000 \</span><br><span class="line">--mine \</span><br><span class="line">--allow-insecure-unlock \</span><br><span class="line">--unlock 0x7d454A2fA9487B563ecc1d96C9339Ce4e74163ED \</span><br><span class="line">--password /root/geth/password \</span><br><span class="line">--http \</span><br><span class="line">--http.port 3051 \</span><br><span class="line">--http.api net,eth,web3 \</span><br><span class="line">--networkid 66 \</span><br><span class="line">--http.addr 0.0.0.0 \</span><br><span class="line">--miner.gasprice 0 \</span><br><span class="line">--nousb \</span><br><span class="line">--nodiscover \</span><br><span class="line">--cache 256</span><br></pre></td></tr></table></figure>
+<ul>
+<li>–miner.gastarget: 每個區塊的油錢消耗</li>
+<li>–mine: 啟用挖礦模式</li>
+<li>–miner.gasprice: 設置 gas 價格，這邊設置為零代表接受沒有手續費的交易。</li>
+<li>–allow-insecure-unlock: 可以直接解鎖帳戶</li>
+<li>–unlock 0x7d454A2fA9487B563ecc1d96C9339Ce4e74163ED: 解鎖我們剛剛創建的帳戶</li>
+<li>–password: 放置解鎖帳戶用的密碼</li>
+<li>–http: 啟用 http 交互</li>
+<li>–http.port: 連線的 port</li>
+<li>–http.api net,eth,web3: 可以透過 api 使用的功能</li>
+<li>–http.addr 0.0.0.0: 綁定到所有 interface</li>
+<li>–networkid: 要跟剛剛 <code>genesis.json</code> 裡定義的 chainId 一致</li>
+<li>–nousb: 禁用 usb 錢包</li>
+<li>–cache 256: 設置節點快取大小</li>
+</ul>
+<p><img src="https://i.imgur.com/YMmkfV1.png" alt="alt text" /></p>
+<p>到這邊我們就成功運行一個節點了，可以著手測試。</p>
+<h1 id="測試-geth"><a class="markdownIt-Anchor" href="#測試-geth"></a> 測試 Geth</h1>
+<p>開啟 MetaMask ，加入 custom network ，參考以下設定:</p>
+<p><img src="https://i.imgur.com/LIgg9gD.png" alt="alt text" /></p>
+<p>Chain Name: POA<br />
+RPC URL: localhost:3051<br />
+Chain ID: 66<br />
+Token Name: POAT (POA Token)</p>
+<p>接著使用 MetaMask 原有的帳號轉 0 POAT 給我們剛剛用 geth 做出來的帳號<br />
+(0x7d454A2fA9487B563ecc1d96C9339Ce4e74163ED)看看</p>
+<p><img src="https://i.imgur.com/kCRssbD.png" alt="alt text" /></p>
+<p>下圖可以看到我們的交易被確認了</p>
+<p><img src="https://i.imgur.com/MeD6tGg.png" alt="alt text" /></p>
+<p>也可以用 <code>geth</code> 的控制台查看 block 有沒有增加</p>
+<p><code>./geth attach</code> 進入主控台後 <code>eth.blockNumber</code> 看現在的區塊高度是 1</p>
+<p><img src="https://i.imgur.com/ysDYUo4.png" alt="alt text" /></p>
+<p>最後，我們把剛剛做出來的帳號(0x7d454A2fA9487B563ecc1d96C9339Ce4e74163ED)匯入到 MetaMask ，可以看到有 100,000,000 顆 POAT ，並且我們將 20 POAT 打入另一個帳號</p>
+<p><img src="https://i.imgur.com/JKwj3KV.png" alt="alt text" /></p>
+<p><img src="https://i.imgur.com/GHVFZoE.png" alt="alt text" /></p>
+<p>到這邊，我們就算建立了一個單權威節點的 POA 鏈。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/geth/" rel="tag"># geth</a>
+              <a href="/tags/block-chain/" rel="tag"># block chain</a>
+              <a href="/tags/%E7%A7%81%E9%8F%88/" rel="tag"># 私鏈</a>
+              <a href="/tags/ethereum/" rel="tag"># ethereum</a>
+              <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" rel="tag"># 區塊鏈</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/11/07/linear-algebra/basis/" rel="prev" title="[線性代數] Basis (基)(基向量)">
+      <i class="fa fa-chevron-left"></i> [線性代數] Basis (基)(基向量)
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+<div class="toggle sidebar-toggle">
+  <span class="toggle-line toggle-line-first"></span>
+  <span class="toggle-line toggle-line-middle"></span>
+  <span class="toggle-line toggle-line-last"></span>
+</div>
+
+<aside class="sidebar">
+  <div class="sidebar-inner">
+
+    <ul class="sidebar-nav motion-element">
+      <li class="sidebar-nav-toc">
+        文章目錄
+      </li>
+      <li class="sidebar-nav-overview">
+        本站概要
+      </li>
+      <li style="margin-left: 10px">
+        <a href="/" style="border: 0;">
+          回到首頁
+        </a>
+      </li>
+    </ul>
+
+    <!--noindex-->
+    <div class="post-toc-wrap sidebar-panel">
+      <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text"> 前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E5%B7%A5%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text"> 前置工作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D%E4%B8%A6%E9%81%8B%E8%A1%8C-geth"><span class="nav-number">3.</span> <span class="nav-text"> 安裝並運行 Geth</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%8B%E8%A1%8C-docker-container"><span class="nav-number">3.1.</span> <span class="nav-text"> 運行 Docker Container</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%92%B0%E5%AF%AB-genesisjson"><span class="nav-number">3.2.</span> <span class="nav-text"> 撰寫 genesis.json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%B5%E5%BB%BA%E4%BD%BF%E7%94%A8%E8%80%85"><span class="nav-number">3.3.</span> <span class="nav-text"> 創建使用者</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%BE%8C%E9%81%8B%E8%A1%8C-geth"><span class="nav-number">3.4.</span> <span class="nav-text"> 初始化後運行 Geth</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B8%AC%E8%A9%A6-geth"><span class="nav-number">4.</span> <span class="nav-text"> 測試 Geth</span></a></li></ol></div>
+    </div>
+    <!--/noindex-->
+
+    <div class="site-overview-wrap sidebar-panel">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="linyejoe2"
+      src="https://i.imgur.com/sevJWXJ.jpg">
+  <p class="site-author-name" itemprop="name">linyejoe2</p>
+  <div class="site-description" itemprop="description">JavaScript 全端工程師，對電腦相關的東西都有興趣，想了解也想嘗試，興趣是玩金屬樂，所以部落格裡有時還會混入幾篇金屬樂的文章。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">88</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/linyejoe2" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;linyejoe2" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/randy-lin/" title="LinkedIn → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;randy-lin&#x2F;" rel="noopener" target="_blank"><i class="fa-brands fa-linkedin fa-fw"></i>LinkedIn</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.com/linyejoe2/" title="LeetCode → https:&#x2F;&#x2F;leetcode.com&#x2F;linyejoe2&#x2F;" rel="noopener" target="_blank"><i class="fa-brands fa-leetcode fa-fw"></i>LeetCode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/18842709/linyejoe2" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;18842709&#x2F;linyejoe2" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+
+<style>
+</style>
+<div style="margin-top: 10px;">
+  <span class="links-of-author-item">
+    <a id="installApp"><i class="fa-solid fa-download fa-fw"></i> Add to Home Page</a>
+  </span>
+</div>
+    </div>
+
+  </div>
+  
+</aside>
+<div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">linyejoe2</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'dark',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+      
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+
+
+  
+<script color="200,200,200" opacity="0.8" zIndex="-1" count="99"
+    src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+</body>
+</html>

@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.jpg">
+  <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.svg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/images/manifest.json">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"linyejoe2.site","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="JSP標準標籤庫(JSTL) JSTL標籤分為五個類別(功能)  core標籤 格式化標籤 SQL標籤 XML標籤 JSTL函數">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[JSP]JSP標準標籤庫(JSTL)">
+<meta property="og:url" content="https://linyejoe2.site/2022/02/11/JSTL_tutorial/index.html">
+<meta property="og:site_name" content="linye&#39;s Blog">
+<meta property="og:description" content="JSP標準標籤庫(JSTL) JSTL標籤分為五個類別(功能)  core標籤 格式化標籤 SQL標籤 XML標籤 JSTL函數">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2022-02-11T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-02-11T00:00:00.000Z">
+<meta property="article:author" content="linyejoe2">
+<meta property="article:tag" content="JSP">
+<meta property="article:tag" content="HTML">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://linyejoe2.site/2022/02/11/JSTL_tutorial/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
+
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99"
+    src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(() => {
+        let deferredPrompt;
+        $("#installApp").hide();
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            deferredPrompt = e;
+            $("#installApp").show();
+        });
+
+        const installApp = document.getElementById('installApp');
+
+        installApp.addEventListener('click', async () => {
+            if (deferredPrompt !== null) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    deferredPrompt = null;
+                }
+            }
+        });
+    })
+
+    if ('serviceWorker' in navigator) {   // 檢查browser有無支援serviceWorker
+        navigator.serviceWorker.register('/sw.js').then(function () {   // register會回傳一個Promise
+            console.log('Service worker registered!');
+        });
+    }
+
+</script>
+
+<style>
+    .text-h2 {
+        font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+        font-weight: bold;
+        line-height: 1.5;
+        margin: 20px 0 15px;
+        font-size: 1.375em;
+        display: block;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-top: 10px;
+    }
+
+    details {
+        background: #404040 !important;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .fa-leetcode::before {
+        content: url('/images/leetcode.svg');
+        display: inline-block;
+        width: 13px;
+    }
+
+    th,
+    td {
+        border-top:  1px solid rgb(100, 96, 96);
+        border-left:  1px solid rgb(100, 96, 96);
+        border-bottom: 1px solid rgb(97, 80, 80);
+        border-right: 1px solid rgb(97, 80, 80);
+    }
+
+    table {
+        margin: auto auto 20px 20px;
+        width: auto;
+        font-size: 18px;
+        border: 2px solid rgb(80, 77, 77);
+    }
+
+    .post-body img {
+        margin-left: 20px;
+    }
+
+    .post-body iframe {
+        margin-left: 20px;
+    }
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BNBZGX2HKV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BNBZGX2HKV');
+</script>
+  <title>[JSP]JSP標準標籤庫(JSTL) | linye's Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162002287-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-162002287-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title"><img class="site-title-img" src="/images/favicon.svg">linye's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">全端工程師心得分享</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://linyejoe2.site/2022/02/11/JSTL_tutorial/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.imgur.com/sevJWXJ.jpg">
+      <meta itemprop="name" content="linyejoe2">
+      <meta itemprop="description" content="JavaScript 全端工程師，對電腦相關的東西都有興趣，想了解也想嘗試，興趣是玩金屬樂，所以部落格裡有時還會混入幾篇金屬樂的文章。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="linye's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [JSP]JSP標準標籤庫(JSTL)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2022-02-11 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-11T00:00:00+00:00">2022-02-11</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="jsp標準標籤庫jstl"><a class="markdownIt-Anchor" href="#jsp標準標籤庫jstl"></a> JSP標準標籤庫(JSTL)</h1>
+<p>JSTL標籤分為五個類別(功能)</p>
+<ul>
+<li>core標籤</li>
+<li>格式化標籤</li>
+<li>SQL標籤</li>
+<li>XML標籤</li>
+<li>JSTL函數</li>
+</ul>
+<span id="more"></span>
+<h2 id="jstl庫安裝"><a class="markdownIt-Anchor" href="#jstl庫安裝"></a> JSTL庫安裝</h2>
+<h3 id="下載jstl庫"><a class="markdownIt-Anchor" href="#下載jstl庫"></a> 下載JSTL庫</h3>
+<p>從<a target="_blank" rel="noopener" href="http://archive.apache.org/dist/jakarta/taglibs/standard/binaries/">Apache標準標籤庫</a>中下載<strong>jakarta-taglibs-standard-1.1.2.zip</strong>(Windows)或是<strong>jakarta-taglibs-standard-1.1.2.tar.gz</strong>(Linux)<br />
+再把壓縮檔lib的內容複製至服務的/WEB-INF/lib/中<br />
+tld也複製至程式的/WEB-INF/tld/中即可</p>
+<h3 id="引用jstl庫"><a class="markdownIt-Anchor" href="#引用jstl庫"></a> 引用JSTL庫</h3>
+<p>編輯/WEB-INF/web.xml</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">version</span>=<span class="string">&quot;2.4&quot;</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns</span>=<span class="string">&quot;http://java.sun.com/xml/ns/j2ee&quot;</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://java.sun.com/xml/ns/j2ee </span></span></span><br><span class="line"><span class="string"><span class="tag">        http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">jsp-config</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">taglib</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">taglib-uri</span>&gt;</span>http://java.sun.com/jsp/jstl/fmt<span class="tag">&lt;/<span class="name">taglib-uri</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">taglib-location</span>&gt;</span>/WEB-INF/fmt.tld<span class="tag">&lt;/<span class="name">taglib-location</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">taglib</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">taglib</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">taglib-uri</span>&gt;</span>http://java.sun.com/jsp/jstl/fmt-rt<span class="tag">&lt;/<span class="name">taglib-uri</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">taglib-location</span>&gt;</span>/WEB-INF/fmt-rt.tld<span class="tag">&lt;/<span class="name">taglib-location</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">taglib</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">taglib</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">taglib-uri</span>&gt;</span>http://java.sun.com/jsp/jstl/core<span class="tag">&lt;/<span class="name">taglib-uri</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">taglib-location</span>&gt;</span>/WEB-INF/c.tld<span class="tag">&lt;/<span class="name">taglib-location</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">taglib</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">taglib</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">taglib-uri</span>&gt;</span>http://java.sun.com/jsp/jstl/core-rt<span class="tag">&lt;/<span class="name">taglib-uri</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">taglib-location</span>&gt;</span>/WEB-INF/c-rt.tld<span class="tag">&lt;/<span class="name">taglib-location</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">taglib</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">taglib</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">taglib-uri</span>&gt;</span>http://java.sun.com/jsp/jstl/sql<span class="tag">&lt;/<span class="name">taglib-uri</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">taglib-location</span>&gt;</span>/WEB-INF/sql.tld<span class="tag">&lt;/<span class="name">taglib-location</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">taglib</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">taglib</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">taglib-uri</span>&gt;</span>http://java.sun.com/jsp/jstl/sql-rt<span class="tag">&lt;/<span class="name">taglib-uri</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">taglib-location</span>&gt;</span>/WEB-INF/sql-rt.tld<span class="tag">&lt;/<span class="name">taglib-location</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">taglib</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">taglib</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">taglib-uri</span>&gt;</span>http://java.sun.com/jsp/jstl/x<span class="tag">&lt;/<span class="name">taglib-uri</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">taglib-location</span>&gt;</span>/WEB-INF/x.tld<span class="tag">&lt;/<span class="name">taglib-location</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">taglib</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">taglib</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">taglib-uri</span>&gt;</span>http://java.sun.com/jsp/jstl/x-rt<span class="tag">&lt;/<span class="name">taglib-uri</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">taglib-location</span>&gt;</span>/WEB-INF/x-rt.tld<span class="tag">&lt;/<span class="name">taglib-location</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">taglib</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">jsp-config</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="core標籤程式庫"><a class="markdownIt-Anchor" href="#core標籤程式庫"></a> Core標籤程式庫</h2>
+<table>
+<thead>
+<tr>
+<th>標籤</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#lt-c-out-gt">&lt;c:out&gt;</a></td>
+<td>輸出EL資料</td>
+</tr>
+<tr>
+<td><a href="#lt-c-if-gt">&lt;c:if&gt;</a></td>
+<td>if判斷成功才顯示內容</td>
+</tr>
+<tr>
+<td>TODO</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="cout"><a class="markdownIt-Anchor" href="#cout"></a> &lt;c:out&gt;</h2>
+<h3 id="語法"><a class="markdownIt-Anchor" href="#語法"></a> 語法</h3>
+<figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;c:out value=<span class="string">&quot;&lt;string&gt;&quot;</span> <span class="keyword">default</span>=<span class="string">&quot;&lt;string&gt;&quot;</span> escapeXml=<span class="string">&quot;&lt;true|false&gt;&quot;</span>/&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="屬性"><a class="markdownIt-Anchor" href="#屬性"></a> 屬性</h3>
+<p>其中需要填入三個屬性</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>要输出的内容</td>
+<td>Yes</td>
+<td>None</td>
+</tr>
+<tr>
+<td>default</td>
+<td>輸出默認值</td>
+<td>No</td>
+<td>body</td>
+</tr>
+<tr>
+<td>escapeXml</td>
+<td>是否忽略XML特殊字符</td>
+<td>No</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+<h3 id="示範"><a class="markdownIt-Anchor" href="#示範"></a> 示範</h3>
+<figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;c:out value=<span class="string">&quot;$&#123;paramaction. &#125;&quot;</span> <span class="keyword">default</span>=<span class="string">&quot;no values&quot;</span> /&gt;&lt;/c:out&gt;</span><br></pre></td></tr></table></figure>
+<p>此結果若paramaction不存在,就顯示no values的內容</p>
+<hr />
+<h2 id="cif"><a class="markdownIt-Anchor" href="#cif"></a> &lt;c:if&gt;</h2>
+<h3 id="語法-2"><a class="markdownIt-Anchor" href="#語法-2"></a> 語法</h3>
+<figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;c:<span class="keyword">if</span> test=<span class="string">&quot;&lt;boolean&gt;&quot;</span> <span class="keyword">var</span>=<span class="string">&quot;&lt;string&gt;&quot;</span> scope=<span class="string">&quot;&lt;string&gt;&quot;</span>&gt;</span><br><span class="line">   ...</span><br><span class="line">&lt;/c:<span class="keyword">if</span>&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="屬性-2"><a class="markdownIt-Anchor" href="#屬性-2"></a> 屬性</h3>
+<p>其中需要填入三個屬性</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>description</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test</td>
+<td>條件</td>
+<td>Yes</td>
+<td>None</td>
+</tr>
+<tr>
+<td>var</td>
+<td>儲存條件結果</td>
+<td>No</td>
+<td>None</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>作用域</td>
+<td>No</td>
+<td>page</td>
+</tr>
+</tbody>
+</table>
+<h3 id="示範-2"><a class="markdownIt-Anchor" href="#示範-2"></a> 示範</h3>
+<figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;c:<span class="keyword">if</span> test=<span class="string">&quot;$&#123;param.action == &#x27;add&#x27;&#125;&quot;</span>&gt;</span><br><span class="line"> &lt;table&gt;</span><br><span class="line"> &lt;tr&gt;</span><br><span class="line">   &lt;td&gt;name:&lt;input type=<span class="string">&quot;text&quot;</span> name=<span class="string">&quot;name&quot;</span> /&gt;&lt;/td&gt;</span><br><span class="line"> &lt;/tr&gt;</span><br><span class="line"> &lt;tr&gt;</span><br><span class="line">   &lt;td&gt;number:&lt;input type=<span class="string">&quot;text&quot;</span> name=<span class="string">&quot;number&quot;</span> /&gt;&lt;/td&gt;</span><br><span class="line"> &lt;/tr&gt;</span><br><span class="line"> &lt;/table&gt;</span><br><span class="line">&lt;/c:<span class="keyword">if</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>此結果若param.action不等於&quot;add&quot;,就不顯示c:if內部內容</p>
+<h5 id="參考資料"><a class="markdownIt-Anchor" href="#參考資料"></a> 參考資料</h5>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/jsp/jsp-jstl.html">菜鳥教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/jsp/jstl_core_out_tag.htm">JSTL - Core &lt;c:out&gt; Tag</a></li>
+<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10186941">30 days JSP &amp; Servlet學習紀錄</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JSP/" rel="tag"># JSP</a>
+              <a href="/tags/HTML/" rel="tag"># HTML</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/01/25/Behind_The_Scenes_JS_1/" rel="prev" title="[JaveScript] Behind The Scenes JS深度解析 NO.1">
+      <i class="fa fa-chevron-left"></i> [JaveScript] Behind The Scenes JS深度解析 NO.1
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/03/07/Write_A_Comments_in_your_code/" rel="next" title="到底怎麼寫好函式的說明">
+      到底怎麼寫好函式的說明 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+<div class="toggle sidebar-toggle">
+  <span class="toggle-line toggle-line-first"></span>
+  <span class="toggle-line toggle-line-middle"></span>
+  <span class="toggle-line toggle-line-last"></span>
+</div>
+
+<aside class="sidebar">
+  <div class="sidebar-inner">
+
+    <ul class="sidebar-nav motion-element">
+      <li class="sidebar-nav-toc">
+        文章目錄
+      </li>
+      <li class="sidebar-nav-overview">
+        本站概要
+      </li>
+      <li style="margin-left: 10px">
+        <a href="/" style="border: 0;">
+          回到首頁
+        </a>
+      </li>
+    </ul>
+
+    <!--noindex-->
+    <div class="post-toc-wrap sidebar-panel">
+      <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jsp%E6%A8%99%E6%BA%96%E6%A8%99%E7%B1%A4%E5%BA%ABjstl"><span class="nav-number">1.</span> <span class="nav-text"> JSP標準標籤庫(JSTL)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jstl%E5%BA%AB%E5%AE%89%E8%A3%9D"><span class="nav-number">1.1.</span> <span class="nav-text"> JSTL庫安裝</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BC%89jstl%E5%BA%AB"><span class="nav-number">1.1.1.</span> <span class="nav-text"> 下載JSTL庫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8jstl%E5%BA%AB"><span class="nav-number">1.1.2.</span> <span class="nav-text"> 引用JSTL庫</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#core%E6%A8%99%E7%B1%A4%E7%A8%8B%E5%BC%8F%E5%BA%AB"><span class="nav-number">1.2.</span> <span class="nav-text"> Core標籤程式庫</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cout"><span class="nav-number">1.3.</span> <span class="nav-text"> &lt;c:out&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AA%9E%E6%B3%95"><span class="nav-number">1.3.1.</span> <span class="nav-text"> 語法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%AC%E6%80%A7"><span class="nav-number">1.3.2.</span> <span class="nav-text"> 屬性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E7%AF%84"><span class="nav-number">1.3.3.</span> <span class="nav-text"> 示範</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cif"><span class="nav-number">1.4.</span> <span class="nav-text"> &lt;c:if&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AA%9E%E6%B3%95-2"><span class="nav-number">1.4.1.</span> <span class="nav-text"> 語法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%AC%E6%80%A7-2"><span class="nav-number">1.4.2.</span> <span class="nav-text"> 屬性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E7%AF%84-2"><span class="nav-number">1.4.3.</span> <span class="nav-text"> 示範</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">1.4.3.0.1.</span> <span class="nav-text"> 參考資料</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+    </div>
+    <!--/noindex-->
+
+    <div class="site-overview-wrap sidebar-panel">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="linyejoe2"
+      src="https://i.imgur.com/sevJWXJ.jpg">
+  <p class="site-author-name" itemprop="name">linyejoe2</p>
+  <div class="site-description" itemprop="description">JavaScript 全端工程師，對電腦相關的東西都有興趣，想了解也想嘗試，興趣是玩金屬樂，所以部落格裡有時還會混入幾篇金屬樂的文章。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">88</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/linyejoe2" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;linyejoe2" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/randy-lin/" title="LinkedIn → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;randy-lin&#x2F;" rel="noopener" target="_blank"><i class="fa-brands fa-linkedin fa-fw"></i>LinkedIn</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.com/linyejoe2/" title="LeetCode → https:&#x2F;&#x2F;leetcode.com&#x2F;linyejoe2&#x2F;" rel="noopener" target="_blank"><i class="fa-brands fa-leetcode fa-fw"></i>LeetCode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/18842709/linyejoe2" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;18842709&#x2F;linyejoe2" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+
+<style>
+</style>
+<div style="margin-top: 10px;">
+  <span class="links-of-author-item">
+    <a id="installApp"><i class="fa-solid fa-download fa-fw"></i> Add to Home Page</a>
+  </span>
+</div>
+    </div>
+
+  </div>
+  
+</aside>
+<div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">linyejoe2</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'dark',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+      
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">
+
+
+  
+<script color="200,200,200" opacity="0.8" zIndex="-1" count="99"
+    src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+</body>
+</html>
